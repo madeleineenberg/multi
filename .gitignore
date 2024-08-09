@@ -28,6 +28,8 @@ wp-content/*
 # !wp-content/languages
 # !wp-content/plugins/
 !wp-content/themes/
+!composer.json
+!composer.lock
 
 # ignore these plugins
 wp-content/plugins/hello.php
