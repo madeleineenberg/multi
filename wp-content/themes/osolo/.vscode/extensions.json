@@ -1,0 +1,13 @@
+{
+	"recommendations": [
+		"stylelint.vscode-stylelint",
+		"dbaeumer.vscode-eslint",
+		"editorconfig.editorconfig",
+		"xdebug.php-debug",
+		"shufo.vscode-blade-formatter",
+		"onecentlin.laravel-blade",
+		"austenc.laravel-blade-spacer",
+		"bmewburn.vscode-intelephense-client",
+		"MehediDracula.php-namespace-resolver"
+	]
+}

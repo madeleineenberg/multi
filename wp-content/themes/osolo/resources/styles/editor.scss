@@ -1,0 +1,16 @@
+@use 'abstracts';
+@use 'base';
+@use 'components';
+@use 'vendors';
+
+.editor-styles-wrapper > * {
+  font-family: abstracts.$font-main;
+
+  .wp-block {
+    max-width: none !important;
+  }
+
+  .wp-block-paragraph {
+    width: 100%;
+  }
+}

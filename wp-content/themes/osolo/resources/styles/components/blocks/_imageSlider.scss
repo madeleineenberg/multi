@@ -1,0 +1,17 @@
+.image-slider {
+  padding-top: 3%;
+}
+
+.splide__slide img {
+  width: 100%;
+  height: auto;
+}
+
+.splide__arrow {
+  background: transparent;
+  opacity: 1;
+
+  svg {
+    fill: #fff;
+  }
+}

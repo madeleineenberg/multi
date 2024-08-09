@@ -1,0 +1,72 @@
+@use 'sass:map';
+@use '@styles/abstracts';
+@use '@styles/vendors/bootstrap';
+@use '@styles/components/button';
+
+.woocommerce-checkout {
+  h3 {
+    margin-top: 10%;
+  }
+
+  .woocommerce-form-login-toggle, .woocommerce-form-coupon-toggle {
+    a {
+      font-size: 1rem;
+      margin-left: 8px;
+    }
+  }
+
+  .woocommerce-billing-fields__field-wrapper {
+    @include bootstrap.media-breakpoint-down(md) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .woocommerce .form-row .input-text {
+    border: 1px solid map.get(abstracts.$theme-colors, 'primary');
+    height: 55px;
+  }
+
+  .woocommerce-checkout-payment {
+    background: map.get(abstracts.$theme-colors, 'lightestpurple');
+  }
+
+  .select2-container--default .select2-selection--single {
+    height: 55px;
+    border-radius: 0;
+    border: 1px solid map.get(abstracts.$theme-colors, 'primary');
+  }
+
+  .select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 13px;
+    right: 5px;
+  }
+
+  .select2-container--default .select2-selection--single .select2-selection__rendered {
+    margin: 10px;
+  }
+
+  .woocommerce form .form-row .required {
+    color: map.get(abstracts.$theme-colors, 'lightred');
+  }
+
+  .woocommerce button.button.alt {
+    @extend .theme-btn;
+
+    &:hover {
+      background-color: map.get(abstracts.$theme-colors, 'primary');
+      color: map.get(abstracts.$theme-colors, 'secondary');
+    }
+  }
+
+  .woocommerce-form.woocommerce-form-login.login {
+    background-color: map.get(abstracts.$theme-colors, 'primary');
+    color: map.get(abstracts.$theme-colors, 'white');
+    border: none;
+    border-radius: 0;
+  }
+
+  .woocommerce-shipping-methods label {
+    font-size: 1rem;
+  }
+}

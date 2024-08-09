@@ -1,0 +1,17 @@
+{
+  "javascript.format.semicolons": "insert",
+  "prettier.trailingComma": "all",
+  "editor.formatOnSave": true,
+  "intelephense.environment.includePaths": [
+    "../../../../"
+  ],
+  "files.readonlyInclude": {
+    "*.lock*": true,
+    "**/web/**": true,
+    "dist/**": true,
+    "LICENSE.md": true,
+    "node_modules/**": true,
+    "storage/**": true,
+    "vendor/**": true
+  }
+}

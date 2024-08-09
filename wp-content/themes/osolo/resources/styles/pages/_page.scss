@@ -1,0 +1,127 @@
+@use 'sass:map';
+@use '@styles/abstracts';
+@use '@styles/vendors/bootstrap';
+
+.c-pageHero {
+  max-height: 450px;
+  min-height: 200px;
+
+  img {
+    max-width: 100%;
+    max-height: inherit;
+    min-height: inherit;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+
+.c-page-header {
+  &__content {
+    position: relative;
+    max-width: 690px;
+
+    .page-top-section {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .c-research {
+      @include bootstrap.media-breakpoint-up(lg) {
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: -230px;
+      }
+
+      @include bootstrap.media-breakpoint-up(xl) {
+        left: -330px;
+      }
+    }
+  }
+}
+
+.c-research {
+  width: 238px;
+  height: 238px;
+  border-radius: 100%;
+  color: map.get(abstracts.$theme-colors, 'white');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+
+  @include bootstrap.media-breakpoint-up(lg) {
+    width: 208px;
+    height: 208px;
+  }
+
+  @include bootstrap.media-breakpoint-up(xl) {
+    width: 258px;
+    height: 258px;
+  }
+
+  p {
+    font-weight: bold;
+    font-size: 40px;
+    margin-bottom: 0;
+  }
+}
+
+.main {
+  .link-text,
+  a {
+    color: map.get(abstracts.$theme-colors, 'secondary');
+    transition: color 0.4s ease;
+    text-decoration: underline;
+
+    &:hover {
+      color: map.get(abstracts.$theme-colors, 'secondary');
+      text-decoration: none;
+    }
+  }
+
+  .c-linkRepeater {
+    a {
+      display: block;
+    }
+  }
+
+  hr {
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
+  .block-core-heading {
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+
+      @include bootstrap.media-breakpoint-up(md) {
+        margin-top: 30px;
+      }
+    }
+  }
+
+  .block-core-list {
+    ul {
+      margin-bottom: 25px;
+    }
+  }
+
+  .block-core-image {
+    figure.wp-block-image {
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  .block-core-paragraph {
+    margin-bottom: 20px;
+  }
+}

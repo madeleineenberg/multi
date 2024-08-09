@@ -1,0 +1,96 @@
+@use 'sass:map';
+@use '@styles/vendors/bootstrap';
+@use '@styles/abstracts';
+
+/**
+ * Global
+ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  color: map.get(abstracts.$theme-colors, 'primary');
+  text-decoration: none;
+  transition: color 0.4s ease;
+
+  &:hover {
+    color: map.get(abstracts.$theme-colors, 'secondary');
+  }
+}
+
+figure.wp-block-image {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+body.openMenu {
+  overflow: hidden;
+}
+
+.page:not(.home, .page.woocommerce-account, .woocommerce-page),
+.single {
+  .main {
+    position: relative;
+    display: flex;
+
+    @include bootstrap.media-breakpoint-down(lg) {
+      flex-direction: column;
+    }
+
+    > :first-child {
+      width: 100%;
+    }
+  }
+}
+
+.page.woocommerce-cart,
+.page.woocommerce-checkout,
+.page.woocommerce-account {
+  .main {
+    flex-direction: column;
+  }
+}
+
+input {
+  border: none;
+
+  &[type='text'],
+  &[type='email'],
+  &[type='tel'],
+  &[type='password'],
+  &[type='name'] {
+    border: 1px solid map.get(abstracts.$theme-colors, 'primary');
+    height: 55px;
+    padding: 15px;
+
+    &::placeholder {
+      color: map.get(abstracts.$theme-colors, 'primary');
+    }
+  }
+}
+
+textarea {
+  color: map.get(abstracts.$theme-colors, 'primary');
+
+  &::placeholder {
+    color: map.get(abstracts.$theme-colors, 'primary');
+  }
+}
+
+/**
+ * Block editor color palette utilities
+ * @see https://git.io/JeyD6
+ */
+@each $color-name, $color-value in abstracts.$theme-colors {
+  .has-#{$color-name}-color {
+    color: $color-value;
+  }
+
+  .has-#{$color-name}-background-color {
+    background-color: $color-value;
+  }
+}

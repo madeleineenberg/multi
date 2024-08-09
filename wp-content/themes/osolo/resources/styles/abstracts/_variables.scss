@@ -1,0 +1,50 @@
+$font-main: 'Avenir Next', sans-serif !default;
+
+
+// ---------- Bootstrap overrides ---------- //
+
+// Grid breakpoints
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+$grid-breakpoints: (
+  xs: 0,
+  sm: 550px,
+  md: 800px,
+  lg: 1110px,
+  xl: 1400px,
+  xxl: 1600px,
+) !default;
+
+// Grid containers
+// Define the maximum width of `.container` for different screen sizes.
+$container-max-widths: (
+  sm: 540px,
+  md: 790px,
+  lg: 1100px,
+  xl: 1390px,
+  xxl: 1540px,
+) !default;
+
+$theme-colors: (
+  'primary': #003641,
+  'secondary': #29b8ce,
+  'lightblue': #29b8ce,
+  'black': #0d0d0d,
+  'white': #fff,
+  'lightgrey': #f6f6f6,
+  'red': #ec4b4a,
+  'lightred': #eca4a0,
+  'lightestred': #fae3e0,
+  'green': #569258,
+  'lightgreen': #a8c4a7,
+  'lightestgreen': #e1efe3,
+  'purple': #7b5487,
+  'lightpurple': #bcaac5,
+  'lightestpurple': #e9e5ec,
+  'yellow': #eead4c,
+  'lightyellow': #f4d2a5,
+  'lightestyellow': #fcf3e0,
+  'orange': #f59d3b,
+  'lightteal': #d9e7e3,
+  'teal': #156772,
+) !default;

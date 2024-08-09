@@ -1,0 +1,44 @@
+.block-core-paragraph,
+.block-core-heading,
+.block-core-list,
+.block-core-image,
+.block-core-preformatted,
+.block-core-subhead,
+.block-core-verse,
+.block-core-table,
+.block-core-latest-posts,
+.block-core-quote,
+.block-core-audio,
+.block-core-button,
+.block-core-embed-vimeo {
+  p,
+  ul,
+  ol,
+  pre,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  figure,
+  table,
+  blockquote,
+  .wp-block-button,
+  img {
+    max-width: 690px;
+    margin: auto;
+  }
+
+  .alignleft {
+    text-align: left;
+  }
+
+  .alignright {
+    text-align: right;
+  }
+}
+
+.wp-block-cover-image.alignright {
+  margin-left: auto;
+}
