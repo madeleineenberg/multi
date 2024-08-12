@@ -1,96 +1,139 @@
-@use 'sass:map';
-@use '@styles/vendors/bootstrap';
-@use '@styles/abstracts';
+@use "sass:map";
+@use '../vendors/bootstrap';
+@use '../abstracts';
+
 
 /**
  * Global
  */
 
-html {
-  scroll-behavior: smooth;
-}
-
 a {
-  color: map.get(abstracts.$theme-colors, 'primary');
-  text-decoration: none;
-  transition: color 0.4s ease;
-
-  &:hover {
-    color: map.get(abstracts.$theme-colors, 'secondary');
-  }
-}
-
-figure.wp-block-image {
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-}
-
-body.openMenu {
-  overflow: hidden;
-}
-
-.page:not(.home, .page.woocommerce-account, .woocommerce-page),
-.single {
-  .main {
-    position: relative;
-    display: flex;
-
-    @include bootstrap.media-breakpoint-down(lg) {
-      flex-direction: column;
-    }
-
-    > :first-child {
-      width: 100%;
-    }
-  }
-}
-
-.page.woocommerce-cart,
-.page.woocommerce-checkout,
-.page.woocommerce-account {
-  .main {
-    flex-direction: column;
-  }
-}
-
-input {
-  border: none;
-
-  &[type='text'],
-  &[type='email'],
-  &[type='tel'],
-  &[type='password'],
-  &[type='name'] {
-    border: 1px solid map.get(abstracts.$theme-colors, 'primary');
-    height: 55px;
-    padding: 15px;
-
-    &::placeholder {
-      color: map.get(abstracts.$theme-colors, 'primary');
-    }
-  }
-}
-
-textarea {
-  color: map.get(abstracts.$theme-colors, 'primary');
-
-  &::placeholder {
-    color: map.get(abstracts.$theme-colors, 'primary');
-  }
+  color: map-get(abstracts.$theme-colors, 'primary');
 }
 
 /**
  * Block editor color palette utilities
  * @see https://git.io/JeyD6
  */
-@each $color-name, $color-value in abstracts.$theme-colors {
-  .has-#{$color-name}-color {
-    color: $color-value;
+
+// @each $color-name, $color-value in abstracts.$theme-colors {
+//   .has-#{$color-name}-color {
+//     color: $color-value;
+//   }
+
+//   .has-#{$color-name}-background-color {
+//     background-color: $color-value;
+//   }
+// }
+
+body {
+  background-color: map-get(abstracts.$theme-colors, 'creme-white');
+  color: map-get(abstracts.$theme-colors, 'black');
+  overflow-x: hidden;
+  background-image: abstracts.$texture;
+
+  &.home,
+  &.single-galleri {
+    background-color: map-get(abstracts.$theme-colors, 'black');
+    color: map-get(abstracts.$theme-colors, 'creme-white');
   }
 
-  .has-#{$color-name}-background-color {
-    background-color: $color-value;
+  @include bootstrap.media-breakpoint-up(md) {
+    &.single-galleri {
+      overflow: hidden;
+    }
+  }
+}
+
+a {
+  color: map-get(abstracts.$theme-colors, 'creme-white');
+
+  &:hover {
+    color: map-get(abstracts.$theme-colors, 'creme-white');
+  }
+}
+
+p {
+  font-family: abstracts.$lekton-regular;
+  font-size: 24px;
+}
+
+h5 {
+  text-transform: uppercase;
+  font-family: abstracts.$lekton-regular;
+  font-size: 24px;
+  line-height: 40px;
+  letter-spacing: 3px;
+}
+
+//custom cursor styling
+
+@include bootstrap.media-breakpoint-up(md) {
+  [data-cursor] {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    z-index: 9999;
+  }
+
+  [data-cursor='0'] {
+    background: transparent;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid map-get(abstracts.$theme-colors, 'pink');
+    transition: all 0.4s ease;
+  }
+
+  [data-cursor='1'] {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    width: 30px;
+    height: 30px;
+    transition: all 0.9ms ease-in-out;
+    mix-blend-mode: difference;
+  }
+
+  .cursor-hover--a,
+  .cursor-hover--menu-open,
+  .cursor-hover--menu-close {
+    [data-cursor='0'] {
+      background: transparent;
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      border: 1px solid map-get(abstracts.$theme-colors, 'pink');
+      mix-blend-mode: difference;
+    }
+  }
+
+  .cursor-hover--gallery-title,
+  .cursor-hover--split-child {
+    [data-cursor='0'] {
+      display: none;
+    }
+
+    [data-cursor='1'] {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(7px);
+      -webkit-backdrop-filter: blur(7px);
+      width: 100px;
+      height: 100px;
+      transition: all 0.1s ease-in-out;
+      mix-blend-mode: difference;
+
+      &::after {
+        content: 'SCROLL';
+        color: map-get(abstracts.$theme-colors, 'creme-white');
+        letter-spacing: 2px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 14px;
+        line-height: 16px;
+      }
+    }
   }
 }

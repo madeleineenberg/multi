@@ -5,6 +5,11 @@
         {!! $title !!}
       </a>
     </h2>
+
+    @include('partials/entry-meta')
   </header>
 
+  <div class="entry-summary">
+    @php the_excerpt() @endphp
+  </div>
 </article>

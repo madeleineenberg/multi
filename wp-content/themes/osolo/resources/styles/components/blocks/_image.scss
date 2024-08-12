@@ -1,0 +1,47 @@
+@use 'sass:map';
+@use '../../abstracts';
+@use '../../vendors/bootstrap';
+
+.c-image-video-block {
+    width: 100%;
+    height: 95vh;
+    overflow: hidden;
+
+    @include bootstrap.media-breakpoint-up(md) {
+      &.left {
+        padding-right: 5%;
+      }
+
+      &.right {
+        padding-left: 5%;
+      }
+
+      &.center {
+        padding: 0 5%;
+      }
+    }
+
+    @include bootstrap.media-breakpoint-down(md) {
+      max-height: 85vh;
+    }
+
+    &__image-wrapper {
+      width: 100%;
+      height: 100%;
+      background-color: map-get(abstracts.$theme-colors, 'blackish' );
+      overflow: hidden ;
+      
+      img, video {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        
+  
+        &.is-inview {
+          width: 110%;
+          transform: scale(1);
+        }
+      }
+    }
+
+}

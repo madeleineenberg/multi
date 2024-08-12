@@ -1,218 +1,48 @@
+
 @use 'sass:map';
-@use '@styles/abstracts';
-@use '@styles/vendors/bootstrap';
+@use '../abstracts';
+@use '../vendors/bootstrap';
 
-.c-footer {
-  margin-top: 100px;
-  background-color: map.get(abstracts.$theme-colors, 'primary');
-  color: map.get(abstracts.$theme-colors, 'secondary');
+.footer {
+  min-height: 60px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
-  .newsletter {
-    padding: 60px 15px 30px;
+  &__container {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    width: 100%;
 
-    @include bootstrap.media-breakpoint-up(md) {
-      padding: 60px 30px;
-      display: flex;
-      flex-direction: column;
+    a {
+      font-size: 25px;
+      margin-left: 30px;
+      line-height: 35px;
+      font-family: abstracts.$oswald-extra-light;
+      color: map-get(abstracts.$theme-colors, 'pink');
+      letter-spacing: 3px;
+      transition: all 0.4s linear;
 
-      .nf-form-content nf-fields-wrap {
-        display: flex;
-        margin-top: 10px;
-
-        .nf-field {
-          margin-right: 20px;
-        }
-
-        input[type='email'] {
-          margin-right: 20px;
-          min-width: 350px;
-          min-height: 55px;
-        }
-
-        input[type='button'] {
-          min-height: 55px;
-          padding-left: 35px;
-          padding-right: 35px;
-          background-color: map.get(abstracts.$theme-colors, 'secondary');
-          color: map.get(abstracts.$theme-colors, 'primary');
-          font-weight: bold;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          transition: color 0.3s, background-color 0.3s, border 0.3s;
-          font-size: 20px;
-          line-height: 27px;
-
-          @include bootstrap.media-breakpoint-up(sm) {
-            min-width: 260px;
-          }
-
-          &:hover {
-            color: map.get(abstracts.$theme-colors, 'secondary');
-            background-color: map.get(abstracts.$theme-colors, 'primary');
-            border: 2px solid map.get(abstracts.$theme-colors, 'secondary');
-          }
-        }
+      @include bootstrap.media-breakpoint-down(md) {
+        font-size: 15px;
+        margin-left: 15px;
       }
     }
+  }
 
-    @include bootstrap.media-breakpoint-up(lg) {
-      align-items: center;
-      flex-direction: row;
+  &__email {
+    display: flex;
+  }
 
-      input[type='text'] {
-        min-width: 300px;
-      }
-    }
-
-    @include bootstrap.media-breakpoint-up(xl) {
-      padding: 90px 0;
-
-      input[type='text'] {
-        min-width: 400px;
-      }
-    }
+  &__social {
+    display: flex;
+    justify-content: end;
+    margin-right: 30px;
 
     @include bootstrap.media-breakpoint-down(md) {
-      form {
-        margin-top: 20px;
-
-        input {
-          width: 100%;
-
-          &:first-of-type {
-            margin-bottom: 15px;
-          }
-        }
-      }
-
-      .nf-form-content nf-fields-wrap {
-        display: flex;
-        flex-direction: column;
-
-        input[type='button'] {
-          min-height: 55px;
-          width: 100%;
-          padding-left: 35px;
-          padding-right: 35px;
-          background-color: map.get(abstracts.$theme-colors, 'secondary');
-          font-weight: bold;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          transition: color 0.3s, background-color 0.3s, border 0.3s;
-          font-size: 20px;
-          line-height: 27px;
-
-          @include bootstrap.media-breakpoint-up(sm) {
-            min-width: 260px;
-          }
-
-          &:hover {
-            color: map.get(abstracts.$theme-colors, 'secondary');
-            background-color: map.get(abstracts.$theme-colors, 'primary');
-            border: 2px solid map.get(abstracts.$theme-colors, 'secondary');
-          }
-        }
-      }
-    }
-
-    h2 {
-      color: map.get(abstracts.$theme-colors, 'secondary');
-      margin-right: 20px;
-    }
-  }
-
-  &__bottom {
-    padding: 60px 15px;
-
-    @include bootstrap.media-breakpoint-up(lg) {
-      padding: 60px 30px;
-      display: flex;
-      align-items: baseline;
-    }
-
-    @include bootstrap.media-breakpoint-up(lg) {
-      padding: 90px 0;
-    }
-  }
-
-  &__text-area {
-    max-width: 400px;
-    margin-bottom: 25px;
-
-    p {
-      font-size: 20px;
-      line-height: 28px;
-      letter-spacing: 0.3px;
-    }
-
-    @include bootstrap.media-breakpoint-up(lg) {
-      min-width: 400px;
-      margin-right: 70px;
-      margin-bottom: 0;
-    }
-  }
-
-  &__info-area {
-    display: flex;
-
-    @include bootstrap.media-breakpoint-down(lg) {
-      margin-bottom: 40px;
-    }
-
-    @include bootstrap.media-breakpoint-up(lg) {
-      min-width: 400px;
-      align-items: center;
-      justify-content: center;
-      margin-right: 70px;
-    }
-
-    img {
-      height: 39px;
-      width: 56px;
-
-      @include bootstrap.media-breakpoint-up(md) {
-        height: 59px;
-        width: 76px;
-      }
-    }
-
-    &--contact {
-      a,
-      p {
-        margin-bottom: 0;
-        color: map.get(abstracts.$theme-colors, 'secondary');
-        font-size: 20px;
-        line-height: 28px;
-        letter-spacing: 0.3px;
-        text-decoration: none;
-      }
-
-      a {
-        text-decoration: underline;
-      }
-    }
-  }
-
-  &__logo-area {
-    a {
-      margin-right: 5px;
-
-      &:last-of-type {
-        margin-right: 0;
-      }
-
-      img {
-        height: 40px;
-        width: 40px;
-        object-fit: contain;
-
-        @include bootstrap.media-breakpoint-up(lg) {
-          max-height: 78px;
-          max-width: 166px;
-        }
-      }
+      margin-right: 15px;
     }
   }
 }

@@ -1,0 +1,39 @@
+.link {
+  position: relative;
+  text-transform: uppercase;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.link-text {
+  pointer-events: none;
+  display: block;
+  line-height: 1;
+  position: relative;
+}
+
+.link > div:nth-child(1) span {
+  transition: 0.5s;
+  will-change: transform;
+  transform-style: preserve-3d;
+  transform-origin: bottom;
+  display: inline-block;
+  // transition-delay: calc(0.05s * var(--index));
+}
+
+.link > div:nth-child(2) span {
+  transition: 0.5s;
+  will-change: transform;
+  transform-origin: top;
+  // transition-delay: calc(0.05s * var(--index));
+  display: inline-block;
+  transform: translate3d(0, 100%, 0) rotateX(90deg);
+}
+
+.link:hover > div:nth-child(1) span {
+  transform: translate3d(0, -100%, 0) rotateX(-90deg);
+}
+
+.link:hover > div:nth-child(2) span {
+  transform: translate3d(0, 0%, 0) rotateX(0deg);
+}

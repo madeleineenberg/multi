@@ -4,9 +4,9 @@
 @use 'vendors';
 
 .editor-styles-wrapper > * {
-  font-family: abstracts.$font-main;
+  font-family: abstracts.$lekton-regular;
 
-  .wp-block {
+   .wp-block {
     max-width: none !important;
   }
 

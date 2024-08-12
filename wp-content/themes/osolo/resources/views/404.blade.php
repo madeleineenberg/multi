@@ -1,25 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+  @include('partials.page-header')
+
   @if (!have_posts())
-    <div class="container">
-      <div class="row c-404">
-        <div class="c-404__title has-primary-background-color">
-          <h1>
-            @if ($topText)
-              {{ $topText }}<br />
-            @endif
-            @if ($pageTitle)
-              {{ $pageTitle }}
-            @endif
-          </h1>
-        </div>
-        @if ($textArea)
-          <div class="c-404__text">
-            {!! $textArea !!}
-          </div>
-        @endif
-      </div>
-    </div>
+    <x-alert type="warning">
+      {!! __('Sorry, but the page you are trying to view does not exist.', 'osolo') !!}
+    </x-alert>
+
+    {!! get_search_form(false) !!}
   @endif
 @endsection

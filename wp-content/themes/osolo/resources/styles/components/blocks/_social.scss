@@ -1,0 +1,130 @@
+@use 'sass:map';
+@use '../../abstracts';
+@use '../../vendors/bootstrap';
+
+.c-social-links {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin: 0 10% 10% 0;
+  position: relative;
+
+  &__text {
+    position: absolute;
+    top: -70px;
+    left: 42%;
+    z-index: 10;
+
+    p {
+      font-family: abstracts.$lekton-regular;
+      font-size: 24px;
+    }
+    .underline {
+      width: 0%;
+      height: 8px;
+      border-radius: 15px;
+      transform-origin: left;
+      overflow: hidden;
+      background-color: map-get(abstracts.$theme-colors, 'pink');
+      transition: all 3s ease;
+      filter: blur(5px);
+
+      &.is-inview {
+        width: 100%;
+      }
+    }
+
+    @include bootstrap.media-breakpoint-down(md) {
+      left: 7%;
+
+      .underline {
+        display: none;
+      }
+    }
+  }
+
+  @include bootstrap.media-breakpoint-down(lg) {
+    min-height: 500px;
+    margin: 0 0 10% 0;
+    padding: 20% 0;
+  }
+
+  @include bootstrap.media-breakpoint-down(md) {
+    padding: 300px 0;
+  }
+
+  &__box {
+    background: -webkit-linear-gradient(90deg, pink, #c7cbe3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 1060px;
+    height: 850px;
+
+    transition: width 1s ease;
+    // transition-delay: 0.5s;
+    position: relative;
+    border-radius: 100%;
+    filter: blur(10px);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11),
+      0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11),
+      0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11);
+
+    @include bootstrap.media-breakpoint-down(lg) {
+      height: 350px;
+      width: 400px;
+    }
+
+    ion-icon {
+      color: map-get(abstracts.$theme-colors, 'pink');
+      font-size: 15vw;
+      transition: all 1s ease;
+      transition-delay: 1s;
+    }
+
+    &.is-inview {
+      width: 860px;
+      ion-icon {
+        font-size: 20vw;
+
+        @include bootstrap.media-breakpoint-down(md) {
+          font-size: 50vw;
+        }
+      }
+
+      @include bootstrap.media-breakpoint-down(lg) {
+        width: 460px;
+      }
+    }
+  }
+
+  &__list {
+    z-index: 10;
+    transition: margin-left 1s ease;
+    transition-delay: 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &.is-inview {
+      position: absolute;
+      width: 100%;
+    }
+
+    a {
+      font-size: 5vw;
+      color: map-get(abstracts.$theme-colors, 'creme-white');
+      transition: all 0.6s ease;
+
+      @include bootstrap.media-breakpoint-down(md) {
+        font-size: 17vw;
+      }
+
+      // &:hover {
+      //   letter-spacing: 5px;
+      // }
+    }
+  }
+}

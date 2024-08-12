@@ -29,7 +29,7 @@ require $composer;
 |
 */
 
-collect(['helpers', 'setup', 'filters', 'admin', 'actions', 'cpt-event', 'cpt-news', 'acf-option', 'woocommerce', 'ajax', 'CustomHeader'])
+collect(['helpers', 'setup', 'filters', 'admin', 'actions','acf-option', 'cpt-gallery'])
     ->each(function ($file) {
         $file = "app/{$file}.php";
 

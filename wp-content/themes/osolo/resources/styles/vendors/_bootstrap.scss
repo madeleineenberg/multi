@@ -1,6 +1,6 @@
-@use '@styles/abstracts/variables';
+@use '../abstracts/variables';
+
 @forward '~bootstrap/scss/bootstrap' with (
-  $grid-breakpoints: variables.$grid-breakpoints,
-  $container-max-widths: variables.$container-max-widths,
-  $theme-colors: variables.$theme-colors
+    $container-max-widths: variables.$container-max-widths,
+    $theme-colors: variables.$theme-colors
 );

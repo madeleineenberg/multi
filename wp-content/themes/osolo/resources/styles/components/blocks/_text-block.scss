@@ -1,0 +1,96 @@
+@use 'sass:map';
+@use '../../abstracts';
+@use '../../vendors/bootstrap';
+
+.c-text-block {
+  padding: 0 10%;
+  max-width: 1400px;
+  margin-bottom: 20%;
+  position: relative;
+
+  &__heading {
+    @extend %perspective-heading;
+
+    @include bootstrap.media-breakpoint-down(md) {
+      .subtitle_line .word {
+        margin-left: 0 !important;
+        margin-right: 15px;
+      }
+    }
+  }
+
+  &__text {
+   opacity: 0;
+   transition: opacity 0.9s ease;
+   max-width: 700px;
+
+    p {
+      font-family: abstracts.$lekton-regular;
+      font-size: 2vw;
+      margin-top: 10%;
+    }
+
+    &.is-inview {
+      opacity: 1;
+      transform: translateY(0px);
+
+      ion-icon {
+        animation: mymove 1s ease-in-out infinite;
+      }
+    }
+
+    p {
+      position: relative;
+
+    }
+
+    @include bootstrap.media-breakpoint-down(lg) {
+      font-size: 26px;
+      margin-top: 15px;
+    }
+
+    ion-icon {
+      transform: rotate(20deg);
+      position: absolute;
+      bottom: 10px;
+    }
+  }
+
+  .underline {
+    width: 0%;
+    height: 8px;
+    border-radius: 15px;
+    transform-origin: left;
+    overflow: hidden;
+    background-color: map-get(abstracts.$theme-colors, 'pink');
+    transition: all 3s ease;
+    filter: blur(5px);
+
+    &.is-inview {
+      width: 100%;
+    }
+  }
+
+  &__image-wrapper {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    z-index: -1;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+
+
+    img {
+      height: 120%;
+      width: 100%;
+      object-fit: cover;
+      transform: scale(1);
+    }
+  }
+}
+
+@keyframes mymove {
+  50% {
+    transform: rotate(50deg);
+  }
+}

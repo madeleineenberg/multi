@@ -1,0 +1,116 @@
+@use 'sass:map';
+@use '../../abstracts';
+@use '../../vendors/bootstrap';
+
+.navigation-wrapper ul {
+  margin-top: 240px;
+  margin-left: 100px;
+  margin-bottom: 200px;
+  list-style: none;
+  position: absolute;
+
+  @include bootstrap.media-breakpoint-down(md) {
+    margin-left: 0;
+    padding: 5%;
+    margin-top: 100px;
+    overflow: hidden;
+  }
+}
+
+.navigation-item {
+  display: block;
+  user-select: none;
+  margin: 100px 0 200px 0;
+  overflow: hidden;
+  @include bootstrap.media-breakpoint-up(md) {
+    margin: 300px 0;
+    img {
+      display: none;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11),
+      0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11),
+      0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11);
+  }
+}
+
+a {
+  font-family: abstracts.$oswald-bold;
+  font-size: 8vw;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.navigation-title {
+  position: relative;
+  display: block;
+
+  @include bootstrap.media-breakpoint-down(md) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25vw;
+    color: map-get(abstracts.$theme-colors, 'pink');
+    z-index: 10;
+  }
+}
+
+@include bootstrap.media-breakpoint-up(lg) {
+  .navigation-item span:before {
+    width: 0;
+    overflow: hidden;
+    position: absolute;
+    content: attr(data-text);
+    transition: all 1s cubic-bezier(0.84, 0, 0.08, 0.99);
+    background: -webkit-linear-gradient(180deg, pink, #fc88a3);
+    // background: -webkit-linear-gradient(90deg, pink, #c7cbe3);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .navigation-item span:hover:before {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+.project-preview-wrapper {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+
+  @include bootstrap.media-breakpoint-down(md) {
+    display: none;
+  }
+}
+
+.project-preview {
+  position: fixed;
+  top: 12%;
+  left: 40%;
+  width: 0px;
+  height: 600px;
+  background: url('../images/madeleineenberg02.jpg') no-repeat 50% 50%;
+  background-size: cover;
+  overflow: hidden;
+  transform: rotate(-12deg);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11),
+    0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11),
+    0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11);
+}

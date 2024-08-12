@@ -1,31 +1,22 @@
 @use 'sass:map';
-@use '@styles/abstracts';
-@use '@styles/vendors/bootstrap';
+@use '../abstracts';
+@use '../vendors/bootstrap';
+
 
 /**
- * Button
+ *  Core Button
  */
 
 .wp-block-button {
-  margin: 40px 0;
-
   &__link {
-    @extend .theme-btn;
-
     font-size: bootstrap.$btn-font-size;
     line-height: bootstrap.$btn-line-height;
     padding-bottom: bootstrap.$btn-padding-y;
     padding-left: bootstrap.$btn-padding-x;
     padding-right: bootstrap.$btn-padding-x;
     padding-top: bootstrap.$btn-padding-y;
-    border-radius: 0;
-    color: map.get(abstracts.$theme-colors, 'primary') !important;
-    text-decoration: none !important;
 
     &:hover {
-      color: map.get(abstracts.$theme-colors, 'secondary') !important;
-      background-color: map.get(abstracts.$theme-colors, 'primary');
-      border: 2px solid map.get(abstracts.$theme-colors, 'secondary');
       text-decoration: none;
     }
   }
@@ -33,8 +24,8 @@
   &.is-style-outline {
     .wp-block-button__link {
       @include bootstrap.button-outline-variant(
-        map.get(abstracts.$theme-colors, 'primary'),
-        map.get(abstracts.$theme-colors, 'secondary')
+        map-get(abstracts.$theme-colors, 'primary'),
+        map-get(abstracts.$theme-colors, 'light')
       );
     }
   }
@@ -42,40 +33,9 @@
   &.is-style-solid {
     .wp-block-button__link {
       @include bootstrap.button-variant(
-        map.get(abstracts.$theme-colors, 'primary'),
-        map.get(abstracts.$theme-colors, 'secondary')
+        map-get(abstracts.$theme-colors, 'primary'),
+        map-get(abstracts.$theme-colors, 'light')
       );
-    }
-  }
-}
-
-.theme-btn {
-  min-height: 55px;
-  padding-left: 35px;
-  padding-right: 35px;
-  background-color: map.get(abstracts.$theme-colors, 'secondary');
-  font-weight: bold;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.3s, background-color 0.3s, border 0.3s;
-  font-size: 20px;
-  line-height: 27px;
-  border: 2px solid map.get(abstracts.$theme-colors, 'secondary');
-  border-radius: 0;
-
-  @include bootstrap.media-breakpoint-up(sm) {
-    min-width: 260px;
-  }
-
-  &.theme-btn {
-    text-decoration: none;
-    color: map.get(abstracts.$theme-colors, 'primary');
-
-    &:hover {
-      color: map.get(abstracts.$theme-colors, 'secondary');
-      background-color: map.get(abstracts.$theme-colors, 'primary');
-      border: 2px solid map.get(abstracts.$theme-colors, 'secondary');
     }
   }
 }

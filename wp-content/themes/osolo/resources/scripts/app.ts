@@ -1,21 +1,25 @@
 import 'bootstrap';
 
-import navigation from './custom/_navigation';
-import videoBlock from './custom/_videoBlock';
-import splideSlide from './custom/_splideSlide';
-import lazyLoad from './custom/_lazyLoad';
-import animateText from './custom/_animateText';
-import fadeIn from './custom/_fadeIn';
-import toggleBtn from './custom/_toggleBtn';
-import addToCart from './custom/_addToCart';
+
+import hoverEffekt from './custom/hoverEffekt';
+import gallery from './custom/gallery';
+import animateText from './custom/animateText';
+import header from './custom/header';
+import locomotiveScroll from './custom/locomotiveScroll';
+import socialLinks from './custom/socialLinks';
+import rotatingText from './custom/rotatingText';
+import imageReveal from './custom/image-reveal';
+import heroStart from './custom/heroStart';
+
 
 $(() => {
-  navigation();
-  videoBlock();
-  splideSlide();
-  lazyLoad();
+  hoverEffekt();
+  gallery();
   animateText();
-  fadeIn();
-  toggleBtn();
-  addToCart();
+  header();
+  locomotiveScroll();
+  socialLinks();
+  rotatingText();
+  imageReveal();
+  heroStart();
 });

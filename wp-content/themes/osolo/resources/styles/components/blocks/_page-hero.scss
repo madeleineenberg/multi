@@ -1,0 +1,63 @@
+@use 'sass:map';
+@use '../../abstracts';
+@use '../../vendors/bootstrap';
+
+.c-page-hero {
+  height: 900px;
+  background: map-get(abstracts.$theme-colors, 'black');
+  color: map-get(abstracts.$theme-colors, 'creme-white');
+  display: flex;
+  justify-content: center;
+  background-image: abstracts.$texture;
+  margin-bottom: 20%;
+  position: relative;
+
+  @include bootstrap.media-breakpoint-down(md) {
+    height: 100vh;
+  }
+
+  .wrapper {
+    padding: 5%;
+  }
+
+  &_image-wrapper {
+    aspect-ratio: 3 /4;
+    max-width: 700px;
+    background-color: map-get(abstracts.$theme-colors, 'blackish');
+
+    @include bootstrap.media-breakpoint-down(md) {
+      margin-top: 20%;
+    }
+
+    img, video {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      clip-path: inset(100% 0% 0% 0%);
+      transition: clip-path 1s cubic-bezier(0.77, 0, 0.175, 1);
+
+      &.is-inview {
+        clip-path: inset(0% 0% 0% 0%);
+      }
+    }
+  }
+
+  &__title {
+    font-family: abstracts.$oswald-bold;
+    font-size: 8vw;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    letter-spacing: 5px;
+
+    @include bootstrap.media-breakpoint-down(md) {
+      font-size: 10vw;
+      left: 40%;
+    }
+
+    .word {
+      display: inline-block !important;
+    }
+  }
+}

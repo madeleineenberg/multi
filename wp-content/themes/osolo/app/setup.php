@@ -71,7 +71,6 @@ add_action('after_setup_theme', function () {
      */
     register_nav_menus([
         'primary_navigation' => __('Primary Navigation', 'osolo'),
-        'right_navigation' => __('Right Navigation', 'osolo')
     ]);
 
     /**
@@ -153,15 +152,8 @@ add_action('widgets_init', function () {
  * REST API Routes
  */
 add_action('rest_api_init', function () {
-    register_rest_route('otheme', '/filter', [
+    register_rest_route('portfolio', '/gallery', [
         'methods' => 'GET',
-        'callback' => require('Routes/Filter.php'),
-        'permission_callback' => '__return_true'
-    ]);
-
-    register_rest_route('otheme', '/cart', [
-        'methods' => 'GET',
-        'callback' => require('Routes/cart.php'),
-        'permission_callback' => '__return_true'
+        'callback' => require('Routes/Gallery.php'),
     ]);
 });

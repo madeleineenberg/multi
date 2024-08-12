@@ -1,23 +1,55 @@
+//Lekton
+
 @font-face {
-  font-weight: 500;
-  font-family: 'Avenir Next';
-  src: url('../fonts/avenir-next-medium.woff2')
-    format('woff2'),
-    url('../fonts/avenir-next-medium.woff') format('woff');
+  font-family: 'Lekton Regular';
+  src: url('../fonts/Lekton-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
+  font-family: 'Lekton Bold';
+  src: url('../fonts/Lekton-Bold.ttf') format('truetype');
   font-weight: 700;
-  font-family: 'Avenir Next';
-  src: url('../fonts/avenir-next-bold.woff2')
-    format('woff2'),
-    url('../fonts/avenir-next-bold.woff') format('woff');
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-  font-weight: 900;
-  font-family: 'Avenir Next';
-  src: url('../fonts/avenir-next-black.woff2')
-    format('woff2'),
-    url('../fonts/avenir-next-black.woff') format('woff');
+  font-family: 'Lekton Italic';
+  src: url('../fonts/Lekton-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+//OSWALD FONT
+
+@font-face {
+  font-family: 'Oswald Extra Light';
+  font-weight: 200;
+  src: url('../fonts/Oswald-ExtraLight.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Oswald Light';
+  font-weight: 300;
+  src: url('../fonts/Oswald-Light.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Oswald Regular';
+  font-weight: 400;
+  src: url('../fonts/Oswald-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Oswald Bold';
+  font-weight: 700;
+  src: url('../fonts/Oswald-Bold.ttf') format('truetype');
+  font-display: swap;
 }
