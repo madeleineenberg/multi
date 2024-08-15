@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8fd900035fb825e059c5174c02592132",
+    "content-hash": "8d8ca8f4bbec5cbea56982f7ed6a29a0",
     "packages": [
         {
             "name": "boxuk/wp-muplugin-loader",
@@ -5570,6 +5570,24 @@
             "homepage": "https://wordpress.org/plugins/webp-express/"
         },
         {
+            "name": "wpackagist-plugin/wordfence",
+            "version": "7.11.7",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wordfence/",
+                "reference": "tags/7.11.7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wordfence.7.11.7.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wordfence/"
+        },
+        {
             "name": "wpackagist-plugin/wordpress-seo",
             "version": "20.7",
             "source": {
@@ -5604,6 +5622,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wp-mail-smtp/"
+        },
+        {
+            "name": "wpackagist-plugin/wp-statistics",
+            "version": "14.9.4",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-statistics/",
+                "reference": "tags/14.9.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-statistics.14.9.4.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-statistics/"
         },
         {
             "name": "wpackagist-plugin/wp-super-cache",
