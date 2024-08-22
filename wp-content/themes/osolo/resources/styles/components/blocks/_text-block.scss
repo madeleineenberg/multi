@@ -4,9 +4,30 @@
 
 .c-text-block {
   padding: 0 10%;
-  max-width: 1400px;
+
   margin-bottom: 20%;
   position: relative;
+
+  @include bootstrap.media-breakpoint-down(lg) {
+    margin-bottom: 40%;
+    padding: 0 5%;
+  }
+
+  @media screen and (max-width: 2500px) {
+    max-width: 1400px;
+
+    &__text {
+      max-width: 700px;
+    }
+  }
+
+  @media screen and (min-width: 2500px) {
+    max-width: 80%;
+
+    &__text {
+      max-width: 100%;
+    }
+  }
 
   &__heading {
     @extend %perspective-heading;
@@ -20,14 +41,25 @@
   }
 
   &__text {
-   opacity: 0;
-   transition: opacity 0.9s ease;
-   max-width: 700px;
+    opacity: 0;
+    transition: opacity 0.9s ease;
 
     p {
       font-family: abstracts.$lekton-regular;
       font-size: 2vw;
       margin-top: 10%;
+
+      @include bootstrap.media-breakpoint-down(lg) {
+        font-size: 26px;
+        line-height: 36px;
+      }
+    }
+
+    @include bootstrap.media-breakpoint-down(md) {
+      &.bg-text {
+        // background-color: #ff9fc234;
+        // padding: 20px;
+      }
     }
 
     &.is-inview {
@@ -41,7 +73,6 @@
 
     p {
       position: relative;
-
     }
 
     @include bootstrap.media-breakpoint-down(lg) {
@@ -78,7 +109,6 @@
     z-index: -1;
     aspect-ratio: 4 / 3;
     overflow: hidden;
-
 
     img {
       height: 120%;
