@@ -40,6 +40,7 @@ add_filter('allowed_block_types_all', function ($allowed_block_types) {
         'acf/social',
         'acf/sticky-image-text',
         'acf/text-block',
+        'acf/image-text',
     ];
 });
 

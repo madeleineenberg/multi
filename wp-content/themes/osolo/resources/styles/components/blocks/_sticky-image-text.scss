@@ -2,6 +2,22 @@
 @use '../../abstracts';
 @use '../../vendors/bootstrap';
 
+.projects-title {
+  padding-left: 9%;
+  width: fit-content;
+  @include bootstrap.media-breakpoint-up(lg) {
+    padding-left: 65px;
+  }
+
+  p {
+    background-color: map-get(abstracts.$theme-colors, 'pink');
+    color: map-get(abstracts.$theme-colors, 'blackish');
+    padding: 5px 10px 3px 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+}
+
 .c-sticky-image-text-block {
   display: grid;
   grid-template-columns: 50% 50%;
@@ -21,19 +37,15 @@
     }
   }
 
-
   &__text-wrapper {
     padding: 5%;
     position: relative;
     display: grid;
-    grid-template-rows: 30px 3fr 1fr;
+    grid-template-rows: auto 1fr auto auto;
 
     @include bootstrap.media-breakpoint-down(lg) {
-      grid-template-rows: 50px 1fr 1fr 100px;
       padding: 10% 5% 5% 5%;
-
     }
-
 
     &-headline {
       @extend %perspective-heading;
@@ -42,9 +54,13 @@
         margin-left: 15px;
 
         @include bootstrap.media-breakpoint-up(md) {
-           margin-left: 20px;
+          margin-left: 20px;
           font-size: 8vw;
         }
+      }
+
+      @include bootstrap.media-breakpoint-up(md) {
+        margin-bottom: 250px;
       }
     }
 
@@ -67,7 +83,6 @@
       p {
         font-family: abstracts.$lekton-regular;
         font-size: 24px;
-
       }
     }
 
@@ -108,14 +123,12 @@
       padding: 20px 20px 20px 40px;
       display: flex;
 
-
       a {
         font-size: 24px;
         text-transform: uppercase;
         font-family: abstracts.$lekton-regular;
         letter-spacing: 3px;
-        color: map-get(abstracts.$theme-colors, 'black' );
-
+        color: map-get(abstracts.$theme-colors, 'black');
       }
       ion-icon {
         transform: rotate(20deg);
@@ -137,6 +150,56 @@
       height: 100%;
       object-fit: cover;
       // aspect-ratio: 1/1;
+    }
+  }
+}
+
+.c-image-text-block {
+  @include bootstrap.media-breakpoint-down(md) {
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content max-content;
+  }
+  .c-sticky-image-text-block__text-wrapper {
+    grid-template-rows: max-content max-content;
+  }
+
+  .c-sticky-image-text-block__text-wrapper-headline-wrapper h2 {
+    margin-bottom: 20px;
+  }
+
+  .c-sticky-image-text-block__text-wrapper-text {
+    ul {
+      font-family: abstracts.$lekton-regular;
+      font-size: 24px;
+      line-height: 34px;
+      position: relative;
+      list-style: none;
+      margin-left: 0;
+      padding-left: 1.2em;
+
+      @include bootstrap.media-breakpoint-down(md) {
+        padding-left: 0;
+        font-size: 20px;
+        line-height: 24px;
+      }
+
+      li {
+        margin-bottom: 10px;
+        position: relative;
+        padding-left: 1.2em;
+
+        &:before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0.3em;
+          width: 0.6em;
+          height: 0.6em;
+          background-color: map-get(abstracts.$theme-colors, 'pink');
+          border-radius: 50%;
+          filter: blur(3px);
+        }
+      }
     }
   }
 }

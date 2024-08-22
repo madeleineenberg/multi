@@ -19,6 +19,7 @@ class StickyImageText extends Composer
     public function with()
     {
         return [
+            'block_title' => get_field('block_title'),
             'image_position' => get_field('image_position') ? 'left' : '',
             'image' => get_field('image'),
             'video' => get_field('video'),
@@ -30,5 +31,4 @@ class StickyImageText extends Composer
             'project_link' => get_field('project_link'),
         ];
     }
-
 }

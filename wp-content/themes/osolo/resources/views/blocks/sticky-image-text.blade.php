@@ -1,6 +1,6 @@
 {{-- /
-  Title: Sticky image and text block
-  Description: Sticky image with text and color backgrounds
+  Title: Project image and text block
+  Description: Display projects, image/video with text and color backgrounds
   Category: formatting
   Icon: admin-comments
   Keywords: image, text, color, video
@@ -12,6 +12,14 @@
   SupportsMultiple: true
 / --}}
 
+@if ($block_title)
+    <div class="projects-title">
+        <p>
+            Selected Projects
+        </p>
+    </div>
+@endif
+
 <div class="c-sticky-image-text-block">
     <div class="c-sticky-image-text-block__text-wrapper {{ $image_position }}" data-scroll
         style='background-color: {{ $color_background }}'>
@@ -22,38 +30,39 @@
             </h2>
         </div>
         <div class="c-sticky-image-text-block__text-wrapper-text">
-          {!! $text !!}
+            {!! $text !!}
         </div>
         <div class="c-sticky-image-text-block__text-wrapper-role">
-          @if($role)
-           <h5>Role:</h5>
-           <p>{{ $role }}</p>
-          @endif
+            @if ($role)
+                <h5>Role:</h5>
+                <p>{{ $role }}</p>
+            @endif
         </div>
     </div>
     <div class="c-sticky-image-text-block__image-wrapper {{ $image_position }}">
-        @if(!empty($image))
-          <img src="{{ $image['url'] }}" alt="" data-scroll data-scroll-speed="-2">
+        @if (!empty($image))
+            <img src="{{ $image['url'] }}" alt="" data-scroll data-scroll-speed="-2">
         @endif
-        @if(!empty($video))
-        <div class="c-sticky-image-text-block__video">
+        @if (!empty($video))
+            <div class="c-sticky-image-text-block__video">
                 <video autoplay loop muted playsinline data-scroll data-scroll-speed="-2">
                     <source src="{{ $video['url'] }}" type="video/mp4">
                     <source src="{{ $video['url'] }}" type="video/webm">
                 </video>
             </div>
         @endif
-        @if(!empty($project_link))
-        <div class="project-link-btn" style="background-color: {{ $color_background }}">
-          <div>
-          <a href="{{ $project_link['url'] }}" target="{{ $project_link['target'] }}" rel="nofollow" class="link">
-            <div>
-              <span class="link-text">{{ $project_link['title'] }}</span>
+        @if (!empty($project_link))
+            <div class="project-link-btn" style="background-color: {{ $color_background }}">
+                <div>
+                    <a href="{{ $project_link['url'] }}" target="{{ $project_link['target'] }}" rel="nofollow"
+                        class="link">
+                        <div>
+                            <span class="link-text">{{ $project_link['title'] }}</span>
+                        </div>
+                    </a>
+                </div>
+                <ion-icon name="arrow-up-outline"></ion-icon>
             </div>
-          </a>
-          </div>
-        <ion-icon name="arrow-up-outline"></ion-icon>
-        </div>
         @endif
     </div>
 </div>

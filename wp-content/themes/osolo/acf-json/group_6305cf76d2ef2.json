@@ -1,7 +1,27 @@
 {
     "key": "group_6305cf76d2ef2",
-    "title": "Block - sticky image and text",
+    "title": "Block - Projects image and text",
     "fields": [
+        {
+            "key": "field_66bf066d2e253",
+            "label": "Block title",
+            "name": "block_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
         {
             "key": "field_6305d0e041628",
             "label": "Image position",
@@ -200,5 +220,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1697804422
+    "modified": 1723795075
 }
