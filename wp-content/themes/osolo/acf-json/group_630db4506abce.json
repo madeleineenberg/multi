@@ -3,9 +3,46 @@
     "title": "Block - Image reveal",
     "fields": [
         {
+            "key": "field_66c5eb99e9703",
+            "label": "Block heading",
+            "name": "block_heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_66c5ebc6e9704",
+            "label": "Gallery link",
+            "name": "gallery_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
             "key": "field_630db4a1732b3",
             "label": "Galleries",
             "name": "galleries",
+            "aria-label": "",
             "type": "post_object",
             "instructions": "",
             "required": 0,
@@ -22,7 +59,8 @@
             "allow_null": 0,
             "multiple": 1,
             "return_format": "object",
-            "ui": 1
+            "ui": 1,
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -43,5 +81,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1661843565
+    "modified": 1724247457
 }

@@ -19,8 +19,9 @@ class ImageReveal extends Composer
     public function with()
     {
         return [
-           'galleries' => get_field('galleries'),
+            'heading' => get_field('block_heading'),
+            'galleries' => get_field('galleries'),
+            'link' => get_field('gallery_link'),
         ];
     }
-
 }

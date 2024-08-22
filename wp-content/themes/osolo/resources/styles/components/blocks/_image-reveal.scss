@@ -2,6 +2,41 @@
 @use '../../abstracts';
 @use '../../vendors/bootstrap';
 
+.c-image-reveal {
+  .block-heading {
+    place-self: start;
+    padding: 0 2rem;
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    p {
+      background-color: #f3f3f3;
+      color: map-get(abstracts.$theme-colors, 'blackish');
+      padding: 5px 10px 3px 10px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    .gallery-link {
+      display: flex;
+      a {
+        font-size: 24px;
+        text-transform: uppercase;
+        font-family: abstracts.$lekton-regular;
+        letter-spacing: 3px;
+        color: map-get(abstracts.$theme-colors, 'black');
+      }
+      ion-icon {
+        transform: rotate(20deg);
+        font-size: 26px;
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
 @include bootstrap.media-breakpoint-down(md) {
   .c-image-reveal {
     display: none;
@@ -109,6 +144,16 @@
         0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11),
         0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11);
       z-index: 9;
+    }
+  }
+
+  body:not(.home) .c-image-reveal {
+    &__link {
+      color: #f3f3f3;
+    }
+    .underline {
+      background-color: white;
+      filter: blur(3px);
     }
   }
 }
