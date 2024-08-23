@@ -10,7 +10,8 @@
   }
 
   p {
-    background-color: map-get(abstracts.$theme-colors, 'pink');
+    // background-color: map-get(abstracts.$theme-colors, 'pink');
+    background-color: #f3f3f3;
     color: map-get(abstracts.$theme-colors, 'blackish');
     padding: 5px 10px 3px 10px;
     text-transform: uppercase;
