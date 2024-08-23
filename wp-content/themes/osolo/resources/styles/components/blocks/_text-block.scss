@@ -17,7 +17,7 @@
     max-width: 1400px;
 
     &__text {
-      max-width: 700px;
+      max-width: 800px;
     }
   }
 
@@ -113,8 +113,19 @@
     img {
       height: 120%;
       width: 100%;
-      object-fit: cover;
+      // object-fit: cover;
+      object-fit: contain;
       transform: scale(1);
+    }
+
+    @include bootstrap.media-breakpoint-down(md) {
+      right: unset;
+      top: unset;
+      bottom: -10%;
+
+      img {
+        width: 80%;
+      }
     }
   }
 }
