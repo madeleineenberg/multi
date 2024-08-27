@@ -32,10 +32,18 @@
         <div class="c-sticky-image-text-block__text-wrapper-text">
             {!! $text !!}
         </div>
-        <div class="c-sticky-image-text-block__text-wrapper-role">
-            @if ($role)
-                <h5>Role:</h5>
-                <p>{{ $role }}</p>
+        <div class="d-flex justify-content-between">
+            <div class="c-sticky-image-text-block__text-wrapper-role">
+                @if ($role)
+                    <h5>Role:</h5>
+                    <p>{{ $role }}</p>
+                @endif
+            </div>
+            @if ($collaborators)
+                <div class="c-sticky-image-text-block__text-wrapper-collaborators">
+                    <h5>Collaborators:</h5>
+                    {!! $collaborators !!}
+                </div>
             @endif
         </div>
     </div>

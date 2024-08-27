@@ -29,6 +29,7 @@ class StickyImageText extends Composer
             'color_background' => get_field('color_background') ? get_field('color_background') : '#FAEBE1',
             'role' => get_field('role'),
             'project_link' => get_field('project_link'),
+            'collaborators' => get_field('collaborators'),
         ];
     }
 }
