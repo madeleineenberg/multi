@@ -6,6 +6,7 @@
             "key": "field_630780a1e70e3",
             "label": "Label",
             "name": "label",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -25,6 +26,7 @@
             "key": "field_6287476f05df0",
             "label": "Default icon",
             "name": "default_icon",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -44,6 +46,7 @@
             "key": "field_627a14883eb7c",
             "label": "Links",
             "name": "links",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -57,12 +60,14 @@
             "min": 0,
             "max": 0,
             "layout": "table",
-            "button_label": "",
+            "button_label": "Lägg till rad",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_627a14923eb7d",
                     "label": "link",
                     "name": "link",
+                    "aria-label": "",
                     "type": "link",
                     "instructions": "",
                     "required": 0,
@@ -72,12 +77,14 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "array",
+                    "parent_repeater": "field_627a14883eb7c"
                 },
                 {
                     "key": "field_62874445c2b0e",
                     "label": "icon",
                     "name": "icon",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -91,7 +98,8 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_627a14883eb7c"
                 }
             ]
         }
@@ -114,5 +122,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1661436079
+    "modified": 1724490283
 }

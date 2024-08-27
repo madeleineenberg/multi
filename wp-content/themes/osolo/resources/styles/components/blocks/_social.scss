@@ -6,7 +6,7 @@
   display: flex;
   justify-content: end;
   align-items: center;
-  margin: 0 10% 10% 0;
+  margin: 0 20% 10% 0;
   position: relative;
 
   &__text {
@@ -60,7 +60,7 @@
     justify-content: center;
     overflow: hidden;
     width: 1060px;
-    height: 850px;
+    height: 450px;
 
     transition: width 1s ease;
     // transition-delay: 0.5s;
@@ -84,7 +84,7 @@
     }
 
     &.is-inview {
-      width: 860px;
+      width: 450px;
       ion-icon {
         font-size: 20vw;
 

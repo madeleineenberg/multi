@@ -13,17 +13,15 @@ class SocialLinks extends Composer
      */
     protected static $views = [
         'blocks.social',
-       
     ];
 
 
     public function with()
     {
         return [
-           'label' => get_field('label'),
-           'links' => get_field('links'),
-           'default_icon' => get_field('default_icon'),
+            'label' => get_field('label'),
+            'links' => get_field('links'),
+            'default_icon' => get_field('default_icon'),
         ];
     }
-
 }
