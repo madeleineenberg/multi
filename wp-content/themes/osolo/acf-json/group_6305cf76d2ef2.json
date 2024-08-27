@@ -186,6 +186,26 @@
             "append": ""
         },
         {
+            "key": "field_66cdbc8295a88",
+            "label": "Collaborators",
+            "name": "collaborators",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
             "key": "field_6532703f6c2fd",
             "label": "Link",
             "name": "project_link",
@@ -220,5 +240,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1723795075
+    "modified": 1724759204
 }
