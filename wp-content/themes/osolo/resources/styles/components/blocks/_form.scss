@@ -1,0 +1,203 @@
+@use 'sass:map';
+@use '../../abstracts';
+@use '../../vendors/bootstrap';
+
+.c-form-block__wrapper {
+  position: relative;
+}
+
+.c-form-block {
+  background-image: abstracts.$texture;
+  background-color: map-get(abstracts.$theme-colors, 'black');
+  padding: 5% 5% 10% 5%;
+  color: map-get(abstracts.$theme-colors, 'creme-white');
+  margin-bottom: -300px;
+
+  h2 {
+    font-size: 8vw;
+  }
+
+  @include bootstrap.media-breakpoint-down(md) {
+    padding: 10% 5% 5% 5%;
+    margin-bottom: 0;
+
+    h2 {
+      font-size: 64px;
+    }
+  }
+}
+
+.icon-box-wrapper {
+  position: absolute;
+  top: -80px;
+  right: 50px;
+
+  @include bootstrap.media-breakpoint-down(md) {
+    top: -45px;
+    right: 15px;
+  }
+}
+
+.icon-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 350px; /* Adjust as needed */
+  width: 350px; /* Adjust as needed */
+  overflow: hidden;
+  position: relative;
+  transform: rotate(15deg);
+  background: -webkit-linear-gradient(90deg, pink, #c7cbe3);
+  border-radius: 100%;
+  filter: blur(8px);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11),
+    0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11),
+    0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11);
+  transition: all 0.8s ease;
+
+  @include bootstrap.media-breakpoint-down(md) {
+    height: 150px;
+    width: 150px;
+    filter: blur(2px);
+  }
+
+  ion-icon {
+    color: map-get(abstracts.$theme-colors, 'pink');
+    font-size: 14vw;
+    transition: all 1s ease;
+    transition-delay: 1s;
+
+    @include bootstrap.media-breakpoint-down(md) {
+      font-size: 25vw;
+    }
+  }
+
+  &:hover {
+    filter: blur(2px);
+  }
+}
+
+.icon-link {
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  display: none;
+}
+
+.icon-link.active {
+  opacity: 1;
+  display: block;
+}
+
+.nf-error .nf-error-msg {
+  color: map-get(abstracts.$theme-colors, 'pink') !important;
+}
+
+.nf-error-msg,
+.ninja-forms-req-symbol {
+  color: map-get(abstracts.$theme-colors, 'pink') !important;
+}
+
+.nf-form-fields-required,
+.ninja-forms-req-symbol {
+  display: none !important;
+}
+
+.nf-form-content {
+  max-width: none;
+  padding: 5%;
+}
+.nf-error .nf-error-msg {
+  color: map-get(abstracts.$theme-colors, 'darkpink');
+}
+.nf-error .ninja-forms-field {
+  border-color: map-get(abstracts.$theme-colors, 'darkpink') !important;
+}
+.nf-pass .ninja-forms-field {
+  border-color: map-get(abstracts.$theme-colors, 'creme-white') !important;
+}
+.nf-error.field-wrap .nf-field-element:after,
+.nf-pass.field-wrap .nf-field-element:after {
+  display: none;
+}
+
+.nf-form-content .list-select-wrap .nf-field-element > div,
+.nf-form-content input:not([type='button']),
+.nf-form-content textarea {
+  height: 2em;
+  margin-bottom: 0vh;
+  padding: 0px;
+  border-style: none none dotted !important;
+  border-width: 2px;
+  border-color: transparent transparent
+    map-get(abstracts.$theme-colors, 'creme-white') !important;
+  background-color: transparent !important;
+  font-family: abstracts.$lekton-regular;
+  letter-spacing: 3px;
+  color: map-get(abstracts.$theme-colors, 'pink') !important;
+  font-size: 24px;
+  line-height: 1em;
+  margin-top: 15px;
+
+  &::placeholder {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #faebe158;
+  }
+
+  &:focus {
+    color: map-get(abstracts.$theme-colors, 'creme-white');
+    background-color: transparent;
+    border-color: transparent transparent
+      map-get(abstracts.$theme-colors, 'pink');
+  }
+}
+
+.nf-form-content textarea {
+  background-color: map-get(abstracts.$theme-colors, 'purple') !important;
+  border-radius: 20px !important;
+  border: none !important;
+  color: map-get(abstracts.$theme-colors, 'black') !important;
+  padding: 5% !important;
+  height: 350px !important;
+
+  &::placeholder {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: map-get(abstracts.$theme-colors, 'black');
+  }
+
+  @include bootstrap.media-breakpoint-down(md) {
+    height: 250px !important;
+  }
+}
+
+.nf-form-content button,
+.nf-form-content input[type='button'],
+.nf-form-content input[type='submit'] {
+  position: relative;
+  z-index: 10;
+  background-color: map-get(abstracts.$theme-colors, 'pink') !important;
+  border: none;
+  color: map-get(abstracts.$theme-colors, 'black') !important;
+  font-size: 24px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: abstracts.$lekton-regular;
+  transition: all 0.5s ease;
+  float: right;
+  height: unset;
+  padding: 7px 35px 3px 35px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11),
+    0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11),
+    0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11) !important;
+  border-radius: 20px !important;
+
+  &:hover {
+    background-color: map-get(abstracts.$theme-colors, 'darkpink') !important;
+    color: map-get(abstracts.$theme-colors, 'creme-white') !important;
+  }
+}

@@ -41,6 +41,8 @@ add_filter('allowed_block_types_all', function ($allowed_block_types) {
         'acf/sticky-image-text',
         'acf/text-block',
         'acf/image-text',
+        'acf/form',
+        'acf/project-archive',
     ];
 });
 
