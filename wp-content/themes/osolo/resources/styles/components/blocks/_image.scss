@@ -21,7 +21,7 @@
     color: map-get(abstracts.$theme-colors, 'pink');
 
     @include bootstrap.media-breakpoint-down(md) {
-      top: 60%;
+      font-size: 12vw;
     }
   }
 

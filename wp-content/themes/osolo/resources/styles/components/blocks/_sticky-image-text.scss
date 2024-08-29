@@ -16,6 +16,10 @@
     padding: 5px 10px 3px 10px;
     text-transform: uppercase;
     letter-spacing: 3px;
+
+    @include bootstrap.media-breakpoint-down(md) {
+      font-size: 20px;
+    }
   }
 }
 
@@ -57,7 +61,6 @@
         margin-left: 15px;
 
         @include bootstrap.media-breakpoint-up(md) {
-          margin-left: 20px;
           font-size: 8vw;
         }
       }

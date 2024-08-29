@@ -3,56 +3,57 @@
 @use '../vendors/bootstrap';
 
 %perspective-heading {
-    font-family: variables.$oswald-bold;
-    color: map-get(variables.$theme-colors, 'blackish');
-    text-transform: uppercase;
-    line-height: 1.12;
-    font-size: 10vw;
-    perspective: 600px;
-    -webkit-perspective: 600px;
-    margin-bottom: 40px;
+  font-family: variables.$oswald-bold;
+  color: map-get(variables.$theme-colors, 'blackish');
+  text-transform: uppercase;
+  line-height: 1.12;
+  font-size: 10vw;
+  perspective: 600px;
+  -webkit-perspective: 600px;
+  margin-bottom: 40px;
 
+  .subtitle_line {
+    display: block;
+    font-size: 0;
+    opacity: 0;
+    transform: translateY(100%) rotateX(-80deg);
+    transform-origin: center top;
+    transform-style: preserve-3d;
+    transition: opacity 0.8s cubic-bezier(0.215, 0.61, 0.355, 1),
+      transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+    &:first-child {
+      transition-delay: 0.1s;
+    }
+
+    &:nth-child(2) {
+      transition-delay: 0.2s;
+    }
+    &:nth-child(3) {
+      transition-delay: 0.3s;
+    }
+
+    .word {
+      display: inline-block;
+      font-size: 10vw;
+      min-width: 0.05em;
+      margin-left: 50px;
+
+      @include bootstrap.media-breakpoint-down(md) {
+        font-size: 45px;
+        line-height: 68px;
+        margin-left: 15px;
+      }
+    }
+  }
+
+  &.is-inview {
     .subtitle_line {
-      display: block;
-      font-size: 0;
-      opacity: 0;
-      transform: translateY(100%) rotateX(-80deg);
-      transform-origin: center top;
-      transform-style: preserve-3d;
-      transition: opacity 0.8s cubic-bezier(0.215, 0.61, 0.355, 1),
-        transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
-
-      &:first-child {
-        transition-delay: 0.1s;
-      }
-
-      &:nth-child(2) {
-        transition-delay: 0.2s;
-      }
-      &:nth-child(3) {
-        transition-delay: 0.3s;
-      }
-
-      .word {
-        display: inline-block;
-        font-size: 10vw;
-        min-width: 0.05em;
-        margin-left: 50px;
-
-        @include bootstrap.media-breakpoint-down(md) {
-          font-size: 45px;
-          margin-left: 15px;
-        }
-      }
+      opacity: 1;
+      transform: none;
+      transition-duration: 0.8s;
     }
-
-    &.is-inview {
-      .subtitle_line {
-        opacity: 1;
-        transform: none;
-        transition-duration: 0.8s;
-      }
-    }
+  }
 }
 
 %button {
@@ -71,7 +72,8 @@
   text-transform: uppercase;
   border: 3px map-get(variables.$theme-colors, 'pink') solid;
   z-index: 1;
-  box-shadow: -0.5em 0.5em transparentize(map-get(variables.$theme-colors, 'blackish'), 1);
+  box-shadow: -0.5em 0.5em
+    transparentize(map-get(variables.$theme-colors, 'blackish'), 1);
   transform-origin: left bottom;
   -webkit-transition: all 200ms ease-in-out;
   -moz-transition: all 200ms ease-in-out;
@@ -126,4 +128,3 @@
     }
   }
 }
-

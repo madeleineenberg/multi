@@ -2,38 +2,37 @@
 @use '../../abstracts';
 @use '../../vendors/bootstrap';
 
-.c-image-reveal {
-  .block-heading {
-    place-self: start;
-    padding: 0 2rem;
-    width: 100%;
+.block-heading {
+  place-self: start;
+  padding: 0 2rem;
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+
+  p {
+    background-color: #f3f3f3;
+    color: map-get(abstracts.$theme-colors, 'blackish');
+    padding: 5px 10px 3px 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-right: 20px;
+  }
+
+  .gallery-link {
     display: flex;
-    align-items: baseline;
-    // justify-content: space-between;
+    margin-bottom: 5px;
 
-    p {
-      background-color: #f3f3f3;
-      color: map-get(abstracts.$theme-colors, 'blackish');
-      padding: 5px 10px 3px 10px;
+    a {
+      font-size: 24px;
       text-transform: uppercase;
+      font-family: abstracts.$lekton-regular;
       letter-spacing: 3px;
-      margin-right: 20px;
+      color: map-get(abstracts.$theme-colors, 'black');
     }
-
-    .gallery-link {
-      display: flex;
-      a {
-        font-size: 24px;
-        text-transform: uppercase;
-        font-family: abstracts.$lekton-regular;
-        letter-spacing: 3px;
-        color: map-get(abstracts.$theme-colors, 'black');
-      }
-      ion-icon {
-        transform: rotate(20deg);
-        font-size: 26px;
-        margin-left: 10px;
-      }
+    ion-icon {
+      transform: rotate(20deg);
+      font-size: 26px;
+      margin-left: 10px;
     }
   }
 }
@@ -167,12 +166,39 @@
 
 @include bootstrap.media-breakpoint-down(md) {
   .c-image-reveal__mobile {
+    .block-heading {
+      flex-wrap: wrap-reverse;
+
+      p,
+      a {
+        font-size: 20px;
+      }
+      margin-top: 50px;
+      padding: 0 1.5rem;
+
+      .gallery-link {
+        align-items: baseline;
+        margin-bottom: 10px;
+
+        ion-icon {
+          font-size: 20px;
+        }
+      }
+    }
     padding: 10% 0;
     &__list {
       padding: 5%;
       &-item {
         list-style: none;
         margin: 100px 0 200px 0;
+
+        &:nth-of-type(1) {
+          margin-top: 20px;
+        }
+
+        &:nth-last-of-type(1) {
+          margin-bottom: 80px;
+        }
       }
     }
 
@@ -192,6 +218,7 @@
       font-size: 24px;
       padding-top: 20px;
       float: right;
+      color: map-get(abstracts.$theme-colors, 'blackish');
     }
 
     &-image-wrapper {
@@ -207,6 +234,12 @@
         aspect-ratio: 1;
         object-fit: cover;
       }
+    }
+  }
+
+  body.home {
+    .c-image-reveal__mobile-subtitle {
+      color: map-get(abstracts.$theme-colors, 'creme-white');
     }
   }
 }

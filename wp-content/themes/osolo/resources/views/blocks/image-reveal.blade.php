@@ -49,6 +49,25 @@
     </ul>
 </div>
 <div class="c-image-reveal__mobile">
+    @if ($heading || !empty($link))
+        <div class="block-heading">
+            <p>
+                {{ $heading }}
+            </p>
+            @if (!empty($link))
+                <div class="gallery-link">
+                    <div>
+                        <a href="{{ $link['url'] }}" target="{{ $link['target'] }}" rel="nofollow" class="">
+                            <div>
+                                <span class="link-text">{{ $link['title'] }}</span>
+                            </div>
+                        </a>
+                    </div>
+                    <ion-icon name="arrow-up-outline"></ion-icon>
+                </div>
+            @endif
+        </div>
+    @endif
     <ul class="c-image-reveal__mobile__list">
         @foreach ($galleries as $gallery)
             <li class="c-image-reveal__mobile__list-item">
@@ -62,4 +81,5 @@
             </li>
         @endforeach
     </ul>
+
 </div>
