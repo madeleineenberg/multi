@@ -20,7 +20,7 @@
     </div>
 @endif
 
-<div class="c-sticky-image-text-block c-image-text-block">
+<div class="c-sticky-image-text-block c-image-text-block {{ $margins }}">
     <div class="c-sticky-image-text-block__text-wrapper {{ $image_position }}" data-scroll
         style='background-color: {{ $color_background }}'>
         <h5 class="c-sticky-image-text-block__subheading">{{ $subheading }}</h5>

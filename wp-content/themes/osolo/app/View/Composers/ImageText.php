@@ -29,6 +29,7 @@ class ImageText extends Composer
             'color_background' => get_field('color_background') ? get_field('color_background') : '#FAEBE1',
             'project_link' => get_field('project_link'),
             'file' => get_field('file'),
+            'margins' => get_field('margin') ? 'less-margins' : '',
         ];
     }
 }

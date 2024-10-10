@@ -20,8 +20,8 @@
     </div>
 @endif
 
-<div class="c-sticky-image-text-block">
-    <div class="c-sticky-image-text-block__text-wrapper {{ $image_position }}" data-scroll
+<div class="c-sticky-image-text-block {{ $margins }}">
+    <div class="c-sticky-image-text-block__text-wrapper {{ $image_position }} {{ $color_background === '#ff9fc2' ? 'pink' : '' }}" data-scroll
         style='background-color: {{ $color_background }}'>
         <h5 class="c-sticky-image-text-block__subheading">{{ $subheading }}</h5>
         <div class="c-sticky-image-text-block__text-wrapper-headline-wrapper">
@@ -35,13 +35,19 @@
         <div class="d-flex justify-content-between">
             <div class="c-sticky-image-text-block__text-wrapper-role">
                 @if ($role)
-                    <h5>Role:</h5>
+                    <div class="list-label-wrapper">
+                      <h5>Role:</h5>
+                      <div class="underline" data-scroll></div>
+                    </div>
                     <p>{{ $role }}</p>
                 @endif
             </div>
             @if ($collaborators)
                 <div class="c-sticky-image-text-block__text-wrapper-collaborators">
-                    <h5>Collaborators:</h5>
+                  <div class="list-label-wrapper">
+                    <h5 class="list-label">Collaborators:</h5>
+                    <div class="underline" data-scroll></div>
+                  </div>
                     {!! $collaborators !!}
                 </div>
             @endif
