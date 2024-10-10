@@ -29,7 +29,8 @@
       margin-top: 20%;
     }
 
-    img, video {
+    img,
+    video {
       object-fit: cover;
       height: 100%;
       width: 100%;
@@ -50,6 +51,7 @@
     left: 40%;
     transform: translate(-50%, -50%);
     letter-spacing: 5px;
+    opacity: 0;
 
     @include bootstrap.media-breakpoint-down(md) {
       font-size: 10vw;

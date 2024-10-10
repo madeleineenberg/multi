@@ -17,15 +17,27 @@ export default function () {
   //   stagger: 0.1,
   // });
 
-  anime.timeline().add({
-    targets: 'h1 .word',
-    translateY: [100, 0],
-    translateZ: 0,
-    opacity: [0, 1],
-    easing: 'easeOutExpo',
-    duration: 2000,
-    delay: (el, i) => 1000 + 40 * i,
-  });
+  setTimeout(() => {
+    // Get the h1 element
+    const h1Element = document.querySelector('h1');
+
+    // Check if the h1 element exists
+    if (h1Element) {
+      // Show the h1 element
+      h1Element.style.opacity = '1';
+
+      // Start the animation
+      anime.timeline().add({
+        targets: 'h1 .word',
+        translateY: [100, 0],
+        translateZ: 0,
+        opacity: [0, 1],
+        easing: 'easeOutExpo',
+        duration: 2000,
+        delay: (el, i) => 1000 + 40 * i,
+      });
+    }
+  }, 100); // Adjust the delay as needed
 
   const links = gsap.utils.toArray(
     '.navigation-item, .c-image-reveal__mobile__list-item',
