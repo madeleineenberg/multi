@@ -15,20 +15,22 @@
 
 
 <div class="c-page-footer__panel {{ $mode_settings ? 'light-mode' : '' }}" data-scroll data-scroll-speed="5">
-           <div class="ticker-wrap-footer two">
-            <div class="ticker">
-                <span class="item-collection-1">
-                    @for ($i = 0; $i < 6; $i++)
-                        <span class="item">Thank you <ion-icon name="happy-outline"></ion-icon> come again </span>
-                    @endfor
-                </span>
-                <span class="item-collection-2">
-                    @for ($i = 0; $i < 6; $i++)
-                        <span class="item">Thank you <ion-icon name="happy-outline"></ion-icon> come again </span>
-                    @endfor
-                </span>
-            </div>
+    <div class="ticker-wrap-footer two">
+        <div class="ticker">
+            <span class="item-collection-1">
+                @for ($i = 0; $i < 6; $i++)
+                    {{-- <span class="item">Thank you <ion-icon name="happy-outline"></ion-icon> come again </span> --}}
+                    <span class="item">Think positive <ion-icon name="happy-outline"></ion-icon> make nagatives </span>
+                @endfor
+            </span>
+            <span class="item-collection-2">
+                @for ($i = 0; $i < 6; $i++)
+                    {{-- <span class="item">Thank you <ion-icon name="happy-outline"></ion-icon> come again </span> --}}
+                    <span class="item">Think positive <ion-icon name="happy-outline"></ion-icon> make negatives </span>
+                @endfor
+            </span>
         </div>
+    </div>
 </div>
 <div class="c-page-footer__inner  {{ $mode_settings ? 'light-mode' : '' }}">
     <div class="c-page-footer__inner-top-section">
