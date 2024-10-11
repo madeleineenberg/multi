@@ -94,7 +94,7 @@
       min-height: auto;
       width: 100%;
       grid-template-columns: 1fr;
-      grid-template-rows: 1fr 2fr;
+      grid-template-rows: 1fr 5fr;
       padding: 5% 15px;
       margin-top: 100px;
     }
@@ -107,6 +107,10 @@
         font-size: 20px;
         line-height: 24px;
 
+        @include bootstrap.media-breakpoint-down(md) {
+          font-size: 18px;
+        }
+
         a {
           font-size: 20px;
           line-height: 24px;
@@ -114,6 +118,14 @@
           color: inherit;
           text-transform: lowercase;
           letter-spacing: unset;
+
+          @include bootstrap.media-breakpoint-down(md) {
+            font-size: 18px;
+          }
+
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
       @include bootstrap.media-breakpoint-down(md) {
