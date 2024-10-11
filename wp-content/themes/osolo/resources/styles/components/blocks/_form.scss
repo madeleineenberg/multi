@@ -196,6 +196,10 @@
     0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11) !important;
   border-radius: 15px !important;
 
+  // padding-left: 25px;
+  // background: url('../images/arrow-forward-outline.svg') no-repeat right !important;
+  // background-size: 10px;
+
   &:hover {
     background-color: map-get(abstracts.$theme-colors, 'darkpink') !important;
     color: map-get(abstracts.$theme-colors, 'creme-white') !important;

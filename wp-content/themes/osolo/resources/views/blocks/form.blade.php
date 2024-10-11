@@ -30,7 +30,7 @@
             <h2 class="c-form-block__title">{{ $heading }}</h2>
         @endif
         @if ($text)
-            <p class="c-form-block__text">{{ $text }}</p>
+            <p class="c-form-block__text">{!! $text !!}</p>
         @endif
         @if ($id)
             {!! do_shortcode('[ninja_form id="' . $id . '"]') !!}
