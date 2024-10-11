@@ -31,6 +31,7 @@ class StickyImageText extends Composer
             'project_link' => get_field('project_link'),
             'collaborators' => get_field('collaborators'),
             'margins' => get_field('margin') ? 'less-margins' : '',
+            'tech' => get_field('tech')
         ];
     }
 }

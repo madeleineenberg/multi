@@ -39,13 +39,20 @@
                       <h5>Role:</h5>
                       <div class="underline" data-scroll></div>
                     </div>
-                    <p>{{ $role }}</p>
+                    <div>{!! $role !!}</div>
+                @endif
+                @if(!empty($tech))
+                    <ul class="tech-icons">
+                      @foreach ($tech as $icon)
+                          <ion-icon name="{{ $icon['icon'] }}"></ion-icon>
+                      @endforeach
+                    </ul>
                 @endif
             </div>
             @if ($collaborators)
                 <div class="c-sticky-image-text-block__text-wrapper-collaborators">
                   <div class="list-label-wrapper">
-                    <h5 class="list-label">Collaborators:</h5>
+                    <h5 class="list-label">Team:</h5>
                     <div class="underline" data-scroll></div>
                   </div>
                     {!! $collaborators !!}
