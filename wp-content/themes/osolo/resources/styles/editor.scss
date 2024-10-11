@@ -6,6 +6,10 @@
 .editor-styles-wrapper > * {
   font-family: abstracts.$lekton-regular;
 
+  h1, a {
+    font-size: 20px;
+  }
+
    .wp-block {
     max-width: none !important;
   }
