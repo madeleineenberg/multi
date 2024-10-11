@@ -3,7 +3,7 @@
 @use '../../vendors/bootstrap';
 
 .projects-title {
-  padding-left: 9%;
+  padding-left: 5%;
   width: fit-content;
   @include bootstrap.media-breakpoint-up(lg) {
     padding-left: 65px;
@@ -28,6 +28,10 @@
     margin-bottom: -250px;
     position: relative;
     z-index: 10;
+
+    @include bootstrap.media-breakpoint-down(md) {
+      margin-bottom: -100px;
+    }
   }
 
   display: grid;
@@ -57,7 +61,7 @@
     grid-template-rows: auto 1fr auto auto;
 
     @include bootstrap.media-breakpoint-down(lg) {
-      padding: 10% 5% 5% 5%;
+      padding: 5% 2% 5% 2%;
     }
 
     &-headline {
@@ -95,6 +99,10 @@
       p {
         font-family: abstracts.$lekton-regular;
         font-size: 24px;
+
+        @include bootstrap.media-breakpoint-down(md) {
+          font-size: 20px;
+        }
       }
     }
 
@@ -279,6 +287,10 @@
     margin-bottom: -250px;
     position: relative;
     z-index: 10;
+
+    @include bootstrap.media-breakpoint-down(md) {
+      margin-bottom: -100px;
+    }
   }
   @include bootstrap.media-breakpoint-down(md) {
     grid-template-columns: 1fr;
