@@ -15,26 +15,26 @@
 
 
 <div class="c-page-footer__panel {{ $mode_settings ? 'light-mode' : '' }}" data-scroll data-scroll-speed="5">
+  @if($first || $second)
     <div class="ticker-wrap-footer two">
         <div class="ticker">
             <span class="item-collection-1">
                 @for ($i = 0; $i < 6; $i++)
-                    {{-- <span class="item">Thank you <ion-icon name="happy-outline"></ion-icon> come again </span> --}}
-                    <span class="item">Think positive <ion-icon name="happy-outline"></ion-icon> make nagatives </span>
+                    <span class="item">{{ $first }} <ion-icon name="{{ $icon }}"></ion-icon> {{ $second }} </span>
                 @endfor
             </span>
             <span class="item-collection-2">
                 @for ($i = 0; $i < 6; $i++)
-                    {{-- <span class="item">Thank you <ion-icon name="happy-outline"></ion-icon> come again </span> --}}
-                    <span class="item">Think positive <ion-icon name="happy-outline"></ion-icon> make negatives </span>
+                    <span class="item">{{ $first }} <ion-icon name="{{ $icon }}"></ion-icon> {{ $second }}</span>
                 @endfor
             </span>
         </div>
     </div>
+  @endif
 </div>
 <div class="c-page-footer__inner  {{ $mode_settings ? 'light-mode' : '' }}">
     <div class="c-page-footer__inner-top-section">
-        <p>{{ $work }}</p>
+        <p>{!! $work !!}</p>
         <p>{{ $location }}</p>
     </div>
     <div class="c-page-footer__inner-middle-section">

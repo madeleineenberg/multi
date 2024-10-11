@@ -6,6 +6,7 @@
             "key": "field_630884a4bb4aa",
             "label": "Mode settings",
             "name": "mode_settings",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -25,6 +26,7 @@
             "key": "field_6308bffe7c8da",
             "label": "Top section",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -35,12 +37,14 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_630ccad6a6da4",
             "label": "Work",
             "name": "work",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -60,6 +64,7 @@
             "key": "field_630ccae2a6da5",
             "label": "Location",
             "name": "location",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -79,6 +84,7 @@
             "key": "field_630ccaf5a6da6",
             "label": "Middle Section",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -89,12 +95,14 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_630ccb05a6da7",
             "label": "Bold text",
             "name": "bold_text",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -114,6 +122,7 @@
             "key": "field_630ccb26a6da8",
             "label": "Sub text",
             "name": "sub_text",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -133,6 +142,7 @@
             "key": "field_630ccb31a6da9",
             "label": "Bottom section",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -143,12 +153,14 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_630ccb6ba6daa",
             "label": "Credits",
             "name": "credits",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -163,6 +175,87 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_6708ecef8990d",
+            "label": "Ticker",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_6708ed0a8990e",
+            "label": "First sentence",
+            "name": "first_sentence",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6708ed6a8990f",
+            "label": "Second sentence",
+            "name": "second_sentence",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6708ed7789910",
+            "label": "Icon",
+            "name": "icon",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -183,5 +276,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1661783026
+    "modified": 1728638337
 }

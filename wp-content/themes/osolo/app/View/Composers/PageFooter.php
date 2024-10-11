@@ -24,7 +24,10 @@ class PageFooter extends Composer
            'location' => get_field('location'),
            'bold_text' => get_field('bold_text'),
            'sub_text' => get_field('sub_text'),
-           'credits' => get_field('credits')
+           'credits' => get_field('credits'),
+           'first' => get_field('first_sentence'),
+           'second' => get_field('second_sentence'),
+           'icon'  => get_field('icon'),
         ];
     }
 

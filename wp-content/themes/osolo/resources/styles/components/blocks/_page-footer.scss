@@ -79,7 +79,7 @@
   }
   &__inner {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 2fr 1fr 2fr;
     grid-template-rows: 1fr 2fr 1fr;
     background-color: map-get(abstracts.$theme-colors, 'black');
     background-image: abstracts.$texture;
@@ -106,6 +106,15 @@
         margin-bottom: 5px;
         font-size: 20px;
         line-height: 24px;
+
+        a {
+          font-size: 20px;
+          line-height: 24px;
+          font-family: abstracts.$lekton-regular;
+          color: inherit;
+          text-transform: lowercase;
+          letter-spacing: unset;
+        }
       }
       @include bootstrap.media-breakpoint-down(md) {
         grid-column: 1;
@@ -170,6 +179,8 @@
       background-color: map-get(abstracts.$theme-colors, 'creme-white');
       background-image: abstracts.$texture;
       color: map-get(abstracts.$theme-colors, 'black');
+
+
 
       h2 {
         color: map-get(abstracts.$theme-colors, 'blackish');
