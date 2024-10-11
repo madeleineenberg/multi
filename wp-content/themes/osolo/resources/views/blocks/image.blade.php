@@ -12,7 +12,7 @@
   SupportsMultiple: false
 / --}}
 
-<div class="c-image-video-block {{ $placement[0] ? $placement[0] : '' }}">
+<div class="c-image-video-block {{ $placement[0] ? $placement[0] : '' }} {{ $quote ? 'with-quote' : '' }}">
     @if ($quote)
         <h2 class="c-image-video-block__quote">{{ $quote }}</h2>
     @endif
