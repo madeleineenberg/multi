@@ -6,8 +6,8 @@
 .editor-styles-wrapper > * {
   font-family: abstracts.$lekton-regular;
 
-  h1, a {
-    font-size: 20px;
+  h1, a, span {
+    font-size: 20px !important;
   }
 
    .wp-block {
@@ -16,5 +16,26 @@
 
   .wp-block-paragraph {
     width: 100%;
+  }
+
+  .c-sticky-image-text-block.less-margins {
+    z-index: unset;
+  }
+
+  .attachment-info {
+    h1, a, span {
+      font-size: 20px !important;
+    }
+  }
+
+  .filebird_sidebar, .attachments-browser  {
+
+
+    h1, a, span {
+      font-size: 20px !important;
+    }
+  }
+  .filebird_tree.jstree-default .jstree-anchor {
+    font-size: 16px !important;
   }
 }
