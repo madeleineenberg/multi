@@ -10,22 +10,32 @@ export default function () {
   }
 
   function detectScroll() {
-    $(document).off('mousewheel DOMMouseScroll');
+    $(document).off('wheel');
     setTimeout(function () {
-      $(document).on('mousewheel DOMMouseScroll', function (e) {
+      $(document).on('wheel', function (e) {
         $('.ticker-wrap').addClass('hide');
         const originalEvent = e.originalEvent as WheelEvent | undefined;
-        if (originalEvent && originalEvent.deltaY < 0) {
-          if ($images && $container) {
-            insertImage($images, $container);
-            $count++;
-
-            if ($images && $count === $images.length) {
-              $count = 0;
+        if (originalEvent) {
+          if (originalEvent.deltaY < 0) {
+            // Scroll up
+            if ($images && $container) {
+              insertImage($images, $container);
+              $count++;
+              if ($count === $images.length) {
+                $count = 0;
+              }
             }
-
-            $(document).off('mousewheel DOMMouseScroll', detectScroll);
+          } else if (originalEvent.deltaY > 0) {
+            // Scroll down
+            if ($images && $container) {
+              insertImage($images, $container);
+              $count++;
+              if ($count === $images.length) {
+                $count = 0;
+              }
+            }
           }
+          $(document).off('wheel', detectScroll);
         }
       });
     }, 100);
