@@ -19,6 +19,7 @@
   transform-origin: bottom;
   display: inline-block;
   backface-visibility: hidden; // Add this line
+  -webkit-backface-visibility: hidden;
   // transition-delay: calc(0.05s * var(--index));
 }
 
@@ -29,6 +30,7 @@
   display: inline-block;
   transform: translate3d(0, 100%, 0) rotateX(90deg);
   backface-visibility: hidden; // Add this line
+  -webkit-backface-visibility: hidden;
   // transition-delay: calc(0.05s * var(--index));
 }
 

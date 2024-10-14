@@ -74,14 +74,12 @@
         @endif
         @if (!empty($project_link))
             <div class="project-link-btn" style="background-color: {{ $color_background }}">
-                <div>
                     <a href="{{ $project_link['url'] }}" target="{{ $project_link['target'] }}" rel="nofollow"
                         class="link">
                         <div>
                             <span class="link-text">{{ $project_link['title'] }}</span>
                         </div>
                     </a>
-                </div>
                 <ion-icon name="arrow-up-outline"></ion-icon>
             </div>
         @endif

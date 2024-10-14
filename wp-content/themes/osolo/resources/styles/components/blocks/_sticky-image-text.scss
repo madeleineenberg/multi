@@ -24,7 +24,7 @@
 }
 
 .c-sticky-image-text-block {
-    &.less-margins {
+  &.less-margins {
     margin-bottom: -250px;
     position: relative;
     z-index: 10;
@@ -185,6 +185,10 @@
         margin-bottom: 0;
         font-size: 20px;
 
+        &:first-of-type {
+          margin-top: 5px;
+        }
+
         @include bootstrap.media-breakpoint-down(md) {
           font-size: 16px;
         }
@@ -262,6 +266,17 @@
         transform: rotate(20deg);
         font-size: 26px;
         margin-left: 10px;
+      }
+
+      @include bootstrap.media-breakpoint-down(md) {
+        padding: 10px 10px 10px 20px;
+
+        a {
+          font-size: 20px;
+        }
+        ion-icon {
+          font-size: 20px;
+        }
       }
     }
   }

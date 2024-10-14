@@ -20,13 +20,11 @@
             </p>
             @if (!empty($link))
                 <div class="project-link-btn gallery-link">
-                    <div>
                         <a href="{{ $link['url'] }}" target="{{ $link['target'] }}" rel="nofollow" class="link">
                             <div>
                                 <span class="link-text">{{ $link['title'] }}</span>
                             </div>
                         </a>
-                    </div>
                     <ion-icon name="arrow-up-outline"></ion-icon>
                 </div>
             @endif
