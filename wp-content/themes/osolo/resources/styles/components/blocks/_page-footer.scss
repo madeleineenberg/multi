@@ -16,6 +16,10 @@
     &.light-mode {
       background-image: abstracts.$texture;
       background-color: map-get(abstracts.$theme-colors, 'black');
+
+      .ticker-wrap-footer {
+        opacity: 1;
+      }
     }
 
     @include bootstrap.media-breakpoint-down(md) {
@@ -35,7 +39,13 @@
       background: -webkit-linear-gradient(180deg, pink, #c7cbe3);
       display: flex;
       align-items: center;
-      opacity: 0.7;
+      opacity: 0.8;
+
+      ion-icon {
+        position: relative;
+        top: 2px;
+      }
+
       &.hide {
         visibility: hidden;
       }
