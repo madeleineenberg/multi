@@ -4,11 +4,11 @@ export default function () {
   const tl1 = gsap.timeline();
 
   tl1.from('.logo , .menu-open, .footer, .error-text', {
-    duration: 1,
+    duration: 0.8,
     y: -100,
     opacity: 0,
     stagger: {
-      amount: 0.5,
+      amount: 0.4,
     },
   });
 
@@ -17,7 +17,7 @@ export default function () {
   });
 
   tl.to('.menu-container', {
-    duration: 1,
+    duration: 0.8,
     x: 0,
   });
   tl.from(
@@ -26,62 +26,62 @@ export default function () {
       opacity: 0,
       rotate: '180deg',
     },
-    '-=.2',
+    '-=.16',
   );
   tl.from(
     '.line',
     {
-      duration: 1,
+      duration: 0.6,
       stagger: {
         amount: 0.5,
       },
       width: '0%',
     },
-    '-=.2',
+    '-=.16',
   );
   tl.from(
     '.menu-item-number',
     {
-      duration: 1,
+      duration: 0.8,
       stagger: {
         amount: 0.5,
       },
       y: 100,
     },
-    '-=1.3',
+    '-=.2',
   );
   tl.from(
     '.menu-item-name',
     {
-      duration: 1,
+      duration: 0.8,
       stagger: {
         amount: 0.5,
       },
       y: 100,
     },
-    '-=1.2',
+    '-=.8',
   );
   tl.from(
     '.menu-item-sub',
     {
-      duration: 1,
+      duration: 0.8,
       stagger: {
         amount: 0.5,
       },
       y: 100,
     },
-    '-=1.1',
+    '-=.8',
   );
   tl.from(
     '.menu-item-icon',
     {
-      duration: 1,
+      duration: 0.8,
       stagger: {
         amount: 0.5,
       },
       y: 100,
     },
-    '-=1',
+    '-=.8',
   );
 
   $('.menu-open').on('click', function () {
