@@ -176,11 +176,16 @@
       grid-row: 3;
       place-self: end;
       font-family: abstracts.$lekton-regular;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-end;
+
       p {
         margin-bottom: 5px;
-        float: right;
         font-size: 20px;
         line-height: 24px;
+        text-align: right;
       }
       @include bootstrap.media-breakpoint-down(md) {
         display: none;
@@ -191,8 +196,6 @@
       background-color: map-get(abstracts.$theme-colors, 'creme-white');
       background-image: abstracts.$texture;
       color: map-get(abstracts.$theme-colors, 'black');
-
-
 
       h2 {
         color: map-get(abstracts.$theme-colors, 'blackish');
