@@ -25,12 +25,31 @@
       font-size: 64px;
     }
   }
+
+  &__text {
+    ion-icon {
+      transform: rotate(15deg) !important;
+      position: relative;
+      top: 4px;
+    }
+  }
+
+  &__container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 25px;
+    border: 1px solid map-get(abstracts.$theme-colors, 'creme-white');
+    position: relative;
+    z-index: 2;
+  }
 }
 
 .icon-box-wrapper {
   position: absolute;
   top: -80px;
   right: 50px;
+  z-index: 3;
 
   @include bootstrap.media-breakpoint-down(md) {
     top: -45px;

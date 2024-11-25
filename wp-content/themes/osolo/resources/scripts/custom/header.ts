@@ -43,7 +43,7 @@ export default function () {
   tl.from(
     '.menu-item-number',
     {
-      duration: 0.7, // Adjusted from 0.6 to 0.7
+      duration: 0.5, // Adjusted from 0.6 to 0.7
       stagger: {
         amount: 0.35, // Adjusted from 0.3 to 0.35
       },
@@ -54,7 +54,7 @@ export default function () {
   tl.from(
     '.menu-item-name',
     {
-      duration: 0.7, // Adjusted from 0.6 to 0.7
+      duration: 0.5, // Adjusted from 0.6 to 0.7
       stagger: {
         amount: 0.35, // Adjusted from 0.3 to 0.35
       },
@@ -65,7 +65,7 @@ export default function () {
   tl.from(
     '.menu-item-sub',
     {
-      duration: 0.7, // Adjusted from 0.6 to 0.7
+      duration: 0.6, // Adjusted from 0.6 to 0.7
       stagger: {
         amount: 0.35, // Adjusted from 0.3 to 0.35
       },
@@ -76,7 +76,7 @@ export default function () {
   tl.from(
     '.menu-item-icon',
     {
-      duration: 0.7, // Adjusted from 0.6 to 0.7
+      duration: 0.6, // Adjusted from 0.6 to 0.7
       stagger: {
         amount: 0.35, // Adjusted from 0.3 to 0.35
       },

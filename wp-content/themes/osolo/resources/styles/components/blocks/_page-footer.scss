@@ -11,7 +11,8 @@
     box-shadow: 0 2px 1px rgba(0, 0, 0, 0.09), 0 4px 2px rgba(0, 0, 0, 0.09),
       0 8px 4px rgba(0, 0, 0, 0.09), 0 16px 8px rgba(0, 0, 0, 0.09),
       0 32px 16px rgba(0, 0, 0, 0.09);
-    z-index: 999;
+    z-index: 9;
+    position: relative;
 
     &.light-mode {
       background-image: abstracts.$texture;
@@ -126,8 +127,8 @@
           line-height: 24px;
           font-family: abstracts.$lekton-regular;
           color: inherit;
-          text-transform: lowercase;
-          letter-spacing: unset;
+          text-transform: uppercase;
+          letter-spacing: 3px;
 
           @include bootstrap.media-breakpoint-down(md) {
             font-size: 18px;

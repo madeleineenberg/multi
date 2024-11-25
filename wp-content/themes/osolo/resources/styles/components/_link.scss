@@ -1,3 +1,7 @@
+@use 'sass:map';
+@use '../abstracts';
+@use '../vendors/bootstrap';
+
 .link {
   position: relative;
   text-transform: uppercase;
@@ -40,4 +44,71 @@
 
 .link:hover > div:nth-child(2) span {
   transform: translate3d(0, 0%, 0) rotateX(0deg);
+}
+
+//span
+
+.link > span:nth-child(1) span {
+  transition: 0.5s;
+  will-change: transform;
+  transform-style: preserve-3d;
+  transform-origin: bottom;
+  display: inline-block;
+  backface-visibility: hidden; // Add this line
+  -webkit-backface-visibility: hidden;
+  // transition-delay: calc(0.05s * var(--index));
+}
+
+.link > span:nth-child(2) span {
+  transition: 0.5s;
+  will-change: transform;
+  transform-origin: top;
+  display: inline-block;
+  transform: translate3d(0, 100%, 0) rotateX(90deg);
+  backface-visibility: hidden; // Add this line
+  -webkit-backface-visibility: hidden;
+  // transition-delay: calc(0.05s * var(--index));
+}
+
+.link:hover > span:nth-child(1) span {
+  transform: translate3d(0, -100%, 0) rotateX(-90deg);
+}
+
+.link:hover > span:nth-child(2) span {
+  transform: translate3d(0, 0%, 0) rotateX(0deg);
+}
+
+.inline-link {
+  font-size: 24px;
+  text-transform: uppercase;
+  font-family: abstracts.$lekton-regular;
+  letter-spacing: 3px;
+  text-decoration: underline;
+  color: map-get(abstracts.$theme-colors, 'darkpink');
+
+  &:hover {
+    color: unset;
+    text-decoration: none;
+    color: map-get(abstracts.$theme-colors, 'darkpink');
+  }
+}
+
+.c-sticky-image-text-block__text-wrapper-role {
+  .inline-link {
+    font-size: 19px;
+    text-transform: uppercase;
+    font-family: abstracts.$lekton-regular;
+    letter-spacing: 3px;
+    text-decoration: underline;
+    color: map-get(abstracts.$theme-colors, 'darkpink');
+    position: relative;
+    top: 2px;
+
+    &:hover {
+      color: unset;
+      text-decoration: none;
+      color: map-get(abstracts.$theme-colors, 'darkpink');
+      top: -2px;
+    }
+  }
 }
