@@ -3,10 +3,19 @@
 
 @section('content')
     <div class="gallery-container">
+        <div class="project-link-btn gallery-link return">
+            <ion-icon name="arrow-up-outline"></ion-icon>
+            <a href="#" id="go-back" class="link">
+                <div>
+                    <span class="link-text">Return</span>
+                </div>
+            </a>
+
+        </div>
         <div>
             <h1 id="gallery-title" class="gallery-title" data-id="{{ get_the_ID() }}">{!! get_the_title() !!}</h1>
         </div>
-        <div class="ticker-wrap">
+        {{-- <div class="ticker-wrap">
             <div class="ticker">
                 <span class="item-collection-1">
                     @for ($i = 0; $i < 6; $i++)
@@ -21,7 +30,7 @@
                     @endfor
                 </span>
             </div>
-        </div>
+        </div> --}}
         <div class="ticker-wrap two">
             <div class="ticker">
                 <span class="item-collection-1">

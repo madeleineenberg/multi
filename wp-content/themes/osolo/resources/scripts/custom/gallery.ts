@@ -47,8 +47,8 @@ export default function () {
     image.attr('class', 'image');
     image.attr('src', array[$count]);
 
-    let randomNumberWidth = Math.floor(Math.random() * 30) + 40;
-    let randomNumberHeight = Math.floor(Math.random() * 30) + 40;
+    let randomNumberWidth = Math.floor(Math.random() * 40) + 40;
+    let randomNumberHeight = Math.floor(Math.random() * 40) + 40;
     let randomNumberTop = Math.floor(Math.random() * 50) + -5;
     let randomNumberLeft = Math.floor(Math.random() * 70) + -5;
 

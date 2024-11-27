@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function () {
   let titleSplit = new SplitType('h1', {
-    types: 'words',
+    types: 'lines',
     lineClass: 'split-child',
   });
 
@@ -28,7 +28,7 @@ export default function () {
 
       // Start the animation
       anime.timeline().add({
-        targets: 'h1 .word',
+        targets: 'h1 .split-child',
         translateY: [100, 0],
         translateZ: 0,
         opacity: [0, 1],

@@ -4,6 +4,7 @@
 
 .c-form-block__wrapper {
   position: relative;
+  z-index: 10;
 }
 
 .c-form-block {
@@ -199,7 +200,8 @@
 .nf-form-content input[type='submit'] {
   position: relative;
   z-index: 10;
-  background-color: map-get(abstracts.$theme-colors, 'pink') !important;
+  // background-color: map-get(abstracts.$theme-colors, 'pink') !important;
+  background: -webkit-linear-gradient(180deg, pink, #c7cbe3) !important;
   border: none;
   color: map-get(abstracts.$theme-colors, 'black') !important;
   font-size: 24px;
@@ -209,7 +211,7 @@
   transition: all 0.5s ease;
   float: right;
   height: unset;
-  padding: 7px 35px 3px 35px;
+  padding: 7px 30px 3px 30px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11),
     0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11),
     0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11) !important;

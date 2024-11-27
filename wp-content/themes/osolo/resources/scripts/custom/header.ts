@@ -3,7 +3,7 @@ import gsap from 'gsap';
 export default function () {
   const tl1 = gsap.timeline();
 
-  tl1.from('.logo , .menu-open, .footer, .error-text', {
+  tl1.from('.logo , .menu-open, .footer, .error-text, .return', {
     duration: 0.8, // Adjusted from 0.6 to 0.7
     y: -100,
     opacity: 0,
