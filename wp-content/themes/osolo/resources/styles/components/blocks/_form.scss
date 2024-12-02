@@ -29,9 +29,10 @@
 
   &__text {
     ion-icon {
-      transform: rotate(15deg) !important;
+      transform: rotate(15deg);
       position: relative;
       top: 4px;
+      animation: mymove 1s ease-in-out infinite;
     }
   }
 
@@ -43,6 +44,11 @@
     border: 1px solid map-get(abstracts.$theme-colors, 'creme-white');
     position: relative;
     z-index: 2;
+
+    @include bootstrap.media-breakpoint-down(md) {
+      border: unset;
+      padding: unset;
+    }
   }
 }
 
@@ -224,5 +230,11 @@
   &:hover {
     background-color: map-get(abstracts.$theme-colors, 'darkpink') !important;
     color: map-get(abstracts.$theme-colors, 'creme-white') !important;
+  }
+}
+
+@keyframes mymove {
+  50% {
+    transform: rotate(50deg);
   }
 }

@@ -15,16 +15,20 @@
 <div class="c-image-reveal" id="image-reveal">
     @if ($heading || !empty($link))
         <div class="block-heading">
-            <p>
-                {{ $heading }}
-            </p>
+            @if ($heading)
+                <div class="block-heading-text">
+                    <p>
+                        {{ $heading }}
+                    </p>
+                </div>
+            @endif
             @if (!empty($link))
                 <div class="project-link-btn gallery-link">
-                        <a href="{{ $link['url'] }}" target="{{ $link['target'] }}" rel="nofollow" class="link">
-                            <div>
-                                <span class="link-text">{{ $link['title'] }}</span>
-                            </div>
-                        </a>
+                    <a href="{{ $link['url'] }}" target="{{ $link['target'] }}" rel="nofollow" class="link">
+                        <div>
+                            <span class="link-text">{{ $link['title'] }}</span>
+                        </div>
+                    </a>
                     <ion-icon name="arrow-up-outline"></ion-icon>
                 </div>
             @endif
@@ -49,9 +53,13 @@
 <div class="c-image-reveal__mobile">
     @if ($heading || !empty($link))
         <div class="block-heading">
-            <p>
-                {{ $heading }}
-            </p>
+            @if ($heading)
+                <div class="block-heading-text">
+                    <p>
+                        {{ $heading }}
+                    </p>
+                </div>
+            @endif
             @if (!empty($link))
                 <div class="gallery-link">
                     <div>

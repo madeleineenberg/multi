@@ -158,6 +158,14 @@
   }
 }
 
+body.home {
+  .gallery-link {
+    a {
+      color: map-get(abstracts.$theme-colors, 'creme-white');
+    }
+  }
+}
+
 @include bootstrap.media-breakpoint-up(md) {
   .c-image-reveal__mobile {
     display: none;
