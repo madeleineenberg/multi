@@ -1,17 +1,18 @@
 <?php
-add_action( 'init', function() {
-    register_post_type( 'Galleri',
-    
+add_action('init', function () {
+    register_post_type(
+        'Galleri',
+
         array(
             'labels' => array(
-                'name' => __( 'Galleri' ),
-                'singular_name' => __( 'galleri' ),
-                'add_new'       => 'lägg till bild',
-                
+                'name' => __('Galleri'),
+                'singular_name' => __('galleri'),
+                'add_new'       => 'lägg till galleri',
+
             ),
             'public'        => true,
-            'has_archive'   => true,
-            'rewrite'       => array('slug' => 'galleri'),
+            'has_archive'   => false,
+            'rewrite'       => array('slug' => 'gallery'),
             'public'        => true,
             'show_ui'       => true,
             'show_in_menu'  => true,
@@ -20,7 +21,7 @@ add_action( 'init', function() {
             'hierarchical'        => false,
             'show_in_rest'        => true,
             'menu_icon'           => 'dashicons-format-image',
-            'supports' => array( 'title', 'custom-fields','thumbnail' ),
+            'supports' => array('title', 'custom-fields', 'thumbnail'),
         )
     );
 });
