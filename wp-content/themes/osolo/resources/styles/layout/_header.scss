@@ -9,7 +9,7 @@ header.banner {
   align-items: center;
   z-index: 50;
   justify-content: space-between;
-  height: 80px;
+  height: 85px;
   width: 100%;
   backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(7px);
@@ -34,13 +34,39 @@ header.banner {
     top: 5px;
 
     ion-icon {
-      font-size: 25px;
+      font-size: 35px;
       color: map-get(abstracts.$theme-colors, 'pink');
       cursor: pointer;
+      position: relative;
+      z-index: 10;
     }
 
     @include bootstrap.media-breakpoint-down(md) {
       margin-right: 15px;
+    }
+  }
+}
+
+@include bootstrap.media-breakpoint-up(md) {
+  body.home {
+    .menu-open {
+      &::after {
+        content: '';
+        position: absolute;
+        top: -60px;
+        right: -50px;
+        width: 120px;
+        height: 120px;
+        background: -webkit-linear-gradient(90deg, pink, #c7cbe3);
+        border-radius: 50%;
+        transform: scale(1);
+        transition: all 0.4s ease-in;
+        filter: blur(7px);
+      }
+
+      ion-icon {
+        color: map-get(abstracts.$theme-colors, 'creme-white');
+      }
     }
   }
 }
@@ -64,7 +90,7 @@ header.banner {
     cursor: pointer;
 
     ion-icon {
-      font-size: 25px;
+      font-size: 35px;
       color: map-get(abstracts.$theme-colors, 'creme-white');
     }
 
