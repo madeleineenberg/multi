@@ -128,6 +128,24 @@
       }
     }
   }
+
+  &.add {
+    @include bootstrap.media-breakpoint-up(md) {
+      margin-bottom: 50%;
+    }
+
+    @include bootstrap.media-breakpoint-up(xl) {
+      margin-bottom: 30%;
+    }
+  }
+
+  &.hide {
+    @include bootstrap.media-breakpoint-down(lg) {
+      .c-text-block__image-wrapper {
+        display: none;
+      }
+    }
+  }
 }
 
 @keyframes mymove {

@@ -12,7 +12,7 @@
   SupportsMultiple: true
 / --}}
 
-<div class="c-text-block">
+<div class="c-text-block {{ $options ? $options : '' }}">
     <h2 class="c-text-block__heading" id="headline" data-scroll data-scroll-repeat>{{ $heading }}</h2>
     <div class="underline" data-scroll></div>
     <div class="c-text-block__text {{ $image ? 'bg-text' : '' }}" data-scroll data-scroll-speed="-1">

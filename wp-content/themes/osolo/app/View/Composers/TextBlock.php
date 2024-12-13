@@ -19,12 +19,12 @@ class TextBlock extends Composer
     public function with()
     {
         return [
-           'heading' => get_field('heading'),
-           'text' => get_field('text'),
-           'icon' => get_field('icon'),
-           'image' => get_field('image'),
-           'opacity' => get_field('image_opacity') ? get_field('image_opacity') : '1',
+            'heading' => get_field('heading'),
+            'text' => get_field('text'),
+            'icon' => get_field('icon'),
+            'image' => get_field('image'),
+            'opacity' => get_field('image_opacity') ? get_field('image_opacity') : '1',
+            'options' => get_field('block_options') ? implode(' ', get_field('block_options')) : '',
         ];
     }
-
 }

@@ -98,16 +98,44 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "default_value": 1,
             "min": "",
             "max": 1,
+            "allow_in_bindings": 1,
             "step": "0.05",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_675c2e34c8cf0",
+            "label": "options",
+            "name": "block_options",
+            "aria-label": "",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "add": "Add margins",
+                "hide": "Hide image on mobile"
+            },
+            "default_value": [],
+            "return_format": "value",
+            "allow_custom": 0,
+            "allow_in_bindings": 0,
+            "layout": "vertical",
+            "toggle": 0,
+            "save_custom": 0,
+            "custom_choice_button_text": "Add new choice"
         }
     ],
     "location": [
@@ -128,5 +156,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728481527
+    "modified": 1734094562
 }
