@@ -161,6 +161,7 @@
       h2 {
         @extend %perspective-heading;
         color: map-get(abstracts.$theme-colors, 'creme-white');
+        transition: all 0.4s ease-in;
 
         @include bootstrap.media-breakpoint-down(md) {
           .subtitle_line .word {
@@ -170,6 +171,17 @@
           }
         }
       }
+
+      .c-page-footer__inner-middle-section__sub-text {
+        color: map-get(abstracts.$theme-colors, 'creme-white');
+      }
+
+      a:hover {
+        h2 {
+          color: map-get(abstracts.$theme-colors, 'pink');
+        }
+      }
+
       &__sub-text {
         font-family: abstracts.$lekton-regular;
         text-transform: uppercase;
@@ -211,6 +223,16 @@
 
       h2 {
         color: map-get(abstracts.$theme-colors, 'blackish');
+        transition: all 0.4s ease-in;
+      }
+      .c-page-footer__inner-middle-section__sub-text {
+        color: map-get(abstracts.$theme-colors, 'blackish');
+      }
+
+      a:hover {
+        h2 {
+          color: map-get(abstracts.$theme-colors, 'pink');
+        }
       }
     }
   }

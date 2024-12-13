@@ -99,6 +99,23 @@
             "selected": 0
         },
         {
+            "key": "field_675c3bd833aa7",
+            "label": "Anchor link",
+            "name": "anchor_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "allow_in_bindings": 0
+        },
+        {
             "key": "field_630ccb05a6da7",
             "label": "Bold text",
             "name": "bold_text",
@@ -276,5 +293,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1728638337
+    "modified": 1734098128
 }
