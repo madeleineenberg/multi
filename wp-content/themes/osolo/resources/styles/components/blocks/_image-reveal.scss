@@ -28,6 +28,10 @@
       font-family: abstracts.$lekton-regular;
       letter-spacing: 3px;
       color: map-get(abstracts.$theme-colors, 'black');
+
+      span {
+           color: map-get(abstracts.$theme-colors, 'black');
+      }
     }
     ion-icon {
       transform: rotate(20deg);
