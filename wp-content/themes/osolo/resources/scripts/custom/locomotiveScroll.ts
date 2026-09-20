@@ -28,6 +28,9 @@ export default function () {
       },
     });
 
+    // Make locomotive scroll instance globally available
+    (window as any).locomotiveScroll = scroll;
+
     //scroll to target on ninja form submit
     $(document).on('nfFormSubmitResponse', function () {
       scroll.scrollTo('#note-board');

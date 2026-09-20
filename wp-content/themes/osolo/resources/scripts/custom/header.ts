@@ -1,6 +1,88 @@
 import gsap from 'gsap';
 
 export default function () {
+  function handleScrollBlur() {
+    const banner = document.querySelector('.banner') as HTMLElement;
+    if (!banner) return;
+
+    const scrollContainer = document.querySelector('[data-scroll-container]');
+    const isLocomotiveActive = scrollContainer && !$('body').hasClass('single-galleri');
+
+    if (isLocomotiveActive) {
+      setTimeout(() => {
+        const locomotiveScroll = (window as any).locomotiveScroll;
+        
+        if (locomotiveScroll) {
+          locomotiveScroll.on('scroll', (args: any) => {
+            const scrollY = args.scroll.y;
+
+            if (scrollY > 50) {
+              banner.style.backdropFilter = 'blur(7px)';
+              (banner.style as any).webkitBackdropFilter = 'blur(7px)';
+            } else {
+              banner.style.backdropFilter = 'none';
+              (banner.style as any).webkitBackdropFilter = 'none';
+            }
+          });
+        } else {
+          const scrollEl = document.querySelector('[data-scroll-container]') as HTMLElement;
+          if (scrollEl) {
+            let ticking = false;
+            
+            const handleScroll = () => {
+              if (!ticking) {
+                requestAnimationFrame(() => {
+                  const scrollY = scrollEl.scrollTop;
+
+                  if (scrollY > 50) {
+                    banner.style.backdropFilter = 'blur(7px)';
+                    (banner.style as any).webkitBackdropFilter = 'blur(7px)';
+                  } else {
+                    banner.style.backdropFilter = 'none';
+                    (banner.style as any).webkitBackdropFilter = 'none';
+                  }
+                  
+                  ticking = false;
+                });
+                ticking = true;
+              }
+            };
+            
+            scrollEl.addEventListener('scroll', handleScroll);
+          }
+        }
+      }, 2000);
+    } else {
+      let scrollY = 0;
+      let ticking = false;
+
+      function updateBlur() {
+        scrollY = window.scrollY;
+
+        if (scrollY > 50) {
+          banner.style.backdropFilter = 'blur(7px)';
+          (banner.style as any).webkitBackdropFilter = 'blur(7px)';
+        } else {
+          banner.style.backdropFilter = 'none';
+          (banner.style as any).webkitBackdropFilter = 'none';
+        }
+
+        ticking = false;
+      }
+
+      function requestTick() {
+        if (!ticking) {
+          requestAnimationFrame(updateBlur);
+          ticking = true;
+        }
+      }
+
+      window.addEventListener('scroll', requestTick);
+    }
+  }
+
+  // Initialize scroll blur function
+  handleScrollBlur();
   const tl1 = gsap.timeline();
 
   tl1.from('.logo , .menu-open, .footer, .error-text, .return', {

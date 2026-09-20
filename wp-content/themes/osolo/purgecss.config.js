@@ -37,5 +37,6 @@ module.exports = {
     /nf-error/,
     /woocommerce/,
     /select2/,
+    /banner/,
   ],
 };

@@ -11,8 +11,8 @@ header.banner {
   justify-content: space-between;
   height: 85px;
   width: 100%;
-  backdrop-filter: blur(7px);
-  -webkit-backdrop-filter: blur(7px);
+  // backdrop-filter: blur(7px);
+  // -webkit-backdrop-filter: blur(7px);
 
   .logo {
     font-size: 25px;
@@ -57,15 +57,30 @@ header.banner {
         right: -50px;
         width: 120px;
         height: 120px;
-        background: -webkit-linear-gradient(90deg, pink, #c7cbe3);
+        // background: -webkit-linear-gradient(90deg, pink, #c7cbe3);
+        background: map-get(abstracts.$theme-colors, 'black');
+        background-image: abstracts.$texture;
         border-radius: 50%;
         transform: scale(1);
         transition: all 0.4s ease-in;
-        filter: blur(7px);
+        // filter: blur(2px);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11),
+          0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11),
+          0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11);
       }
 
       ion-icon {
-        color: map-get(abstracts.$theme-colors, 'creme-white');
+        color: map-get(abstracts.$theme-colors, 'pink');
+      }
+
+      // svg {
+      //   line {
+      //     stroke: map-get(abstracts.$theme-colors, 'creme-white') !important;
+      //   }
+      // }
+
+      &:hover::after {
+        transform: scale(1.2);
       }
     }
   }
