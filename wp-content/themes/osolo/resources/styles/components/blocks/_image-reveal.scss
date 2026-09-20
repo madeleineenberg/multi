@@ -162,8 +162,13 @@
   }
 }
 
+// Startsidan har svart bakgrund, så gallery-link måste ljusna där.
+// Desktopvarianten har klassen .project-link-btn, mobilvarianten har den inte
+// och stod därför kvar på svart mot svart. Ingen egen breakpoint behövs:
+// .c-image-reveal__mobile är display: none över md.
 body.home {
-  .project-link-btn.gallery-link {
+  .project-link-btn.gallery-link,
+  .c-image-reveal__mobile .gallery-link {
     a {
       color: map.get(abstracts.$theme-colors, 'creme-white');
 
