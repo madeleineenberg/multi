@@ -40,7 +40,9 @@
   }
 }
 
-a {
+// Scopad till navigationslänkarna. Den här regeln låg tidigare på bar `a`
+// och träffade därmed varje länk på hela sajten.
+.navigation-item a {
   font-family: abstracts.$oswald-bold;
   font-size: 8vw;
   text-decoration: none;

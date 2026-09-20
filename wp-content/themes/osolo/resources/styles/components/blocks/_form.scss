@@ -104,6 +104,9 @@
 }
 
 .icon-link {
+  // Ikonen har egen font-size (14vw). Den här styr bara länkens egen box,
+  // som tidigare kom från den globala a-regeln i _hover-link.scss.
+  font-size: 8vw;
   position: absolute;
   top: 57%;
   left: 50%;
