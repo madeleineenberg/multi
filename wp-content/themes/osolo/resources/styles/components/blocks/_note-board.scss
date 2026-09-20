@@ -16,7 +16,7 @@
       border-radius: 15px;
       transform-origin: left;
       overflow: hidden;
-      background-color: map-get(abstracts.$theme-colors, 'pink');
+      background-color: map.get(abstracts.$theme-colors, 'pink');
       transition: all 3s ease;
       filter: blur(5px);
 
@@ -91,13 +91,13 @@
 
     &-wrapper {
       overflow: hidden;
-      background-color: map-get(abstracts.$theme-colors, 'purple');
+      background-color: map.get(abstracts.$theme-colors, 'purple');
     }
 
     &-item {
-      background-color: map-get(abstracts.$theme-colors, 'black');
+      background-color: map.get(abstracts.$theme-colors, 'black');
       background-image: abstracts.$texture;
-      color: map-get(abstracts.$theme-colors, 'creme-white');
+      color: map.get(abstracts.$theme-colors, 'creme-white');
       font-size: 20px;
       display: flex;
       flex-direction: column;
@@ -118,7 +118,7 @@
       }
 
       &.empty-note {
-        background-color: map-get(abstracts.$theme-colors, 'purple');
+        background-color: map.get(abstracts.$theme-colors, 'purple');
         // background-image: $texture;
         background-image: none;
         box-shadow: none;
@@ -128,7 +128,7 @@
         }
 
         &-color {
-          background-color: map-get(abstracts.$theme-colors, 'purple');
+          background-color: map.get(abstracts.$theme-colors, 'purple');
           background-image: none;
           box-shadow: none;
           // background-image: $texture;
@@ -180,9 +180,9 @@
           //       right: 10px;
           //       width: 20px;
           //       height: 20px;
-          //       background: map-get(abstracts.$theme-colors, 'blackish');
+          //       background: map.get(abstracts.$theme-colors, 'blackish');
           //       border-radius: 50%;
-          //       border-color: map-get(abstracts.$theme-colors, 'pink');
+          //       border-color: map.get(abstracts.$theme-colors, 'pink');
 
           //       content: ' ';
           //     }
@@ -205,13 +205,13 @@
     padding: 5%;
   }
   .nf-error .nf-error-msg {
-    color: map-get(abstracts.$theme-colors, 'darkpink');
+    color: map.get(abstracts.$theme-colors, 'darkpink');
   }
   .nf-error .ninja-forms-field {
-    border-color: map-get(abstracts.$theme-colors, 'darkpink') !important;
+    border-color: map.get(abstracts.$theme-colors, 'darkpink') !important;
   }
   .nf-pass .ninja-forms-field {
-    border-color: map-get(abstracts.$theme-colors, 'creme-white') !important;
+    border-color: map.get(abstracts.$theme-colors, 'creme-white') !important;
   }
   .nf-error.field-wrap .nf-field-element:after,
   .nf-pass.field-wrap .nf-field-element:after {
@@ -225,24 +225,24 @@
     padding: 0px;
     border-style: none none dotted;
     border-width: 2px;
-    border-color: transparent transparent map-get(abstracts.$theme-colors, 'creme-white');
+    border-color: transparent transparent map.get(abstracts.$theme-colors, 'creme-white');
     background-color: transparent;
     font-family: abstracts.$oswald-bold;
     letter-spacing: 3px;
-    color: map-get(abstracts.$theme-colors, 'pink');
+    color: map.get(abstracts.$theme-colors, 'pink');
     font-size: 3.3vw;
     line-height: 1em;
 
     &::placeholder {
       text-transform: uppercase;
       letter-spacing: 3px;
-      color: map-get(abstracts.$theme-colors, 'blackish');
+      color: map.get(abstracts.$theme-colors, 'blackish');
     }
 
     &:focus {
-      color: map-get(abstracts.$theme-colors, 'blackish');
+      color: map.get(abstracts.$theme-colors, 'blackish');
       background-color: transparent;
-      border-color: transparent transparent map-get(abstracts.$theme-colors, 'pink');
+      border-color: transparent transparent map.get(abstracts.$theme-colors, 'pink');
     }
   }
   .nf-form-content input[type='button'] {

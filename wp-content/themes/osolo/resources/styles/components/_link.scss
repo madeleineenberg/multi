@@ -84,12 +84,12 @@
   font-family: abstracts.$lekton-regular;
   letter-spacing: 2px;
   text-decoration: underline;
-  color: map-get(abstracts.$theme-colors, 'darkpink');
+  color: map.get(abstracts.$theme-colors, 'darkpink');
 
   &:hover {
     color: unset;
     text-decoration: none;
-    color: map-get(abstracts.$theme-colors, 'darkpink');
+    color: map.get(abstracts.$theme-colors, 'darkpink');
   }
 }
 
@@ -100,14 +100,14 @@
     font-family: abstracts.$lekton-regular;
     letter-spacing: 3px;
     text-decoration: underline;
-    color: map-get(abstracts.$theme-colors, 'darkpink');
+    color: map.get(abstracts.$theme-colors, 'darkpink');
     position: relative;
     top: 2px;
 
     &:hover {
       color: unset;
       text-decoration: none;
-      color: map-get(abstracts.$theme-colors, 'darkpink');
+      color: map.get(abstracts.$theme-colors, 'darkpink');
       top: -2px;
     }
   }

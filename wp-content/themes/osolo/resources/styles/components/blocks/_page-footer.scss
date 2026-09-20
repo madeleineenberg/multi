@@ -5,7 +5,7 @@
 .c-page-footer {
   &__panel {
     background-image: abstracts.$texture;
-    background-color: map-get(abstracts.$theme-colors, 'creme-white');
+    background-color: map.get(abstracts.$theme-colors, 'creme-white');
 
     min-height: 500px;
     box-shadow: 0 2px 1px rgba(0, 0, 0, 0.09), 0 4px 2px rgba(0, 0, 0, 0.09),
@@ -16,7 +16,7 @@
 
     &.light-mode {
       background-image: abstracts.$texture;
-      background-color: map-get(abstracts.$theme-colors, 'black');
+      background-color: map.get(abstracts.$theme-colors, 'black');
 
       .ticker-wrap-footer {
         opacity: 1;
@@ -82,7 +82,7 @@
       font-size: 18px;
       // color: rgba(255, 255, 255, 0.4);
       // color: #cbb0f6;
-      color: map-get(abstracts.$theme-colors, 'blackish');
+      color: map.get(abstracts.$theme-colors, 'blackish');
       text-transform: uppercase;
       letter-spacing: 2px;
       font-family: abstracts.$lekton-italic;
@@ -92,9 +92,9 @@
     display: grid;
     grid-template-columns: 2fr 1fr 2fr;
     grid-template-rows: 1fr 2fr 1fr;
-    background-color: map-get(abstracts.$theme-colors, 'black');
+    background-color: map.get(abstracts.$theme-colors, 'black');
     background-image: abstracts.$texture;
-    color: map-get(abstracts.$theme-colors, 'creme-white');
+    color: map.get(abstracts.$theme-colors, 'creme-white');
     min-height: 100vh;
     z-index: -1;
     margin-top: -240px;
@@ -160,7 +160,7 @@
 
       h2 {
         @extend %perspective-heading;
-        color: map-get(abstracts.$theme-colors, 'creme-white');
+        color: map.get(abstracts.$theme-colors, 'creme-white');
         transition: all 0.4s ease-in;
 
         @include bootstrap.media-breakpoint-down(md) {
@@ -173,12 +173,12 @@
       }
 
       .c-page-footer__inner-middle-section__sub-text {
-        color: map-get(abstracts.$theme-colors, 'creme-white');
+        color: map.get(abstracts.$theme-colors, 'creme-white');
       }
 
       a:hover {
         h2 {
-          color: map-get(abstracts.$theme-colors, 'pink');
+          color: map.get(abstracts.$theme-colors, 'pink');
         }
       }
 
@@ -217,21 +217,21 @@
     }
 
     &.light-mode {
-      background-color: map-get(abstracts.$theme-colors, 'creme-white');
+      background-color: map.get(abstracts.$theme-colors, 'creme-white');
       background-image: abstracts.$texture;
-      color: map-get(abstracts.$theme-colors, 'black');
+      color: map.get(abstracts.$theme-colors, 'black');
 
       h2 {
-        color: map-get(abstracts.$theme-colors, 'blackish');
+        color: map.get(abstracts.$theme-colors, 'blackish');
         transition: all 0.4s ease-in;
       }
       .c-page-footer__inner-middle-section__sub-text {
-        color: map-get(abstracts.$theme-colors, 'blackish');
+        color: map.get(abstracts.$theme-colors, 'blackish');
       }
 
       a:hover {
         h2 {
-          color: map-get(abstracts.$theme-colors, 'pink');
+          color: map.get(abstracts.$theme-colors, 'pink');
         }
       }
     }

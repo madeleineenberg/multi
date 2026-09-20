@@ -34,7 +34,7 @@
     font-size: 8vw;
     width: 80%;
     mix-blend-mode: difference;
-    color: map-get(abstracts.$theme-colors, 'pink');
+    color: map.get(abstracts.$theme-colors, 'pink');
 
     @include bootstrap.media-breakpoint-down(md) {
       font-size: 12vw;
@@ -64,7 +64,7 @@
   &__image-wrapper {
     width: 100%;
     height: 100%;
-    background-color: map-get(abstracts.$theme-colors, 'blackish');
+    background-color: map.get(abstracts.$theme-colors, 'blackish');
     overflow: hidden;
 
     @include bootstrap.media-breakpoint-down(md) {

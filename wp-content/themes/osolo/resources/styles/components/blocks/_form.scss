@@ -9,9 +9,9 @@
 
 .c-form-block {
   background-image: abstracts.$texture;
-  background-color: map-get(abstracts.$theme-colors, 'black');
+  background-color: map.get(abstracts.$theme-colors, 'black');
   padding: 5% 5% 10% 5%;
-  color: map-get(abstracts.$theme-colors, 'creme-white');
+  color: map.get(abstracts.$theme-colors, 'creme-white');
   margin-bottom: -255px;
 
   h2 {
@@ -41,7 +41,7 @@
     margin: 0 auto;
     padding: 2rem;
     border-radius: 25px;
-    border: 1px solid map-get(abstracts.$theme-colors, 'creme-white');
+    border: 1px solid map.get(abstracts.$theme-colors, 'creme-white');
     position: relative;
     z-index: 2;
 
@@ -88,7 +88,7 @@
   }
 
   ion-icon {
-    color: map-get(abstracts.$theme-colors, 'pink');
+    color: map.get(abstracts.$theme-colors, 'pink');
     font-size: 14vw;
     transition: all 1s ease;
     transition-delay: 1s;
@@ -119,12 +119,12 @@
 }
 
 .nf-error .nf-error-msg {
-  color: map-get(abstracts.$theme-colors, 'pink') !important;
+  color: map.get(abstracts.$theme-colors, 'pink') !important;
 }
 
 .nf-error-msg,
 .ninja-forms-req-symbol {
-  color: map-get(abstracts.$theme-colors, 'pink') !important;
+  color: map.get(abstracts.$theme-colors, 'pink') !important;
 }
 
 .nf-form-fields-required,
@@ -137,13 +137,13 @@
   padding: 5%;
 }
 .nf-error .nf-error-msg {
-  color: map-get(abstracts.$theme-colors, 'darkpink');
+  color: map.get(abstracts.$theme-colors, 'darkpink');
 }
 .nf-error .ninja-forms-field {
-  border-color: map-get(abstracts.$theme-colors, 'darkpink') !important;
+  border-color: map.get(abstracts.$theme-colors, 'darkpink') !important;
 }
 .nf-pass .ninja-forms-field {
-  border-color: map-get(abstracts.$theme-colors, 'creme-white') !important;
+  border-color: map.get(abstracts.$theme-colors, 'creme-white') !important;
 }
 .nf-error.field-wrap .nf-field-element:after,
 .nf-pass.field-wrap .nf-field-element:after {
@@ -159,11 +159,11 @@
   border-style: none none dotted !important;
   border-width: 2px;
   border-color: transparent transparent
-    map-get(abstracts.$theme-colors, 'creme-white') !important;
+    map.get(abstracts.$theme-colors, 'creme-white') !important;
   background-color: transparent !important;
   font-family: abstracts.$lekton-regular;
   letter-spacing: 3px;
-  color: map-get(abstracts.$theme-colors, 'pink') !important;
+  color: map.get(abstracts.$theme-colors, 'pink') !important;
   font-size: 24px;
   line-height: 1em;
   margin-top: 15px;
@@ -175,25 +175,25 @@
   }
 
   &:focus {
-    color: map-get(abstracts.$theme-colors, 'creme-white');
+    color: map.get(abstracts.$theme-colors, 'creme-white');
     background-color: transparent;
     border-color: transparent transparent
-      map-get(abstracts.$theme-colors, 'pink');
+      map.get(abstracts.$theme-colors, 'pink');
   }
 }
 
 .nf-form-content textarea {
-  background-color: map-get(abstracts.$theme-colors, 'purple') !important;
+  background-color: map.get(abstracts.$theme-colors, 'purple') !important;
   border-radius: 20px !important;
   border: none !important;
-  color: map-get(abstracts.$theme-colors, 'black') !important;
+  color: map.get(abstracts.$theme-colors, 'black') !important;
   padding: 5% !important;
   height: 350px !important;
 
   &::placeholder {
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: map-get(abstracts.$theme-colors, 'black');
+    color: map.get(abstracts.$theme-colors, 'black');
   }
 
   @include bootstrap.media-breakpoint-down(md) {
@@ -206,10 +206,10 @@
 .nf-form-content input[type='submit'] {
   position: relative;
   z-index: 10;
-  // background-color: map-get(abstracts.$theme-colors, 'pink') !important;
+  // background-color: map.get(abstracts.$theme-colors, 'pink') !important;
   background: -webkit-linear-gradient(180deg, pink, #c7cbe3) !important;
   border: none;
-  color: map-get(abstracts.$theme-colors, 'black') !important;
+  color: map.get(abstracts.$theme-colors, 'black') !important;
   font-size: 24px;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -228,8 +228,8 @@
   // background-size: 10px;
 
   &:hover {
-    background-color: map-get(abstracts.$theme-colors, 'darkpink') !important;
-    color: map-get(abstracts.$theme-colors, 'creme-white') !important;
+    background-color: map.get(abstracts.$theme-colors, 'darkpink') !important;
+    color: map.get(abstracts.$theme-colors, 'creme-white') !important;
   }
 }
 

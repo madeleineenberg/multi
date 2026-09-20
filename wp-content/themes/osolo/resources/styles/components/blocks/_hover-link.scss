@@ -63,7 +63,7 @@ a {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 25vw;
-    color: map-get(abstracts.$theme-colors, 'pink');
+    color: map.get(abstracts.$theme-colors, 'pink');
     z-index: 10;
   }
 }

@@ -24,8 +24,8 @@
   &.is-style-outline {
     .wp-block-button__link {
       @include bootstrap.button-outline-variant(
-        map-get(abstracts.$theme-colors, 'primary'),
-        map-get(abstracts.$theme-colors, 'light')
+        map.get(abstracts.$theme-colors, 'primary'),
+        map.get(abstracts.$theme-colors, 'light')
       );
     }
   }
@@ -33,8 +33,8 @@
   &.is-style-solid {
     .wp-block-button__link {
       @include bootstrap.button-variant(
-        map-get(abstracts.$theme-colors, 'primary'),
-        map-get(abstracts.$theme-colors, 'light')
+        map.get(abstracts.$theme-colors, 'primary'),
+        map.get(abstracts.$theme-colors, 'light')
       );
     }
   }

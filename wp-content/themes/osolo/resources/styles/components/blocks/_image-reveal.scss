@@ -11,7 +11,7 @@
 
   p {
     background-color: #f3f3f3;
-    color: map-get(abstracts.$theme-colors, 'blackish');
+    color: map.get(abstracts.$theme-colors, 'blackish');
     padding: 5px 10px 3px 10px;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -27,10 +27,10 @@
       text-transform: uppercase;
       font-family: abstracts.$lekton-regular;
       letter-spacing: 3px;
-      color: map-get(abstracts.$theme-colors, 'black');
+      color: map.get(abstracts.$theme-colors, 'black');
 
       span {
-           color: map-get(abstracts.$theme-colors, 'black');
+           color: map.get(abstracts.$theme-colors, 'black');
       }
     }
     ion-icon {
@@ -74,7 +74,7 @@
         border-radius: 15px;
         transform-origin: left;
         overflow: hidden;
-        background-color: map-get(abstracts.$theme-colors, 'black');
+        background-color: map.get(abstracts.$theme-colors, 'black');
         transition: all 3s ease;
         filter: blur(5px);
         z-index: -1;
@@ -165,7 +165,7 @@
 body.home {
   .gallery-link {
     a {
-      color: map-get(abstracts.$theme-colors, 'creme-white');
+      color: map.get(abstracts.$theme-colors, 'creme-white');
     }
   }
 }
@@ -220,7 +220,7 @@ body.home {
       left: 50%;
       transform: translate(-50%, -50%);
       font-size: 25vw;
-      color: map-get(abstracts.$theme-colors, 'pink');
+      color: map.get(abstracts.$theme-colors, 'pink');
       z-index: 10;
       mix-blend-mode: difference;
     }
@@ -230,7 +230,7 @@ body.home {
       font-size: 24px;
       padding-top: 20px;
       float: right;
-      color: map-get(abstracts.$theme-colors, 'blackish');
+      color: map.get(abstracts.$theme-colors, 'blackish');
     }
 
     &-image-wrapper {
@@ -251,7 +251,7 @@ body.home {
 
   body.home {
     .c-image-reveal__mobile-subtitle {
-      color: map-get(abstracts.$theme-colors, 'creme-white');
+      color: map.get(abstracts.$theme-colors, 'creme-white');
     }
   }
 }

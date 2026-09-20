@@ -4,8 +4,8 @@
 
 .c-page-hero {
   height: 900px;
-  background: map-get(abstracts.$theme-colors, 'black');
-  color: map-get(abstracts.$theme-colors, 'creme-white');
+  background: map.get(abstracts.$theme-colors, 'black');
+  color: map.get(abstracts.$theme-colors, 'creme-white');
   display: flex;
   justify-content: center;
   background-image: abstracts.$texture;
@@ -23,7 +23,7 @@
   &_image-wrapper {
     aspect-ratio: 3 /4;
     max-width: 700px;
-    background-color: map-get(abstracts.$theme-colors, 'blackish');
+    background-color: map.get(abstracts.$theme-colors, 'blackish');
 
     @include bootstrap.media-breakpoint-down(md) {
       margin-top: 20%;

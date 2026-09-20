@@ -10,9 +10,9 @@
   }
 
   p {
-    // background-color: map-get(abstracts.$theme-colors, 'pink');
+    // background-color: map.get(abstracts.$theme-colors, 'pink');
     background-color: #f3f3f3;
-    color: map-get(abstracts.$theme-colors, 'blackish');
+    color: map.get(abstracts.$theme-colors, 'blackish');
     padding: 5px 10px 3px 10px;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -144,7 +144,7 @@
         border-radius: 5px;
         transform-origin: left;
         overflow: hidden;
-        background-color: map-get(abstracts.$theme-colors, 'pink');
+        background-color: map.get(abstracts.$theme-colors, 'pink');
         transition: all 3s ease;
         filter: blur(2px);
         position: relative;
@@ -162,7 +162,7 @@
 
         ion-icon {
           font-size: 25px;
-          color: map-get(abstracts.$theme-colors, 'blackish');
+          color: map.get(abstracts.$theme-colors, 'blackish');
 
           @include bootstrap.media-breakpoint-down(md) {
             font-size: 20px;
@@ -202,7 +202,7 @@
         border-radius: 5px;
         transform-origin: left;
         overflow: hidden;
-        background-color: map-get(abstracts.$theme-colors, 'pink');
+        background-color: map.get(abstracts.$theme-colors, 'pink');
         transition: all 3s ease;
         filter: blur(2px);
         position: relative;
@@ -263,7 +263,7 @@
         text-transform: uppercase;
         font-family: abstracts.$lekton-regular;
         letter-spacing: 3px;
-        color: map-get(abstracts.$theme-colors, 'black');
+        color: map.get(abstracts.$theme-colors, 'black');
       }
       ion-icon {
         transform: rotate(20deg);
@@ -350,7 +350,7 @@
           top: 0.3em;
           width: 0.6em;
           height: 0.6em;
-          background-color: map-get(abstracts.$theme-colors, 'pink');
+          background-color: map.get(abstracts.$theme-colors, 'pink');
           border-radius: 50%;
           filter: blur(3px);
         }

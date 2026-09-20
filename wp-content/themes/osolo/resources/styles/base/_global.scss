@@ -7,7 +7,7 @@
  */
 
 a {
-  color: map-get(abstracts.$theme-colors, 'primary');
+  color: map.get(abstracts.$theme-colors, 'primary');
 }
 
 /**
@@ -26,15 +26,15 @@ a {
 // }
 
 body {
-  background-color: map-get(abstracts.$theme-colors, 'creme-white');
-  color: map-get(abstracts.$theme-colors, 'black');
+  background-color: map.get(abstracts.$theme-colors, 'creme-white');
+  color: map.get(abstracts.$theme-colors, 'black');
   overflow-x: hidden;
   background-image: abstracts.$texture;
 
   &.home,
   &.single-galleri {
-    background-color: map-get(abstracts.$theme-colors, 'black');
-    color: map-get(abstracts.$theme-colors, 'creme-white');
+    background-color: map.get(abstracts.$theme-colors, 'black');
+    color: map.get(abstracts.$theme-colors, 'creme-white');
   }
 
   @include bootstrap.media-breakpoint-up(md) {
@@ -45,10 +45,10 @@ body {
 }
 
 a {
-  color: map-get(abstracts.$theme-colors, 'creme-white');
+  color: map.get(abstracts.$theme-colors, 'creme-white');
 
   &:hover {
-    color: map-get(abstracts.$theme-colors, 'creme-white');
+    color: map.get(abstracts.$theme-colors, 'creme-white');
   }
 }
 
@@ -70,8 +70,8 @@ h5 {
 }
 
 body.error404 {
-  background-color: map-get(abstracts.$theme-colors, 'black');
-  color: map-get(abstracts.$theme-colors, 'creme-white');
+  background-color: map.get(abstracts.$theme-colors, 'black');
+  color: map.get(abstracts.$theme-colors, 'creme-white');
 
   .error-container {
     height: 100vh;

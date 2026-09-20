@@ -1,10 +1,11 @@
 @use 'sass:map';
+@use 'sass:color';
 @use './variables';
 @use '../vendors/bootstrap';
 
 %perspective-heading {
   font-family: variables.$oswald-bold;
-  color: map-get(variables.$theme-colors, 'blackish');
+  color: map.get(variables.$theme-colors, 'blackish');
   text-transform: uppercase;
   line-height: 1.12;
   font-size: 10vw;
@@ -62,7 +63,7 @@
   width: 120px;
   float: right;
   font-family: variables.$oswald-bold;
-  color: map-get(variables.$theme-colors, 'creme-white');
+  color: map.get(variables.$theme-colors, 'creme-white');
   cursor: pointer;
   display: block;
   letter-spacing: 3px;
@@ -70,10 +71,10 @@
   margin: auto 2em;
   position: relative;
   text-transform: uppercase;
-  border: 3px map-get(variables.$theme-colors, 'pink') solid;
+  border: 3px map.get(variables.$theme-colors, 'pink') solid;
   z-index: 1;
   box-shadow: -0.5em 0.5em
-    transparentize(map-get(variables.$theme-colors, 'blackish'), 1);
+    color.adjust(map.get(variables.$theme-colors, 'blackish'), $alpha: -1);
   transform-origin: left bottom;
   -webkit-transition: all 200ms ease-in-out;
   -moz-transition: all 200ms ease-in-out;
@@ -82,8 +83,8 @@
 
   &:before,
   &:after {
-    background: map-get(variables.$theme-colors, 'blackish');
-    border: 3px solid map-get(variables.$theme-colors, 'blackish');
+    background: map.get(variables.$theme-colors, 'blackish');
+    border: 3px solid map.get(variables.$theme-colors, 'blackish');
     content: '';
     display: block;
     position: absolute;
@@ -114,7 +115,7 @@
     background-size: 90%;
     transform: translate(0.5em, -0.5em);
     box-shadow: -1em 1em 0.15em
-      transparentize(map-get(variables.$theme-colors, 'blackish'), 0.9);
+      color.adjust(map.get(variables.$theme-colors, 'blackish'), $alpha: -0.9);
     // box-shadow: -1em 1em 1em transparentize($blue-color,.9), -1em 1.9em 1.9em transparentize($slate-color,.9), 0em .38em .38em transparentize($slate-color,.9), 0em .76em .76em transparentize($slate-color,.9), 0em 1.52em 1.52em transparentize($slate-color,.9);
 
     &:before {

@@ -9,7 +9,7 @@
   &_infos {
     padding-top: 80px;
     padding-left: 30px;
-    color: map-get(abstracts.$theme-colors, 'blackish');
+    color: map.get(abstracts.$theme-colors, 'blackish');
 
     h3 {
       font-family: abstracts.$lekton-regular;
@@ -30,7 +30,7 @@
   margin-bottom: 19rem;
   margin-top: 31.25rem;
   position: relative;
-  background-color: map-get(abstracts.$theme-colors, 'purple');
+  background-color: map.get(abstracts.$theme-colors, 'purple');
 }
 @media (min-width: 1200px) {
   .c-direction-block_wrapper {
@@ -103,8 +103,8 @@
   display: block;
   // background-color: #fff;
   background-image: abstracts.$texture;
-  background-color: map-get(abstracts.$theme-colors, 'black');
-  color: map-get(abstracts.$theme-colors, 'creme-white');
+  background-color: map.get(abstracts.$theme-colors, 'black');
+  color: map.get(abstracts.$theme-colors, 'creme-white');
 
   white-space: nowrap;
   padding: 10px 20px;

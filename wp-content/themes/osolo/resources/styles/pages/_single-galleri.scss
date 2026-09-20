@@ -27,14 +27,14 @@
       font-family: abstracts.$lekton-regular;
       letter-spacing: 3px;
       // color: rgba(255, 255, 255, 0.3);
-      color: map-get(abstracts.$theme-colors, 'blackish');
+      color: map.get(abstracts.$theme-colors, 'blackish');
     }
     ion-icon {
       transform: rotate(-20deg);
       font-size: 26px;
       margin-right: 2px;
       // color: rgba(255, 255, 255, 0.3);
-      color: map-get(abstracts.$theme-colors, 'blackish');
+      color: map.get(abstracts.$theme-colors, 'blackish');
       position: relative;
       top: 3px;
     }
@@ -94,7 +94,7 @@
     font-size: 18px;
     // color: rgba(255, 255, 255, 0.4);
     // color: #cbb0f6;
-    color: map-get(abstracts.$theme-colors, 'blackish');
+    color: map.get(abstracts.$theme-colors, 'blackish');
     text-transform: uppercase;
     letter-spacing: 2px;
     font-family: abstracts.$lekton-italic;

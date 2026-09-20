@@ -93,7 +93,7 @@
     border-radius: 15px;
     transform-origin: left;
     overflow: hidden;
-    background-color: map-get(abstracts.$theme-colors, 'pink');
+    background-color: map.get(abstracts.$theme-colors, 'pink');
     transition: all 3s ease;
     filter: blur(5px);
 
