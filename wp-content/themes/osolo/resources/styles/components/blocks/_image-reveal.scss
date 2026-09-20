@@ -163,7 +163,7 @@
 }
 
 body.home {
-  .gallery-link {
+  .project-link-btn.gallery-link {
     a {
       color: map.get(abstracts.$theme-colors, 'creme-white');
     }
@@ -254,4 +254,12 @@ body.home {
       color: map.get(abstracts.$theme-colors, 'creme-white');
     }
   }
+}
+
+// Länkarnas font-family, färg, uppercase och letter-spacing kommer från
+// a-basen i base/_global.scss. Bara storleken är komponentens egen — den låg
+// tidigare i den oscopade a-regeln i _hover-link.scss.
+.c-image-reveal__link,
+.c-image-reveal__mobile-link {
+  font-size: 8vw;
 }
