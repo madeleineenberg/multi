@@ -80,3 +80,27 @@ add_filter('use_block_editor_for_post_type', function ($current_status, $post_ty
     if ($post_type === 'galleri') return false;
     return $current_status;
 }, 10, 2);
+
+
+
+//add button in wysiwyg format
+add_filter('mce_buttons_2', function ($buttons) {
+    array_unshift($buttons, 'styleselect');
+    return $buttons;
+});
+
+
+add_filter('tiny_mce_before_init', function ($init_array) {
+    $style_formats = [
+        [
+            'title' => 'Rotated link',
+            'block' => 'a',
+            'classes' => 'inline-link link',
+            'wrapper' => true,
+        ],
+    ];
+
+    $init_array['style_formats'] = json_encode($style_formats);
+
+    return $init_array;
+});
