@@ -118,9 +118,6 @@ export default function () {
       $.ajax({
         url: '/wp-json/portfolio/gallery',
         data,
-        beforeSend: () => {
-          console.log('before send:' + data.id);
-        },
         success: (response) => {
           if (response && response.images) {
             setImages(response.images);

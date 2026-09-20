@@ -67,8 +67,6 @@ export default function () {
       }
       recordHeight = height;
 
-      console.log('Height has changed');
-
       scroll.update();
     });
 
