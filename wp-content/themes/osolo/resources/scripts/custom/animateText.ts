@@ -5,7 +5,7 @@ import anime from 'animejs/lib/anime.es.js';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function () {
-  let titleSplit = new SplitType('h1', {
+  new SplitType('h1', {
     types: 'lines',
     lineClass: 'split-child',
   });
@@ -43,7 +43,7 @@ export default function () {
     '.navigation-item, .c-image-reveal__mobile__list-item',
   ) as Element[];
 
-  links.forEach((link, i) => {
+  links.forEach((link) => {
     const anim = gsap.fromTo(
       link,
       { autoAlpha: 0, y: 100 },
@@ -57,7 +57,7 @@ export default function () {
     });
   });
 
-  let subtitleSplit = new SplitType('h2', {
+  new SplitType('h2', {
     types: 'lines,words',
     lineClass: 'subtitle_line',
   });

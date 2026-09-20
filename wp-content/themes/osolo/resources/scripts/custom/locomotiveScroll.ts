@@ -1,9 +1,8 @@
 import LocomotiveScroll from 'locomotive-scroll';
-import imagesLoaded from 'imagesloaded';
 
 export default function () {
   if (!$('body').hasClass('single-galleri')) {
-    let scrollContainer = document.querySelector('[data-scroll-container]');
+    const scrollContainer = document.querySelector('[data-scroll-container]');
 
     if (!scrollContainer) {
       console.error('Scroll container not found');
@@ -38,7 +37,6 @@ export default function () {
 
     //update scroll when images are loaded
 
-    // imagesLoaded(scrollContainer, { background: '.item' }, function () {
     //   scroll.update();
     // });
 
@@ -61,8 +59,8 @@ export default function () {
     }
 
     let recordHeight = 0;
-    const mutationObserver = new MutationObserver(function (mutations) {
-      let height = parseFloat(
+    const mutationObserver = new MutationObserver(function () {
+      const height = parseFloat(
         window.getComputedStyle(containerId).getPropertyValue('height'),
       );
       if (height === recordHeight) {

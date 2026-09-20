@@ -10,17 +10,17 @@ export default function () {
 
   TweenMax.set('.project-preview', { width: 0 });
 
-  var tl = new TimelineLite();
+  let tl = new TimelineLite();
 
   $(document)
-    .on('mouseover', '.navigation-item', function (evt) {
+    .on('mouseover', '.navigation-item', function () {
       tl = new TimelineLite();
       tl.to($('.project-preview'), 1, {
         width: '850px',
         ease: Expo.easeInOut,
       });
     })
-    .on('mouseout', '.navigation-item', function (evt) {
+    .on('mouseout', '.navigation-item', function () {
       tl = new TimelineLite();
       tl.to($('.project-preview'), 0.5, {
         width: 0,
@@ -28,10 +28,10 @@ export default function () {
       });
     });
 
-  $('.navigation-link').each(function (i, obj) {
+  $('.navigation-link').each(function (i) {
     if (i % 3 !== 1) {
       $(this).on('mouseenter', function () {
-        let image = $(this).data('image');
+        const image = $(this).data('image');
         $('.project-preview').css({
           'background-image': 'url(' + image + ')',
           transform: 'rotate(0)',
@@ -39,7 +39,7 @@ export default function () {
       });
     } else {
       $(this).on('mouseenter', function () {
-        let image = $(this).data('image');
+        const image = $(this).data('image');
         $('.project-preview').css({
           'background-image': 'url(' + image + ')',
           transform: 'rotate(-12deg)',

@@ -9,7 +9,7 @@ const INTRO_SEEN_KEY = 'hero-intro-seen-v1';
 function introAlreadySeen(): boolean {
   try {
     return sessionStorage.getItem(INTRO_SEEN_KEY) === '1';
-  } catch (e) {
+  } catch {
     // Privat läge / blockerad storage: spela hellre introt än att krascha.
     return false;
   }
@@ -18,7 +18,7 @@ function introAlreadySeen(): boolean {
 function markIntroSeen(): void {
   try {
     sessionStorage.setItem(INTRO_SEEN_KEY, '1');
-  } catch (e) {
+  } catch {
     // Ignoreras medvetet, se ovan.
   }
 }

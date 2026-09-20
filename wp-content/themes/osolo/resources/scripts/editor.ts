@@ -2,7 +2,7 @@ import '@wordpress/edit-post';
 import domReady from '@wordpress/dom-ready';
 
 domReady(() => {
-  (window as any).acf.add_filter('color_picker_args', function (args, $field) {
+  (window as any).acf.add_filter('color_picker_args', function (args) {
     args.palettes = [
       '#003641',
       '#29b8ce',
