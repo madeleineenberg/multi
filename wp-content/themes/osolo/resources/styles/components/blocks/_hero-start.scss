@@ -149,7 +149,7 @@
   }
 }
 
-.projects {
+.hero-container.projects {
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -195,7 +195,7 @@
       margin-bottom: 0;
 
       span {
-        color: map.get(abstracts.$theme-colors, 'blackish');
+        color: map.get(abstracts.$theme-colors, 'blackish') !important;
       }
     }
 

@@ -166,6 +166,10 @@ body.home {
   .project-link-btn.gallery-link {
     a {
       color: map.get(abstracts.$theme-colors, 'creme-white');
+
+      span {
+        color: map.get(abstracts.$theme-colors, 'creme-white');
+      }
     }
   }
 }
