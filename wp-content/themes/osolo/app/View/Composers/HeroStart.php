@@ -20,6 +20,7 @@ class HeroStart extends Composer
     {
         return [
            'hero_title' => get_field('hero_title'),
+           'hero_title_links' => get_field('hero_title_links') ?: [],
            'hero_image' => get_field('hero_image')['sizes']['large'] ? get_field('hero_image')['sizes']['large'] : '',
            'right_image' => get_field('right_image')['sizes']['large'] ? get_field('right_image')['sizes']['large'] : '',
            'left_image' => get_field('left_image')['sizes']['large'] ? get_field('left_image')['sizes']['large'] : '',

@@ -22,6 +22,61 @@
             "maxlength": ""
         },
         {
+            "key": "field_68d0a1b2c3d01",
+            "label": "Hero title links",
+            "name": "hero_title_links",
+            "type": "repeater",
+            "instructions": "Ett ord per rad. Lämnas den tom visas Hero title som vanlig text.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Lägg till ord",
+            "sub_fields": [
+                {
+                    "key": "field_68d0a1b2c3d02",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_68d0a1b2c3d03",
+                    "label": "Link",
+                    "name": "link",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                }
+            ]
+        },
+        {
             "key": "field_630f2f7d0baec",
             "label": "Hero image",
             "name": "hero_image",
@@ -118,7 +173,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/hero-start"
+                "value": "acf/hero-start"
             }
         ]
     ],
@@ -131,5 +186,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1661957468
+    "modified": 1789923574
 }

@@ -26,10 +26,34 @@
         </div>
     </div>
     <div class="header">
-        <p class="title">{{ $hero_title }}</p>
+        <p class="title">
+            @forelse ($hero_title_links as $item)
+                @php($word_link = $item['link'] ?? null)
+                @if (!empty($word_link['url']))
+                    <a href="{{ $word_link['url'] }}"
+                        @if (!empty($word_link['target'])) target="{{ $word_link['target'] }}" rel="noopener" @endif>{{ $item['text'] }}</a>
+                @else
+                    {{ $item['text'] }}
+                @endif
+            @empty
+                {{ $hero_title }}
+            @endforelse
+        </p>
     </div>
-    <div class="hero-container">
-        <a href="#image-reveal" data-scroll-to class="projects">{{ $link }} <ion-icon
-                name="play-forward-circle-outline"></ion-icon></a>
+    <div class="hero-container projects">
+        {{-- <a href="#image-reveal" data-scroll-to class="projects">{{ $link }} <ion-icon
+                name="play-forward-circle-outline"></ion-icon></a> --}}
+          @if (!empty($link))
+          <div class="project-link-btn gallery-link">
+              <a href="#image-reveal" data-scroll-to class="link anchor-link">
+                  <div>
+                      <span class="link-text">{{ $link }}</span>
+                  </div>
+              </a>
+              <ion-icon name="arrow-up-outline"></ion-icon>
+          </div>
+      @endif
     </div>
+
+
 </div>
