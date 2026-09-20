@@ -12,11 +12,15 @@ import heroStart from './custom/heroStart';
 import returnLink from './custom/return';
 
 $(() => {
+  // Först: den registrerar ScrollTrigger-proxyn mot Locomotive och sätter
+  // scroller som default. Triggers som skapas i gallery() och animateText()
+  // måste komma efter, annars binds de till window och utlöses aldrig i
+  // smooth-läge.
+  locomotiveScroll();
   hoverEffekt();
   gallery();
   animateText();
   header();
-  locomotiveScroll();
   socialLinks();
   rotatingText();
   imageReveal();

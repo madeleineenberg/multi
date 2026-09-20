@@ -1,4 +1,8 @@
 import LocomotiveScroll from 'locomotive-scroll';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function () {
   if (!$('body').hasClass('single-galleri')) {
@@ -29,6 +33,40 @@ export default function () {
 
     // Make locomotive scroll instance globally available
     (window as any).locomotiveScroll = scroll;
+
+    // ScrollTrigger läser window.scrollY. I smooth-läge flyttar Locomotive
+    // innehållet med transform och lämnar den på 0, så ScrollTrigger ser
+    // aldrig att något scrollas in och reveal-animationerna startar aldrig –
+    // det är därför galleriobjekten i mobillistan blev osynliga. Proxyn nedan
+    // låter ScrollTrigger läsa Locomotives position i stället.
+    scroll.on('scroll', ScrollTrigger.update);
+
+    ScrollTrigger.scrollerProxy(scrollContainer, {
+      scrollTop(value?: number) {
+        if (arguments.length && typeof value === 'number') {
+          scroll.scrollTo(value, { duration: 0, disableLerp: true });
+          return;
+        }
+        return (scroll as any).scroll?.instance?.scroll?.y ?? 0;
+      },
+      getBoundingClientRect() {
+        return {
+          top: 0,
+          left: 0,
+          width: window.innerWidth,
+          height: window.innerHeight,
+        };
+      },
+      pinType: (scrollContainer as HTMLElement).style.transform
+        ? 'transform'
+        : 'fixed',
+    });
+
+    // Gäller alla triggers som skapas efter det här, därför körs
+    // locomotiveScroll() först i app.ts.
+    ScrollTrigger.defaults({ scroller: scrollContainer });
+    ScrollTrigger.addEventListener('refresh', () => scroll.update());
+    ScrollTrigger.refresh();
 
     //scroll to target on ninja form submit
     $(document).on('nfFormSubmitResponse', function () {
