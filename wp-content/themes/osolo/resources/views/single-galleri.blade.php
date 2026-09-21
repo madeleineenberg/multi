@@ -43,12 +43,20 @@
                 den första bilden, så att den glider upp mot titeln.
             --}}
             @foreach ($images as $i => $image)
+                @php
+                    $id = $image['image']['ID'];
+                @endphp
                 <figure class="gallery-flow__item pos-{{ $i % 7 }} size-{{ $i % 5 }}"
                     @if ($i % 2 === 0) data-scroll data-scroll-speed="1.4" @endif>
-                    {!! wp_get_attachment_image($image['image']['ID'], 'large', false, [
-                        'class' => 'gallery-flow__img',
-                        'loading' => $i < 2 ? 'eager' : 'lazy',
-                    ]) !!}
+                    <button type="button" class="gallery-flow__trigger"
+                        data-full="{{ wp_get_attachment_image_url($id, 'full') }}"
+                        data-alt="{{ get_post_meta($id, '_wp_attachment_image_alt', true) }}"
+                        aria-label="{{ sprintf('Öppna bild %d av %d', $i + 1, count($images)) }}">
+                        {!! wp_get_attachment_image($id, 'large', false, [
+                            'class' => 'gallery-flow__img',
+                            'loading' => $i < 2 ? 'eager' : 'lazy',
+                        ]) !!}
+                    </button>
                 </figure>
             @endforeach
         </div>
@@ -68,5 +76,34 @@
                 </li>
             @endforeach
         </ul>
+    </div>
+
+    {{--
+        Bildvisaren. JS flyttar ut den till body vid start: position: fixed
+        biter inte inuti [data-scroll-container], som locomotive förskjuter
+        med transform.
+    --}}
+    <div class="lightbox" role="dialog" aria-modal="true" aria-hidden="true"
+        aria-label="{{ get_the_title() }}">
+        <div class="lightbox__backdrop" data-lightbox-close></div>
+
+        <button type="button" class="lightbox__close" data-lightbox-close aria-label="Stäng bildvisningen">
+            <ion-icon name="close-outline"></ion-icon>
+        </button>
+
+        <button type="button" class="lightbox__nav lightbox__nav--prev" data-lightbox-prev
+            aria-label="Föregående bild">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+        </button>
+
+        <figure class="lightbox__stage">
+            <img class="lightbox__img" src="" alt="">
+        </figure>
+
+        <button type="button" class="lightbox__nav lightbox__nav--next" data-lightbox-next aria-label="Nästa bild">
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+        </button>
+
+        <p class="lightbox__counter" aria-live="polite"></p>
     </div>
 @endsection
