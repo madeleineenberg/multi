@@ -36,6 +36,22 @@
   }
 
   &--mobile {
+    // Håll hela vyn osynlig tills JS satt sina startlägen. GSAP nollar
+    // bildernas autoAlpha först när skriptet kört, alltså efter första
+    // målningen – utan det här hinner både bild och rubrik synas en kort
+    // stund och sedan försvinna.
+    //
+    // Fördröjningen här är bara ett skyddsnät: kör aldrig JS avslöjas vyn
+    // ändå efter 2,5 s. Normalfallet är att gallery.ts sätter is-ready och
+    // nollar fördröjningen, så avslöjandet sker när det faktiskt är säkert
+    // i stället för att kapplöpa mot DOM ready.
+    animation: gallery-enter 0.7s ease 2.5s backwards;
+
+    &.is-ready,
+    &.is-ready .gallery-title {
+      animation-delay: 0s;
+    }
+
     // Utan egen block formatting context kollapsar gallery-list sin
     // margin-top: 260px ut genom containern. Utrymmet hamnar då ovanför
     // containern i stället för inuti den, och rubriken har ingenting att
@@ -62,7 +78,10 @@
       // och på en gång, i stället för att ligga tom i tre sekunder.
       // Medvetet utan fill-mode: om animationen aldrig körs blir viloläget
       // synligt i stället för osynligt.
-      animation: gallery-title-in 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+      // Ingen egen fördröjning: containern styr när vyn visas, och
+      // rubriken glider in i samma ögonblick.
+      animation: gallery-title-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 2.5s
+        backwards;
 
       .split-child {
         display: inline-block;
@@ -389,6 +408,15 @@ body.has-lightbox-open {
 // upprepa den centreringen, annars slår animationen ut placeringen medan
 // den spelar. Slutläget är identiskt med viloläget, så övergången tillbaka
 // när animationen är klar syns inte.
+@keyframes gallery-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes gallery-title-in {
   from {
     opacity: 0;
@@ -401,6 +429,7 @@ body.has-lightbox-open {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .gallery-container--mobile,
   .gallery-container--mobile .gallery-title {
     animation: none;
   }

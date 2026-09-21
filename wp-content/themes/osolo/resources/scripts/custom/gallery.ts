@@ -24,4 +24,14 @@ export default function () {
       once: true,
     });
   });
+
+  // Avslöja mobilvyn först nu. GSAP har satt bildernas autoAlpha ovan, så
+  // ingenting hinner synas och sedan försvinna. Den lilla fördröjningen ger
+  // en lugn paus i stället för att sidan hoppar fram i samma andetag som
+  // skriptet blir klart.
+  const mobileView = document.querySelector('.gallery-container--mobile');
+
+  if (mobileView) {
+    setTimeout(() => mobileView.classList.add('is-ready'), 250);
+  }
 }

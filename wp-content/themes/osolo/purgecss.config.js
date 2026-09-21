@@ -27,6 +27,8 @@ module.exports = {
     // i produktionsbygget.
     /^pos-\d+$/,
     /^size-\d+$/,
+    // Sätts av gallery.ts, finns inte som literal i någon blade-fil.
+    /is-ready/,
   ],
   deep: [
     /editor-styles-wrapper/,
