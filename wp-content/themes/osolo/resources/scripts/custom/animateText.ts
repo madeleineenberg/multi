@@ -5,11 +5,7 @@ import anime from 'animejs/lib/anime.es.js';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function () {
-  // Rubriker med gallery-title--static hålls utanför. De ska synas direkt,
-  // inte vänta ut en sekunds fördröjning plus två sekunders intoning.
-  const ANIMATED_HEADINGS = 'h1:not(.gallery-title--static)';
-
-  new SplitType(ANIMATED_HEADINGS, {
+  new SplitType('h1', {
     types: 'lines',
     lineClass: 'split-child',
   });
@@ -27,7 +23,7 @@ export default function () {
     // och en för mobil – fick sin andra rubrik nollad av animationen utan att
     // någonsin bli avslöjad här.
     const headings = Array.from(
-      document.querySelectorAll<HTMLElement>(ANIMATED_HEADINGS),
+      document.querySelectorAll<HTMLElement>('h1'),
     );
 
     if (headings.length) {
@@ -37,7 +33,7 @@ export default function () {
 
       // Start the animation
       anime.timeline().add({
-        targets: `${ANIMATED_HEADINGS} .split-child`,
+        targets: 'h1 .split-child',
         translateY: [100, 0],
         translateZ: 0,
         opacity: [0, 1],

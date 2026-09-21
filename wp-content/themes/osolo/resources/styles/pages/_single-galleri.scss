@@ -46,8 +46,7 @@
     // i stället för att kapplöpa mot DOM ready.
     animation: gallery-enter 0.7s ease 2.5s backwards;
 
-    &.is-ready,
-    &.is-ready .gallery-title {
+    &.is-ready {
       animation-delay: 0s;
     }
 
@@ -73,14 +72,6 @@
       letter-spacing: 2px;
       font-family: abstracts.$oswald-bold;
       overflow: hidden;
-      // Rubriken står utanför anime-tidslinjen och tonar in själv. Kort
-      // och på en gång, i stället för att ligga tom i tre sekunder.
-      // Medvetet utan fill-mode: om animationen aldrig körs blir viloläget
-      // synligt i stället för osynligt.
-      // Ingen egen fördröjning: containern styr när vyn visas, och
-      // rubriken glider in i samma ögonblick.
-      animation: gallery-title-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 2.5s
-        backwards;
 
       .split-child {
         display: inline-block;
@@ -403,10 +394,8 @@ body.has-lightbox-open {
   }
 }
 
-// Rubriken centreras med translate(-50%, -50%). Keyframen måste därför
-// upprepa den centreringen, annars slår animationen ut placeringen medan
-// den spelar. Slutläget är identiskt med viloläget, så övergången tillbaka
-// när animationen är klar syns inte.
+// Avslöjar hela mobilvyn. Rubriken inuti animeras separat av anime,
+// samma tidslinje som desktop använder.
 @keyframes gallery-enter {
   from {
     opacity: 0;
@@ -416,20 +405,8 @@ body.has-lightbox-open {
   }
 }
 
-@keyframes gallery-title-in {
-  from {
-    opacity: 0;
-    transform: translate(-50%, calc(-50% + 40px));
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .gallery-container--mobile,
-  .gallery-container--mobile .gallery-title {
+  .gallery-container--mobile {
     animation: none;
   }
 }
