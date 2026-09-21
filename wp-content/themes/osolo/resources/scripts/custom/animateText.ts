@@ -18,13 +18,16 @@ export default function () {
   // });
 
   setTimeout(() => {
-    // Get the h1 element
-    const h1Element = document.querySelector('h1');
+    // Alla h1 på sidan, inte bara den första. anime animerar 'h1 .split-child'
+    // globalt, så en sida med två rubriker – single-galleri har en för desktop
+    // och en för mobil – fick sin andra rubrik nollad av animationen utan att
+    // någonsin bli avslöjad här.
+    const headings = Array.from(document.querySelectorAll<HTMLElement>('h1'));
 
-    // Check if the h1 element exists
-    if (h1Element) {
-      // Show the h1 element
-      h1Element.style.opacity = '1';
+    if (headings.length) {
+      headings.forEach((heading) => {
+        heading.style.opacity = '1';
+      });
 
       // Start the animation
       anime.timeline().add({

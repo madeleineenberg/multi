@@ -47,6 +47,10 @@
       letter-spacing: 2px;
       font-family: abstracts.$oswald-bold;
       overflow: hidden;
+      // Samma som desktoptiteln. Utan den målas rubriken fullt synlig tills
+      // anime hinner sätta .split-child till 0 efter ~100 ms, och det är det
+      // som ger fladdret när man öppnar ett galleri på mobil.
+      opacity: 0;
 
       .split-child {
         display: inline-block;
