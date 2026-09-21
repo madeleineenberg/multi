@@ -20,7 +20,15 @@
                 @endforeach
             </ul>
 
-            <a class="gallery-nav__archive" href="{{ $archive_url }}">Archive</a>
+            {{-- Samma uppbyggnad som arkivlänken i image-reveal-blocket. --}}
+            <div class="project-link-btn gallery-link">
+                <a href="{{ $archive_url }}" class="link">
+                    <div>
+                        <span class="link-text">Archive</span>
+                    </div>
+                </a>
+                <ion-icon name="arrow-up-outline"></ion-icon>
+            </div>
         </aside>
 
         <h1 id="gallery-title" class="gallery-title" data-id="{{ get_the_ID() }}">{!! get_the_title() !!}</h1>

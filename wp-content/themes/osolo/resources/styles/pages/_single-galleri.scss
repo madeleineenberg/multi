@@ -110,15 +110,32 @@
     }
   }
 
-  &__archive {
-    display: inline-block;
-    font-family: abstracts.$lekton-regular;
-    font-size: 15px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: map.get(abstracts.$theme-colors, 'pink');
-    border-bottom: 1px solid currentcolor;
-    padding-bottom: 2px;
+  // Arkivlänken använder samma markup som i image-reveal-blocket. Typografin
+  // ligger där scopad under .block-heading, så den måste upprepas här. Färgen
+  // är creme-white i stället för svart eftersom galleriets bakgrund är mörk,
+  // samma val som body.home gör för den blocket.
+  .gallery-link {
+    display: flex;
+    align-items: baseline;
+
+    a {
+      font-size: 24px;
+      text-transform: uppercase;
+      font-family: abstracts.$lekton-regular;
+      letter-spacing: 3px;
+      color: map.get(abstracts.$theme-colors, 'creme-white');
+
+      span {
+        color: map.get(abstracts.$theme-colors, 'creme-white');
+      }
+    }
+
+    ion-icon {
+      transform: rotate(20deg);
+      font-size: 26px;
+      margin-left: 10px;
+      color: map.get(abstracts.$theme-colors, 'creme-white');
+    }
   }
 }
 
