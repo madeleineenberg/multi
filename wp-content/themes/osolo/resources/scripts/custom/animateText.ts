@@ -5,6 +5,10 @@ import anime from 'animejs/lib/anime.es.js';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function () {
+  const reducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)',
+  ).matches;
+
   new SplitType('h1', {
     types: 'lines',
     lineClass: 'split-child',
@@ -52,7 +56,7 @@ export default function () {
     const anim = gsap.fromTo(
       link,
       { autoAlpha: 0, y: 100 },
-      { duration: 1, autoAlpha: 1, y: 0 },
+      { duration: reducedMotion ? 0 : 1, autoAlpha: 1, y: 0 },
     );
     ScrollTrigger.create({
       trigger: link,

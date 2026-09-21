@@ -6,7 +6,7 @@
 @endphp
 
 <div class="main-container" data-scroll-container>
-    <main class="main {{ $post_slug }}">
+    <main id="main" class="main {{ $post_slug }}">
         @yield('content')
 
     </main>

@@ -17,9 +17,26 @@
         @if (!empty($links))
             <div class="icon-box">
                 @foreach ($links as $link)
-                    <a href="{{ $link['link']['url'] }}" class="icon-link" data-icon="{{ $link['icon'] }}"
-                        target="{{ $link['link']['target'] }}">
-                        <ion-icon name="{{ $link['icon'] }}"></ion-icon>
+                    @php
+                        // Länkarna innehåller bara en ikon, så de saknar
+                        // tillgängligt namn. ACF-titeln är tom här, därför
+                        // härleds namnet ur adressen.
+                        $url = $link['link']['url'] ?? '';
+                        $host = str_replace('www.', '', (string) parse_url($url, PHP_URL_HOST));
+                        $tjanster = [
+                            'instagram.com' => 'Instagram',
+                            'linkedin.com' => 'LinkedIn',
+                            'github.com' => 'GitHub',
+                            'facebook.com' => 'Facebook',
+                        ];
+                        $etikett = $link['link']['title']
+                            ?: ($tjanster[$host] ?? (str_starts_with($url, 'mailto:') ? 'Email' : $host));
+                        $nyFlik = ($link['link']['target'] ?? '') === '_blank';
+                    @endphp
+                    <a href="{{ $url }}" class="icon-link" data-icon="{{ $link['icon'] }}"
+                        target="{{ $link['link']['target'] }}" @if ($nyFlik) rel="noopener" @endif
+                        aria-label="{{ $etikett }}{{ $nyFlik ? ' (opens in a new tab)' : '' }}">
+                        <ion-icon name="{{ $link['icon'] }}" aria-hidden="true"></ion-icon>
                     </a>
                 @endforeach
             </div>

@@ -21,7 +21,9 @@
         <div class="wrapper-img" data-scroll data-scroll-speed="2">
             <div class="box"></div>
             <div>
-                <img class="hero-image" src="{{ $hero_image }} " />
+                {{-- Dekorativ: hero-titeln bär betydelsen, så tomt alt i stället för
+                     inget alt alls. --}}
+                <img class="hero-image" src="{{ $hero_image }}" alt="" />
             </div>
         </div>
     </div>

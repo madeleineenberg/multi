@@ -1,3 +1,5 @@
+<a class="skip-link" href="#main">Skip to content</a>
+
 <header class="banner">
 
     <a class="logo link" href="{{ home_url('/') }}">
@@ -6,7 +8,7 @@
         </div>
     </a>
 
-    <button type="button" class="menu-open" aria-label="Öppna menyn" aria-expanded="false" aria-controls="main-menu">
+    <button type="button" class="menu-open" aria-label="Open menu" aria-expanded="false" aria-controls="main-menu">
         <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
     </button>
 </header>
@@ -14,10 +16,10 @@
 {{-- inert redan i markupen: utan den går menylänkarna att tabba till
      medan menyn är stängd, även innan JS hunnit köra. --}}
 <div class="menu-container" id="main-menu" aria-hidden="true" inert>
-    <button type="button" class="menu-close" aria-label="Stäng menyn">
+    <button type="button" class="menu-close" aria-label="Close menu">
         <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
     </button>
-    <nav class="menu-items" aria-label="Huvudmeny">
+    <nav class="menu-items" aria-label="Main menu">
         <div class="menu-items-container">
             @foreach ($menu_items as $key => $menu_item)
                 <span>

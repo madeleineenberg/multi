@@ -193,7 +193,13 @@ export default function () {
   // skalar hela tidslinjen i stället för att varje duration och negativ
   // offset ska räknas om – koreografin och överlappen bevaras exakt.
   // Gäller även stängningen, eftersom .reverse() använder samma tidslinje.
-  tl.timeScale(1.7);
+  // Nästan omedelbar för den som bett om mindre rörelse – menyn ska
+  // fortfarande fungera, bara inte svepa in.
+  const prefersReducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)',
+  ).matches;
+
+  tl.timeScale(prefersReducedMotion ? 12 : 1.7);
 
 
   const openButton = document.querySelector<HTMLButtonElement>('.menu-open');

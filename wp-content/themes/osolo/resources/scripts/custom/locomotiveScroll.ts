@@ -5,6 +5,12 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function () {
+  // Smooth scroll är sajtens största rörelsekälla. Av den stängs också
+  // data-scroll-speed-parallaxen, som bara fungerar i smooth-läge.
+  const prefersReducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)',
+  ).matches;
+
   const scrollContainer = document.querySelector('[data-scroll-container]');
 
   if (!scrollContainer) {
@@ -14,7 +20,7 @@ export default function () {
 
   const scroll = new LocomotiveScroll({
     el: scrollContainer,
-    smooth: true,
+    smooth: !prefersReducedMotion,
     inertia: 0.8,
     smoothClass: 'has-scroll-smooth',
     getDirection: true,
