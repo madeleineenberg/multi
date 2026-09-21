@@ -220,3 +220,29 @@
     }
 
   }
+
+/**
+ * JS ger de här elementen sina startlägen först när skriptet kör, alltså efter
+ * första målningen. Håller vi dem inte dolda hinner titeln, sidobilderna och
+ * galleri-länken synas och sedan ryckas bort. heroStart sätter is-ready så
+ * snart tidslinjen är byggd, vilket är samma ögonblick som startlägena finns
+ * på plats.
+ *
+ * GSAP skriver inline, och inline slår klassreglerna nedan, så det här stör
+ * inte själva animationen – det täcker bara glappet innan den finns.
+ */
+.c-start-hero {
+  .title,
+  .images,
+  .projects {
+    opacity: 0;
+  }
+
+  &.is-ready {
+    .title,
+    .images,
+    .projects {
+      opacity: 1;
+    }
+  }
+}

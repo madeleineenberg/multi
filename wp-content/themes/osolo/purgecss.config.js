@@ -27,7 +27,8 @@ module.exports = {
     // i produktionsbygget.
     /^pos-\d+$/,
     /^size-\d+$/,
-    // Sätts av gallery.ts, finns inte som literal i någon blade-fil.
+    // Sätts från JS av gallery.ts, heroStart.ts och header.ts, aldrig som
+    // literal i en blade-fil.
     /is-ready/,
   ],
   deep: [

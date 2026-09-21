@@ -85,14 +85,36 @@ export default function () {
   handleScrollBlur();
   const tl1 = gsap.timeline();
 
-  tl1.from('.logo , .menu-open, .footer, .error-text, .return', {
-    duration: 0.8, // Adjusted from 0.6 to 0.7
-    y: -100,
-    opacity: 0,
-    stagger: {
-      amount: 0.4, // Adjusted from 0.3 to 0.35
+  // Måste ligga före .from() nedan. CSS håller logotyp, menyknapp och sidfot
+  // på opacity 0 fram till den här klassen, så att de inte hinner målas och
+  // ryckas bort när skriptet kör. Men .from() läser elementets nuvarande värde
+  // som sitt slutvärde – ligger hållet kvar här fångar GSAP 0 och animerar
+  // från 0 till 0, alltså syns de aldrig.
+  //
+  // Raderna körs i samma synkrona block, så webbläsaren hinner inte måla
+  // däremellan och hållet släpper aldrig igenom något.
+  document.body.classList.add('is-ready');
+
+  // fromTo, inte from: .from() läser elementets nuvarande värde som slutvärde,
+  // och .logo har transition: all 0.4s linear. När klassen ovan flippar startar
+  // den övergången, så avläsningen ger 0 i stället för 1 och logotypen animeras
+  // från 0 till 0. Med explicit slutvärde behöver GSAP aldrig fråga DOM:en.
+  tl1.fromTo(
+    '.logo , .menu-open, .footer, .error-text, .return',
+    {
+      y: -100,
+      opacity: 0,
     },
-  });
+    {
+      duration: 0.8, // Adjusted from 0.6 to 0.7
+      y: 0,
+      opacity: 1,
+      stagger: {
+        amount: 0.4, // Adjusted from 0.3 to 0.35
+      },
+    },
+  );
+
 
   const tl = gsap.timeline({
     paused: true,
