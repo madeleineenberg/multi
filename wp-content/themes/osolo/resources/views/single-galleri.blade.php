@@ -39,11 +39,12 @@
                 Kombinationen upprepar sig först efter 35 bilder, så flödet ser
                 oregelbundet ut utan att hoppa runt mellan sidladdningar.
                 Varannan bild får data-scroll och släpar efter i scrollen, vilket
-                är det som får den att glida in över sin granne.
+                är det som får den att glida in över sin granne. Släpet börjar på
+                den första bilden, så att den glider upp mot titeln.
             --}}
             @foreach ($images as $i => $image)
                 <figure class="gallery-flow__item pos-{{ $i % 7 }} size-{{ $i % 5 }}"
-                    @if ($i % 2 === 1) data-scroll data-scroll-speed="1.4" @endif>
+                    @if ($i % 2 === 0) data-scroll data-scroll-speed="1.4" @endif>
                     {!! wp_get_attachment_image($image['image']['ID'], 'large', false, [
                         'class' => 'gallery-flow__img',
                         'loading' => $i < 2 ? 'eager' : 'lazy',

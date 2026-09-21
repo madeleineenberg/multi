@@ -19,6 +19,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 10vw;
+    // Över bildflödet, inte under. difference blandar mot det som redan är
+    // målat under elementet, så titeln måste ligga överst för att kunna
+    // reagera på fotot som överlappar den.
+    z-index: 65;
+    mix-blend-mode: difference;
     color: rgba(255, 255, 255, 0.1);
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -148,6 +153,10 @@
   position: relative;
   z-index: 60;
   margin-left: 300px;
+  // Första bilden ska nypa i underkanten av titeln, inte ligga mitt över den.
+  // Titelns mitt sitter på 45vh och containern har 180px toppadding, så det
+  // här lägger bildens överkant en bit in i textens nedre del.
+  margin-top: calc(45vh - 150px);
 
   &__item {
     --w: 40%;
@@ -170,7 +179,10 @@
   // Varannan bild släpar i scrollen. Den negativa marginalen låter den börja
   // en bit upp i grannens yta, så att släpet förstärker överlappet i stället
   // för att skapa det på egen hand.
-  &__item[data-scroll] {
+  // Den negativa marginalen ger överlappet en start så att släpet förstärker
+  // det i stället för att skapa det ensamt. Undantag för första bilden, som
+  // hämtar sin placering från flödets egen margin-top mot titeln.
+  &__item[data-scroll]:not(:first-child) {
     margin-top: -14vh;
     z-index: 61;
   }
