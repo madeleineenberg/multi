@@ -94,6 +94,13 @@ export default function () {
     },
   });
 
+  // Startlägena ovan skrivs först nu, alltså efter första målningen. CSS håller
+  // logotyp, menyknapp och sidfot dolda fram till hit så att de inte hinner
+  // synas och ryckas bort. Raden ligger direkt efter tidslinjen, så det enda
+  // som kan hindra den är att hela skriptet uteblir – och då är sajten ändå
+  // utan meny, scroll och bildvisare.
+  document.body.classList.add('is-ready');
+
   const tl = gsap.timeline({
     paused: true,
   });

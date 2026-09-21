@@ -122,3 +122,22 @@ body.error404 {
     }
   }
 }
+
+/**
+ * Sajtens ramverk animeras in av tidslinjen i header.ts med gsap .from().
+ * Startläget skrivs först när skriptet kör, alltså efter första målningen,
+ * så utan det här hinner logotyp, menyknapp och sidfot synas och ryckas bort.
+ * header.ts sätter is-ready på body så snart tidslinjen är byggd.
+ *
+ * GSAP skriver inline och inline slår den här regeln, så hållet stör inte
+ * själva animationen – det täcker bara glappet innan den finns.
+ */
+body:not(.is-ready) {
+  .logo,
+  .menu-open,
+  .footer,
+  .error-text,
+  .return {
+    opacity: 0;
+  }
+}
