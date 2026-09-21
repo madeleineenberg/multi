@@ -21,6 +21,8 @@ module.exports = {
     /variations/,
     /input-text/,
     /block-acf-video-with-placeholder/,
+    // Sätts av heroStart.ts, finns inte som literal i någon blade-fil.
+    /is-ready/,
   ],
   deep: [
     /editor-styles-wrapper/,

@@ -108,6 +108,13 @@ export default function () {
       2.5,
     );
 
+  // Tidslinjen är byggd, vilket betyder att from-tweensen redan lagt sina
+  // startlägen på elementen. Först nu är det säkert att visa hero:n. CSS håller
+  // titeln, sidobilderna och galleri-länken dolda fram till hit – annars hinner
+  // de målas en kort stund och ryckas bort när skriptet kör.
+  // Måste ligga före grenen nedan, som returnerar tidigt.
+  hero.classList.add('is-ready');
+
   const prefersReducedMotion = window.matchMedia(
     '(prefers-reduced-motion: reduce)',
   ).matches;
