@@ -3,114 +3,19 @@
 @use '../vendors/bootstrap';
 
 .gallery-container {
-  // overflow-y: hidden;
-  height: 100vh;
-  width: 100vw;
+  position: relative;
+  min-height: 100vh;
+  padding: 180px 5vw 20vh;
 
   @include bootstrap.media-breakpoint-down(md) {
     display: none;
   }
 
-  .gallery-link {
-    margin-top: 90px;
-    display: flex;
-    margin-bottom: 5px;
-    margin-left: 25px;
-    background: -webkit-linear-gradient(180deg, pink, #c7cbe3);
-    width: max-content;
-    padding: 5px 10px 3px 10px;
-    opacity: 0.8;
-
-    a {
-      font-size: 24px;
-      text-transform: uppercase;
-      font-family: abstracts.$lekton-regular;
-      letter-spacing: 3px;
-      // color: rgba(255, 255, 255, 0.3);
-      color: map.get(abstracts.$theme-colors, 'blackish');
-    }
-    ion-icon {
-      transform: rotate(-20deg);
-      font-size: 26px;
-      margin-right: 2px;
-      // color: rgba(255, 255, 255, 0.3);
-      color: map.get(abstracts.$theme-colors, 'blackish');
-      position: relative;
-      top: 3px;
-    }
-  }
-
-  .ticker-wrap {
-    width: 100%;
-    height: 80px;
-    margin: 0 auto;
-    overflow: hidden;
-    white-space: nowrap;
-    position: absolute;
-    top: 80px;
-    height: 3.5rem;
-    visibility: visible;
-    background: -webkit-linear-gradient(180deg, pink, #c7cbe3);
-    display: flex;
-    align-items: center;
-    opacity: 0.8;
-    &.hide {
-      visibility: hidden;
-    }
-
-    ion-icon {
-      position: relative;
-      top: 2px;
-    }
-
-    &.two {
-      bottom: 80px;
-      top: unset;
-
-      .ticker {
-        animation-direction: normal;
-      }
-      .item-collection-1 {
-        animation-direction: normal;
-      }
-    }
-  }
-  .ticker {
-    display: inline-block;
-    margin-top: 5px;
-    animation: marquee 40s linear infinite;
-    animation-direction: reverse;
-  }
-  .item-collection-1 {
-    position: relative;
-    left: 0%;
-    animation: swap 40s linear infinite;
-    animation-direction: reverse;
-  }
-
-  .item {
-    display: inline-block;
-    padding: 0 1rem;
-    font-size: 18px;
-    // color: rgba(255, 255, 255, 0.4);
-    // color: #cbb0f6;
-    color: map.get(abstracts.$theme-colors, 'blackish');
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-family: abstracts.$lekton-italic;
-  }
-
-  .image {
-    position: absolute;
-    z-index: 60;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11),
-      0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11),
-      0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11);
-  }
-
   .gallery-title {
     position: absolute;
-    top: 50%;
+    // Containern är inte längre 100vh utan hela flödets höjd, så 50% hade
+    // lagt titeln tusentals pixlar ner. vh håller den kvar i första vyn.
+    top: 45vh;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 10vw;
@@ -167,23 +72,127 @@
   }
 }
 
-/* Transition */
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
+/**
+ * Sidospalt med de senaste gallerierna.
+ */
+.gallery-nav {
+  position: absolute;
+  top: 180px;
+  left: 5vw;
+  z-index: 70;
+  width: 220px;
+
+  &__list {
+    list-style: none;
+    margin: 0 0 2.5rem;
+    padding: 0;
   }
-  100% {
-    transform: translateX(-100%);
+
+  &__item {
+    margin-bottom: 0.6rem;
+
+    a {
+      font-family: abstracts.$lekton-regular;
+      font-size: 15px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.45);
+      transition: color 0.3s ease;
+    }
+
+    a:hover,
+    a:focus-visible {
+      color: map.get(abstracts.$theme-colors, 'pink');
+    }
+
+    &.is-current a {
+      color: map.get(abstracts.$theme-colors, 'creme-white');
+    }
+  }
+
+  &__archive {
+    display: inline-block;
+    font-family: abstracts.$lekton-regular;
+    font-size: 15px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: map.get(abstracts.$theme-colors, 'pink');
+    border-bottom: 1px solid currentcolor;
+    padding-bottom: 2px;
   }
 }
 
-@keyframes swap {
-  0%,
-  50% {
-    left: 0%;
+/**
+ * Bildflödet. Bredden och sidledsplaceringen kommer från två cykler i blade:n,
+ * size-0..4 och pos-0..6. Offseten räknas som en andel av den fria ytan, alltså
+ * (100% - bildens bredd), så en bred bild aldrig kan skjutas ut över kanten.
+ */
+.gallery-flow {
+  position: relative;
+  z-index: 60;
+  margin-left: 300px;
+
+  &__item {
+    --w: 40%;
+    --x: 0.4;
+
+    width: var(--w);
+    margin: 0 0 10vh;
+    margin-left: calc((100% - var(--w)) * var(--x));
   }
-  50.01%,
-  100% {
-    left: 100%;
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11),
+      0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11),
+      0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11);
+  }
+
+  // Varannan bild släpar i scrollen. Den negativa marginalen låter den börja
+  // en bit upp i grannens yta, så att släpet förstärker överlappet i stället
+  // för att skapa det på egen hand.
+  &__item[data-scroll] {
+    margin-top: -14vh;
+    z-index: 61;
+  }
+
+  &__item.size-0 {
+    --w: 44%;
+  }
+  &__item.size-1 {
+    --w: 30%;
+  }
+  &__item.size-2 {
+    --w: 50%;
+  }
+  &__item.size-3 {
+    --w: 34%;
+  }
+  &__item.size-4 {
+    --w: 40%;
+  }
+
+  &__item.pos-0 {
+    --x: 0.55;
+  }
+  &__item.pos-1 {
+    --x: 0.1;
+  }
+  &__item.pos-2 {
+    --x: 0.85;
+  }
+  &__item.pos-3 {
+    --x: 0.3;
+  }
+  &__item.pos-4 {
+    --x: 0.68;
+  }
+  &__item.pos-5 {
+    --x: 0;
+  }
+  &__item.pos-6 {
+    --x: 1;
   }
 }
