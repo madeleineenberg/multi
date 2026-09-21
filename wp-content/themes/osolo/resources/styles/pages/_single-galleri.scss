@@ -3,118 +3,23 @@
 @use '../vendors/bootstrap';
 
 .gallery-container {
-  // overflow-y: hidden;
-  height: 100vh;
-  width: 100vw;
+  position: relative;
+  min-height: 100vh;
+  padding: 180px 5vw 20vh;
 
   @include bootstrap.media-breakpoint-down(md) {
     display: none;
   }
 
-  .gallery-link {
-    margin-top: 90px;
-    display: flex;
-    margin-bottom: 5px;
-    margin-left: 25px;
-    background: -webkit-linear-gradient(180deg, pink, #c7cbe3);
-    width: max-content;
-    padding: 5px 10px 3px 10px;
-    opacity: 0.8;
-
-    a {
-      font-size: 24px;
-      text-transform: uppercase;
-      font-family: abstracts.$lekton-regular;
-      letter-spacing: 3px;
-      // color: rgba(255, 255, 255, 0.3);
-      color: map.get(abstracts.$theme-colors, 'blackish');
-    }
-    ion-icon {
-      transform: rotate(-20deg);
-      font-size: 26px;
-      margin-right: 2px;
-      // color: rgba(255, 255, 255, 0.3);
-      color: map.get(abstracts.$theme-colors, 'blackish');
-      position: relative;
-      top: 3px;
-    }
-  }
-
-  .ticker-wrap {
-    width: 100%;
-    height: 80px;
-    margin: 0 auto;
-    overflow: hidden;
-    white-space: nowrap;
-    position: absolute;
-    top: 80px;
-    height: 3.5rem;
-    visibility: visible;
-    background: -webkit-linear-gradient(180deg, pink, #c7cbe3);
-    display: flex;
-    align-items: center;
-    opacity: 0.8;
-    &.hide {
-      visibility: hidden;
-    }
-
-    ion-icon {
-      position: relative;
-      top: 2px;
-    }
-
-    &.two {
-      bottom: 80px;
-      top: unset;
-
-      .ticker {
-        animation-direction: normal;
-      }
-      .item-collection-1 {
-        animation-direction: normal;
-      }
-    }
-  }
-  .ticker {
-    display: inline-block;
-    margin-top: 5px;
-    animation: marquee 40s linear infinite;
-    animation-direction: reverse;
-  }
-  .item-collection-1 {
-    position: relative;
-    left: 0%;
-    animation: swap 40s linear infinite;
-    animation-direction: reverse;
-  }
-
-  .item {
-    display: inline-block;
-    padding: 0 1rem;
-    font-size: 18px;
-    // color: rgba(255, 255, 255, 0.4);
-    // color: #cbb0f6;
-    color: map.get(abstracts.$theme-colors, 'blackish');
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-family: abstracts.$lekton-italic;
-  }
-
-  .image {
-    position: absolute;
-    z-index: 60;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11),
-      0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11),
-      0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11);
-  }
-
   .gallery-title {
     position: absolute;
-    top: 50%;
+    top: 45vh;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 10vw;
-    color: rgba(255, 255, 255, 0.1);
+    z-index: 65;
+    mix-blend-mode: difference;
+    color: rgba(map.get(abstracts.$theme-colors, 'pink'), 0.2);
     text-transform: uppercase;
     letter-spacing: 2px;
     font-family: abstracts.$oswald-bold;
@@ -131,9 +36,34 @@
   }
 
   &--mobile {
+    // Håll hela vyn osynlig tills JS satt sina startlägen. GSAP nollar
+    // bildernas autoAlpha först när skriptet kört, alltså efter första
+    // målningen – utan det här hinner både bild och rubrik synas en kort
+    // stund och sedan försvinna.
+    // Fördröjningen här är bara ett skyddsnät: kör aldrig JS avslöjas vyn
+    // ändå efter 2,5 s. Normalfallet är att gallery.ts sätter is-ready och
+    // nollar fördröjningen, så avslöjandet sker när det faktiskt är säkert
+    // i stället för att kapplöpa mot DOM ready.
+    animation: gallery-enter 0.7s ease 2.5s backwards;
+
+    &.is-ready {
+      animation-delay: 0s;
+    }
+
+    // Utan egen block formatting context kollapsar gallery-list sin
+    // margin-top: 260px ut genom containern. Utrymmet hamnar då ovanför
+    // containern i stället för inuti den, och rubriken har ingenting att
+    // placera sig i.
+    display: flow-root;
+
     .gallery-title {
       position: absolute;
-      top: 25%;
+      // Fast avstånd, inte procent. Containern rymmer hela bildlistan och
+      // växer till närmare 10 000 px när bilderna laddat, så top: 25% sköt ner
+      // rubriken ett par tusen pixlar. Innan bilderna fått höjd låg den högst
+      // upp – det var den glimten som såg ut som ett fladder. Ytan finns
+      // reserverad av gallery-list margin-top: 260px.
+      top: 150px;
       left: 50%;
       transform: translate(-50%, -50%);
       font-size: 12vw;
@@ -167,23 +97,316 @@
   }
 }
 
-/* Transition */
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
+/**
+ * Sidospalt med de senaste gallerierna.
+ */
+.gallery-nav {
+  position: absolute;
+  top: 180px;
+  left: 5vw;
+  z-index: 70;
+  width: 220px;
+
+  &__list {
+    list-style: none;
+    margin: 0 0 2.5rem;
+    padding: 0;
   }
-  100% {
-    transform: translateX(-100%);
+
+  &__item {
+    margin-bottom: 0.6rem;
+
+    a {
+      font-family: abstracts.$lekton-regular;
+      font-size: 15px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.45);
+      transition: color 0.3s ease;
+    }
+
+    a:hover,
+    a:focus-visible {
+      color: map.get(abstracts.$theme-colors, 'pink');
+    }
+
+    &.is-current a {
+      color: map.get(abstracts.$theme-colors, 'creme-white');
+    }
+  }
+
+  // Arkivlänken använder samma markup som i image-reveal-blocket. Typografin
+  // ligger där scopad under .block-heading, så den måste upprepas här. Färgen
+  // är creme-white i stället för svart eftersom galleriets bakgrund är mörk,
+  // samma val som body.home gör för den blocket.
+  .gallery-link {
+    display: flex;
+    align-items: baseline;
+
+    a {
+      font-size: 24px;
+      text-transform: uppercase;
+      font-family: abstracts.$lekton-regular;
+      letter-spacing: 3px;
+      color: map.get(abstracts.$theme-colors, 'creme-white');
+
+      span {
+        color: map.get(abstracts.$theme-colors, 'creme-white');
+      }
+    }
+
+    ion-icon {
+      transform: rotate(20deg);
+      font-size: 26px;
+      margin-left: 10px;
+      color: map.get(abstracts.$theme-colors, 'creme-white');
+    }
   }
 }
 
-@keyframes swap {
-  0%,
-  50% {
-    left: 0%;
+/**
+ * Bildflödet. Bredden och sidledsplaceringen kommer från två cykler i blade:n,
+ * size-0..4 och pos-0..6. Offseten räknas som en andel av den fria ytan, alltså
+ * (100% - bildens bredd), så en bred bild aldrig kan skjutas ut över kanten.
+ */
+.gallery-flow {
+  position: relative;
+  z-index: 60;
+  margin-left: 300px;
+  // Första bilden ska nypa i underkanten av titeln, inte ligga mitt över den.
+  // Titelns mitt sitter på 45vh och containern har 180px toppadding, så det
+  // här lägger bildens överkant en bit in i textens nedre del.
+  margin-top: calc(40vh - 150px);
+
+  &__item {
+    --w: 40%;
+    --x: 0.4;
+
+    width: var(--w);
+    margin: 0 0 10vh;
+    margin-left: calc((100% - var(--w)) * var(--x));
   }
-  50.01%,
-  100% {
-    left: 100%;
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11),
+      0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11),
+      0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11);
+  }
+
+  // Varannan bild släpar i scrollen. Den negativa marginalen låter den börja
+  // en bit upp i grannens yta, så att släpet förstärker överlappet i stället
+  // för att skapa det på egen hand.
+  // Den negativa marginalen ger överlappet en start så att släpet förstärker
+  // det i stället för att skapa det ensamt. Undantag för första bilden, som
+  // hämtar sin placering från flödets egen margin-top mot titeln.
+  &__item[data-scroll]:not(:first-child) {
+    margin-top: -14vh;
+    z-index: 61;
+  }
+
+  &__item.size-0 {
+    --w: 44%;
+  }
+  &__item.size-1 {
+    --w: 30%;
+  }
+  &__item.size-2 {
+    --w: 50%;
+  }
+  &__item.size-3 {
+    --w: 34%;
+  }
+  &__item.size-4 {
+    --w: 40%;
+  }
+
+  &__item.pos-0 {
+    --x: 0.55;
+  }
+  &__item.pos-1 {
+    --x: 0.1;
+  }
+  &__item.pos-2 {
+    --x: 0.85;
+  }
+  &__item.pos-3 {
+    --x: 0.3;
+  }
+  &__item.pos-4 {
+    --x: 0.68;
+  }
+  &__item.pos-5 {
+    --x: 0;
+  }
+  &__item.pos-6 {
+    --x: 1;
+  }
+}
+
+/**
+ * Bilderna i flödet är knappar för att öppna visaren. Knappen är helt
+ * avskalad så att den inte syns – den finns för klick- och tangentbordsstödet.
+ */
+.gallery-flow__trigger {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  transition: opacity 0.4s ease;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.82;
+  }
+
+  &:focus-visible {
+    outline: 2px solid map.get(abstracts.$theme-colors, 'pink');
+    outline-offset: 6px;
+  }
+}
+
+/**
+ * Bildvisaren. Ligger i body, inte i scroll-containern.
+ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.55s ease, visibility 0.55s;
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  &__stage {
+    position: relative;
+    margin: 0;
+    padding: 0 7vw;
+    max-width: 100%;
+    max-height: 86vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__img {
+    display: block;
+    max-width: 100%;
+    max-height: 86vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    // Den lilla uppskalningen är hela öppningsanimationen. Den ligger på
+    // bilden och inte på overlayen, så bakgrunden bara tonar in.
+    transform: scale(0.98);
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &.is-open &__img {
+    transform: scale(1);
+  }
+
+  &__close,
+  &__nav {
+    position: absolute;
+    z-index: 2;
+    padding: 12px;
+    border: 0;
+    background: none;
+    color: map.get(abstracts.$theme-colors, 'creme-white');
+    cursor: pointer;
+    font-size: 34px;
+    line-height: 1;
+    transition: color 0.3s ease;
+
+    &:hover,
+    &:focus-visible {
+      color: map.get(abstracts.$theme-colors, 'pink');
+    }
+
+    &:focus-visible {
+      outline: 2px solid map.get(abstracts.$theme-colors, 'pink');
+      outline-offset: 2px;
+    }
+  }
+
+  &__close {
+    top: 24px;
+    right: 32px;
+  }
+
+  &__nav {
+    top: 50%;
+    transform: translateY(-50%);
+
+    &--prev {
+      left: 24px;
+    }
+
+    &--next {
+      right: 24px;
+    }
+  }
+
+  &__counter {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-family: abstracts.$lekton-regular;
+    font-size: 15px;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+body.has-lightbox-open {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox,
+  .lightbox__img {
+    transition: none;
+  }
+}
+
+// Avslöjar hela mobilvyn. Rubriken inuti animeras separat av anime,
+// samma tidslinje som desktop använder.
+@keyframes gallery-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-container--mobile {
+    animation: none;
   }
 }

@@ -10,6 +10,7 @@ import rotatingText from './custom/rotatingText';
 import imageReveal from './custom/image-reveal';
 import heroStart from './custom/heroStart';
 import returnLink from './custom/return';
+import lightbox from './custom/lightbox';
 
 $(() => {
   // Först: den registrerar ScrollTrigger-proxyn mot Locomotive och sätter
@@ -26,4 +27,5 @@ $(() => {
   imageReveal();
   heroStart();
   returnLink();
+  lightbox();
 });
