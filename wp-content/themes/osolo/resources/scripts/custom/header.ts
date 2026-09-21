@@ -189,6 +189,13 @@ export default function () {
     '-=.7', // Adjusted from '-=.6' to '-=.7'
   );
 
+  // Sekvensen ovan är 3,29 s lång, vilket är trögt för en meny. timeScale
+  // skalar hela tidslinjen i stället för att varje duration och negativ
+  // offset ska räknas om – koreografin och överlappen bevaras exakt.
+  // Gäller även stängningen, eftersom .reverse() använder samma tidslinje.
+  tl.timeScale(2);
+
+
   $('.menu-open').on('click', function () {
     tl.play();
   });
