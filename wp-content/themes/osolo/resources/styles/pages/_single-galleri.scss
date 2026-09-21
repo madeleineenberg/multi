@@ -36,9 +36,20 @@
   }
 
   &--mobile {
+    // Utan egen block formatting context kollapsar gallery-list sin
+    // margin-top: 260px ut genom containern. Utrymmet hamnar då ovanför
+    // containern i stället för inuti den, och rubriken har ingenting att
+    // placera sig i.
+    display: flow-root;
+
     .gallery-title {
       position: absolute;
-      top: 25%;
+      // Fast avstånd, inte procent. Containern rymmer hela bildlistan och
+      // växer till närmare 10 000 px när bilderna laddat, så top: 25% sköt ner
+      // rubriken ett par tusen pixlar. Innan bilderna fått höjd låg den högst
+      // upp – det var den glimten som såg ut som ett fladder. Ytan finns
+      // reserverad av gallery-list margin-top: 260px.
+      top: 150px;
       left: 50%;
       transform: translate(-50%, -50%);
       font-size: 12vw;
@@ -47,10 +58,11 @@
       letter-spacing: 2px;
       font-family: abstracts.$oswald-bold;
       overflow: hidden;
-      // Samma som desktoptiteln. Utan den målas rubriken fullt synlig tills
-      // anime hinner sätta .split-child till 0 efter ~100 ms, och det är det
-      // som ger fladdret när man öppnar ett galleri på mobil.
-      opacity: 0;
+      // Rubriken står utanför anime-tidslinjen och tonar in själv. Kort
+      // och på en gång, i stället för att ligga tom i tre sekunder.
+      // Medvetet utan fill-mode: om animationen aldrig körs blir viloläget
+      // synligt i stället för osynligt.
+      animation: gallery-title-in 0.6s ease;
 
       .split-child {
         display: inline-block;
@@ -370,5 +382,20 @@ body.has-lightbox-open {
   .lightbox,
   .lightbox__img {
     transition: none;
+  }
+}
+
+@keyframes gallery-title-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-container--mobile .gallery-title {
+    animation: none;
   }
 }

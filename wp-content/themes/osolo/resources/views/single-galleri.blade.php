@@ -63,7 +63,13 @@
     </div>
 
     <div class="gallery-container--mobile">
-        <h1 id="gallery-title" class="gallery-title" data-id="{{ get_the_ID() }}">{!! get_the_title() !!}</h1>
+        {{--
+            gallery-title--static håller den här rubriken utanför SplitType och
+            anime-tidslinjen i animateText. Den animationen väntar en sekund och
+            tonar sedan in i två, vilket på mobil blir tre sekunders tom yta.
+        --}}
+        <h1 id="gallery-title-mobile" class="gallery-title gallery-title--static" data-id="{{ get_the_ID() }}">
+            {!! get_the_title() !!}</h1>
 
         <ul class="gallery-list">
             @foreach ($images as $image)
