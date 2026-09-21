@@ -62,7 +62,7 @@
       // och på en gång, i stället för att ligga tom i tre sekunder.
       // Medvetet utan fill-mode: om animationen aldrig körs blir viloläget
       // synligt i stället för osynligt.
-      animation: gallery-title-in 0.6s ease;
+      animation: gallery-title-in 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 
       .split-child {
         display: inline-block;
@@ -385,12 +385,18 @@ body.has-lightbox-open {
   }
 }
 
+// Rubriken centreras med translate(-50%, -50%). Keyframen måste därför
+// upprepa den centreringen, annars slår animationen ut placeringen medan
+// den spelar. Slutläget är identiskt med viloläget, så övergången tillbaka
+// när animationen är klar syns inte.
 @keyframes gallery-title-in {
   from {
     opacity: 0;
+    transform: translate(-50%, calc(-50% + 40px));
   }
   to {
     opacity: 1;
+    transform: translate(-50%, -50%);
   }
 }
 
