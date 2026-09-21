@@ -214,3 +214,42 @@ header.banner {
     }
   }
 }
+
+/**
+ * Menyknapparna var div:ar och är nu button, vilket är det som gör dem
+ * nåbara med tangentbord och upplästa som knappar. Webbläsarens egen
+ * knappstil måste då bort så att utseendet är oförändrat.
+ */
+.menu-open,
+.menu-close {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  background: none;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  line-height: 0;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid map.get(abstracts.$theme-colors, 'pink');
+    outline-offset: 6px;
+  }
+}
+
+// Knappen behåller sin plats i flexraden, men marginalen kom från .menu-open
+// ovan och nollställs av reseten – sätt tillbaka den.
+header.banner .menu-open {
+  margin-right: 30px;
+
+  @include bootstrap.media-breakpoint-down(md) {
+    margin-right: 15px;
+  }
+}
+
+// Sidan bakom menyn ska inte gå att scrolla medan den är öppen.
+body.has-menu-open {
+  overflow: hidden;
+}

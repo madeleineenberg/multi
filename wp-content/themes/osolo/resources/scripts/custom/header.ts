@@ -193,14 +193,75 @@ export default function () {
   // skalar hela tidslinjen i stället för att varje duration och negativ
   // offset ska räknas om – koreografin och överlappen bevaras exakt.
   // Gäller även stängningen, eftersom .reverse() använder samma tidslinje.
-  tl.timeScale(2);
+  tl.timeScale(1.7);
 
 
-  $('.menu-open').on('click', function () {
-    tl.play();
-  });
+  const openButton = document.querySelector<HTMLButtonElement>('.menu-open');
+  const closeButton = document.querySelector<HTMLButtonElement>('.menu-close');
+  const menu = document.querySelector<HTMLElement>('.menu-container');
 
-  $('.menu-close').on('click', function () {
-    tl.reverse();
-  });
+  if (openButton && closeButton && menu) {
+    let menuIsOpen = false;
+    let focusBeforeMenu: HTMLElement | null = null;
+
+    const openMenu = () => {
+      menuIsOpen = true;
+      focusBeforeMenu = document.activeElement as HTMLElement;
+      menu.removeAttribute('inert');
+      menu.setAttribute('aria-hidden', 'false');
+      openButton.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('has-menu-open');
+      (window as any).locomotiveScroll?.stop();
+      tl.play();
+      closeButton.focus();
+    };
+
+    const closeMenu = () => {
+      if (!menuIsOpen) {
+        return;
+      }
+      menuIsOpen = false;
+      menu.setAttribute('inert', '');
+      menu.setAttribute('aria-hidden', 'true');
+      openButton.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('has-menu-open');
+      (window as any).locomotiveScroll?.start();
+      tl.reverse();
+      focusBeforeMenu?.focus();
+    };
+
+    openButton.addEventListener('click', openMenu);
+    closeButton.addEventListener('click', closeMenu);
+
+    document.addEventListener('keydown', (event) => {
+      if (!menuIsOpen) {
+        return;
+      }
+
+      if (event.key === 'Escape') {
+        closeMenu();
+        return;
+      }
+
+      if (event.key !== 'Tab') {
+        return;
+      }
+
+      // Håll kvar fokus i menyn så länge den är öppen.
+      const focusable = [
+        closeButton,
+        ...Array.from(menu.querySelectorAll<HTMLElement>('a[href]')),
+      ];
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+  }
 }
