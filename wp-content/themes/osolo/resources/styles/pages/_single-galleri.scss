@@ -259,7 +259,7 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.35s ease, visibility 0.35s;
+  transition: opacity 0.55s ease, visibility 0.55s;
 
   &.is-open {
     opacity: 1;
@@ -296,7 +296,7 @@
     // Den lilla uppskalningen är hela öppningsanimationen. Den ligger på
     // bilden och inte på overlayen, så bakgrunden bara tonar in.
     transform: scale(0.98);
-    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   &.is-open &__img {
