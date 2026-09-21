@@ -40,7 +40,6 @@
     // bildernas autoAlpha först när skriptet kört, alltså efter första
     // målningen – utan det här hinner både bild och rubrik synas en kort
     // stund och sedan försvinna.
-    //
     // Fördröjningen här är bara ett skyddsnät: kör aldrig JS avslöjas vyn
     // ändå efter 2,5 s. Normalfallet är att gallery.ts sätter is-ready och
     // nollar fördröjningen, så avslöjandet sker när det faktiskt är säkert
