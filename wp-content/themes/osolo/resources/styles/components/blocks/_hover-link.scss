@@ -40,8 +40,6 @@
   }
 }
 
-// Scopad till navigationslänkarna. Den här regeln låg tidigare på bar `a`
-// och träffade därmed varje länk på hela sajten.
 .navigation-item a {
   font-family: abstracts.$oswald-bold;
   font-size: 8vw;
@@ -78,7 +76,6 @@
     content: attr(data-text);
     transition: all 1s cubic-bezier(0.84, 0, 0.08, 0.99);
     background: -webkit-linear-gradient(180deg, pink, #fc88a3);
-    // background: -webkit-linear-gradient(90deg, pink, #c7cbe3);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

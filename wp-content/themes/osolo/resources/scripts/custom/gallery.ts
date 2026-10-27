@@ -11,8 +11,6 @@ export default function () {
     nullTargetWarn: false,
   });
 
-  // Mobilens bildlista på single-galleri tonar in allteftersom den scrollas
-  // fram. Desktopvyn renderas numera i blade:n och behöver ingen JS alls.
   const images = gsap.utils.toArray('.img-responsive');
 
   images.forEach((image) => {
@@ -29,10 +27,7 @@ export default function () {
     });
   });
 
-  // Avslöja mobilvyn först nu. GSAP har satt bildernas autoAlpha ovan, så
-  // ingenting hinner synas och sedan försvinna. Den lilla fördröjningen ger
-  // en lugn paus i stället för att sidan hoppar fram i samma andetag som
-  // skriptet blir klart.
+  // Visas först när GSAP satt startlägena ovan, annars blinkar bilderna till.
   const mobileView = document.querySelector('.gallery-container--mobile');
 
   if (mobileView) {

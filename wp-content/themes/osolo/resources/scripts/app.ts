@@ -13,10 +13,7 @@ import returnLink from './custom/return';
 import lightbox from './custom/lightbox';
 
 $(() => {
-  // Först: den registrerar ScrollTrigger-proxyn mot Locomotive och sätter
-  // scroller som default. Triggers som skapas i gallery() och animateText()
-  // måste komma efter, annars binds de till window och utlöses aldrig i
-  // smooth-läge.
+  // Först, så att senare ScrollTriggers binds till Locomotive i stället för window.
   locomotiveScroll();
   hoverEffekt();
   gallery();

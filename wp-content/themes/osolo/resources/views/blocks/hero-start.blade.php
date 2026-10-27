@@ -21,8 +21,6 @@
         <div class="wrapper-img" data-scroll data-scroll-speed="2">
             <div class="box"></div>
             <div>
-                {{-- Dekorativ: hero-titeln bär betydelsen, så tomt alt i stället för
-                     inget alt alls. --}}
                 <img class="hero-image" src="{{ $hero_image }}" alt="" />
             </div>
         </div>
@@ -43,8 +41,6 @@
         </p>
     </div>
     <div class="hero-container projects">
-        {{-- <a href="#image-reveal" data-scroll-to class="projects">{{ $link }} <ion-icon
-                name="play-forward-circle-outline"></ion-icon></a> --}}
           @if (!empty($link))
           <div class="project-link-btn gallery-link">
               <a href="#image-reveal" data-scroll-to class="link anchor-link">

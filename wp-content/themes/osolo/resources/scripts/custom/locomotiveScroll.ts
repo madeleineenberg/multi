@@ -5,8 +5,6 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function () {
-  // Smooth scroll är sajtens största rörelsekälla. Av den stängs också
-  // data-scroll-speed-parallaxen, som bara fungerar i smooth-läge.
   const prefersReducedMotion = window.matchMedia(
     '(prefers-reduced-motion: reduce)',
   ).matches;
@@ -36,14 +34,9 @@ export default function () {
     },
   });
 
-  // Make locomotive scroll instance globally available
   (window as any).locomotiveScroll = scroll;
 
-  // ScrollTrigger läser window.scrollY. I smooth-läge flyttar Locomotive
-  // innehållet med transform och lämnar den på 0, så ScrollTrigger ser
-  // aldrig att något scrollas in och reveal-animationerna startar aldrig –
-  // det är därför galleriobjekten i mobillistan blev osynliga. Proxyn nedan
-  // låter ScrollTrigger läsa Locomotives position i stället.
+  // Locomotive scrollar med transform, så ScrollTrigger måste läsa dess position.
   scroll.on('scroll', ScrollTrigger.update);
 
   ScrollTrigger.scrollerProxy(scrollContainer, {
@@ -67,34 +60,15 @@ export default function () {
       : 'fixed',
   });
 
-  // Gäller alla triggers som skapas efter det här, därför körs
-  // locomotiveScroll() först i app.ts.
   ScrollTrigger.defaults({ scroller: scrollContainer });
   ScrollTrigger.addEventListener('refresh', () => scroll.update());
   ScrollTrigger.refresh();
 
-  //scroll to target on ninja form submit
   $(document).on('nfFormSubmitResponse', function () {
     scroll.scrollTo('#note-board');
   });
 
-  //update scroll when images are loaded
-
-  //   scroll.update();
-  // });
-
-  // document.addEventListener('DOMContentLoaded', function () {
-  //   function ScrollUpdateDelay() {
-  //     setTimeout(function () {
-  //       scroll.update();
-  //     }, 500);
-  //   }
-
-  //   ScrollUpdateDelay();
-  // });
-
-  //update locomotive scroll if height is changed
-
+  // Locomotive räknar inte om sin höjd när innehållet växer, t.ex. när bilder laddar.
   const containerId = document.querySelector('[data-scroll-container]');
   if (!containerId) {
     console.error('Container ID not found');

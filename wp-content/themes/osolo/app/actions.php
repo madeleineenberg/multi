@@ -10,33 +10,25 @@ add_action('init', function () {
 });
 
 
-// ************* Remove default Posts type since no blog *************
-
-// Remove side menu
+// The site has no blog, so the default Posts type is hidden from the admin.
 add_action('admin_menu', function () {
     remove_menu_page('edit.php');
 });
 
-
-// Remove +New post in top Admin Menu Bar
 add_action('admin_bar_menu', function ($wp_admin_bar) {
     $wp_admin_bar->remove_node('new-post');
 }, 999);
 
-
-// Remove Quick Draft Dashboard Widget
 add_action('wp_dashboard_setup', function () {
     remove_meta_box('dashboard_quick_press', 'dashboard', 'side');
 }, 999);
 
-// *********** End remove post type ****************
 
-
-// Set facebook og:image and twitter:image for sharing
+// Set og:image and twitter:image for sharing
 add_action('wp_head', function () {
     global $post;
     $img_src = '';
-    $default_image = ""; //default image src
+    $default_image = "";
     if (is_home() || is_archive() || is_404()) {
         return;
     }
@@ -48,15 +40,12 @@ add_action('wp_head', function () {
         $acfImage = get_field('hero_image', $post->ID)['url'] ?? null;
     }
 
-    //if post has ACF 'image_og'
     if (!empty($acfImage)) {
         $img_src = $acfImage;
     }
-    //if post does't has ACF 'image_og' but has thumbnail
     else if ($post && has_post_thumbnail($post->ID)) {
         $img_src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID))[0];
     }
-    //if post does't has thumbnail and also does't has ACF 'image_og' then set a default image
     else {
         $img_src = $default_image;
     }

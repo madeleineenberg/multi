@@ -68,8 +68,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 350px; /* Adjust as needed */
-  width: 350px; /* Adjust as needed */
+  height: 350px;
+  width: 350px;
   overflow: hidden;
   position: relative;
   transform: rotate(15deg);
@@ -104,8 +104,7 @@
 }
 
 .icon-link {
-  // Ikonen har egen font-size (14vw). Den här styr bara länkens egen box,
-  // som tidigare kom från den globala a-regeln i _hover-link.scss.
+  // Ikonen har egen font-size (14vw). Den här styr bara länkens egen box.
   font-size: 8vw;
   position: absolute;
   top: 57%;
@@ -209,7 +208,6 @@
 .nf-form-content input[type='submit'] {
   position: relative;
   z-index: 10;
-  // background-color: map.get(abstracts.$theme-colors, 'pink') !important;
   background: -webkit-linear-gradient(180deg, pink, #c7cbe3) !important;
   border: none;
   color: map.get(abstracts.$theme-colors, 'black') !important;
@@ -225,10 +223,6 @@
     0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11),
     0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11) !important;
   border-radius: 15px !important;
-
-  // padding-left: 25px;
-  // background: url('../images/arrow-forward-outline.svg') no-repeat right !important;
-  // background-size: 10px;
 
   &:hover {
     background-color: map.get(abstracts.$theme-colors, 'darkpink') !important;

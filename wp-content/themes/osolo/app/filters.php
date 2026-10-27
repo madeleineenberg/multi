@@ -20,8 +20,6 @@ add_filter('site_transient_update_plugins', function ($value) {
 });
 
 
-//allowed blocks
-
 add_filter('allowed_block_types_all', function ($allowed_block_types) {
     return [
         'core/paragraph',
@@ -83,7 +81,7 @@ add_filter('use_block_editor_for_post_type', function ($current_status, $post_ty
 
 
 
-//add button in wysiwyg format
+// Add the Formats dropdown to the WYSIWYG toolbar
 add_filter('mce_buttons_2', function ($buttons) {
     array_unshift($buttons, 'styleselect');
     return $buttons;

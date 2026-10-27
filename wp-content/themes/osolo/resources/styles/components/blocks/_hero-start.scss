@@ -10,7 +10,6 @@
   box-shadow: 0 2px 1px rgba(255, 159, 194, 0.09),
     0 4px 2px rgba(255, 159, 194, 0.09), 0 8px 4px rgba(255, 159, 194, 0.09),
     0 16px 8px rgba(255, 159, 194, 0.09), 0 32px 16px rgba(255, 159, 194, 0.09);
-  //   background-image: $texture;
   border-bottom-left-radius: 80px;
   border-bottom-right-radius: 80px;
 
@@ -92,15 +91,13 @@
   background-size: cover !important;
 }
 
-// Centrerar titeln utan transform. En transform på .title skulle skapa en
-// stacking context och isolera länkarna från bilderna bakom, vilket får
-// mix-blend-mode att sluta fungera.
+// Ingen transform här: den skulle skapa en stacking context och bryta mix-blend-mode.
 .c-start-hero .header {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 90vh;
-  padding-bottom: 6vh; // motsvarar den tidigare placeringen på top: 45%
+  padding-bottom: 6vh;
 }
 
 .title {
@@ -154,27 +151,7 @@
   bottom: 0;
   left: 50%;
   transform: translate(-50%, -50%);
-  // background-color: map.get(abstracts.$theme-colors, 'blackish');
   padding: 5px 10px 3px 10px;
-  // box-shadow: rgba(0, 0, 0, 0.11) 0px 1px 1px, rgba(0, 0, 0, 0.11) 0px 2px 2px, rgba(0, 0, 0, 0.11) 0px 4px 4px, rgba(0, 0, 0, 0.11) 0px 8px 8px, rgba(0, 0, 0, 0.11) 0px 16px 16px, rgba(0, 0, 0, 0.11) 0px 32px 32px;
-  // text-transform: uppercase;
-  // font-family: abstracts.$lekton-regular;
-  // font-size: 24px;
-  // color: map.get(abstracts.$theme-colors, 'blackish');
-
-  // ion-icon {
-  //   position: relative;
-  //   top: 3px;
-  //   transition: color 0.4s ease;
-  // }
-
-  // &:hover {
-  //   color: map.get(abstracts.$theme-colors, 'blackish');
-
-  //   ion-icon {
-  //     color: map.get(abstracts.$theme-colors, 'pink');
-  //   }
-  // }
 
   @include bootstrap.media-breakpoint-down(md) {
     display: none;
@@ -218,19 +195,9 @@
     50% {
     transform: rotate(-160deg);
     }
-
   }
 
-/**
- * JS ger de här elementen sina startlägen först när skriptet kör, alltså efter
- * första målningen. Håller vi dem inte dolda hinner titeln, sidobilderna och
- * galleri-länken synas och sedan ryckas bort. heroStart sätter is-ready så
- * snart tidslinjen är byggd, vilket är samma ögonblick som startlägena finns
- * på plats.
- *
- * GSAP skriver inline, och inline slår klassreglerna nedan, så det här stör
- * inte själva animationen – det täcker bara glappet innan den finns.
- */
+// Dolda tills heroStart satt sina startlägen, annars blinkar de till.
 .c-start-hero {
   .title,
   .images,

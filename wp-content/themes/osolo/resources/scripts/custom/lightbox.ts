@@ -1,7 +1,3 @@
-/**
- * Bildvisare för galleriflödet på desktop. Mobilvyn har en egen lista och
- * lämnas orörd.
- */
 export default function () {
   const lightbox = document.querySelector<HTMLElement>('.lightbox');
   const triggers = Array.from(
@@ -12,8 +8,7 @@ export default function () {
     return;
   }
 
-  // position: fixed fungerar inte inuti [data-scroll-container], eftersom
-  // locomotive förskjuter den med transform. Flytta ut overlayen till body.
+  // position: fixed fungerar inte i Locomotives transformerade container.
   document.body.appendChild(lightbox);
 
   const img = lightbox.querySelector<HTMLImageElement>('.lightbox__img');
@@ -106,7 +101,6 @@ export default function () {
     } else if (event.key === 'ArrowRight') {
       step(1);
     } else if (event.key === 'Tab') {
-      // Håll kvar fokus i dialogen så länge den är öppen.
       const focusable = Array.from(
         lightbox.querySelectorAll<HTMLElement>('button'),
       );

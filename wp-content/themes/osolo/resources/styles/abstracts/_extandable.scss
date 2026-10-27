@@ -116,7 +116,6 @@
     transform: translate(0.5em, -0.5em);
     box-shadow: -1em 1em 0.15em
       color.adjust(map.get(variables.$theme-colors, 'blackish'), $alpha: -0.9);
-    // box-shadow: -1em 1em 1em transparentize($blue-color,.9), -1em 1.9em 1.9em transparentize($slate-color,.9), 0em .38em .38em transparentize($slate-color,.9), 0em .76em .76em transparentize($slate-color,.9), 0em 1.52em 1.52em transparentize($slate-color,.9);
 
     &:before {
       height: calc(100% - 0.13em);

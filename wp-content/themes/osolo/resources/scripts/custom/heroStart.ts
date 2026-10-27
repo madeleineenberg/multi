@@ -1,16 +1,13 @@
 import gsap from 'gsap';
 
-/**
- * Introt spelas en gång per besök. Nyckeln bumpas när animationen
- * ändras, så att återkommande besökare får se den nya versionen.
- */
+// Introt spelas en gång per besök. Bumpa nyckeln när animationen ändras.
 const INTRO_SEEN_KEY = 'hero-intro-seen-v1';
 
 function introAlreadySeen(): boolean {
   try {
     return sessionStorage.getItem(INTRO_SEEN_KEY) === '1';
   } catch {
-    // Privat läge / blockerad storage: spela hellre introt än att krascha.
+    // Blockerad storage: spela hellre introt än att krascha.
     return false;
   }
 }
@@ -19,15 +16,11 @@ function markIntroSeen(): void {
   try {
     sessionStorage.setItem(INTRO_SEEN_KEY, '1');
   } catch {
-    // Ignoreras medvetet, se ovan.
+    // Blockerad storage: introt spelas igen nästa gång.
   }
 }
 
-/**
- * Delar upp texten i <span class="letter"> utan att slå ut befintlig markup.
- * Titeln kan innehålla länkar, så innerHTML får inte skrivas över – varje
- * textnod styckas för sig och länkarna lämnas orörda.
- */
+// Delar upp varje textnod för sig, så att länkar i titeln lämnas orörda.
 function splitIntoLetters(root: Element): void {
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
   const textNodes: Text[] = [];
@@ -108,11 +101,7 @@ export default function () {
       2.5,
     );
 
-  // Tidslinjen är byggd, vilket betyder att from-tweensen redan lagt sina
-  // startlägen på elementen. Först nu är det säkert att visa hero:n. CSS håller
-  // titeln, sidobilderna och galleri-länken dolda fram till hit – annars hinner
-  // de målas en kort stund och ryckas bort när skriptet kör.
-  // Måste ligga före grenen nedan, som returnerar tidigt.
+  // Startlägena är satta, så hero:n kan visas. Måste ligga före den tidiga returen.
   hero.classList.add('is-ready');
 
   const prefersReducedMotion = window.matchMedia(
@@ -120,8 +109,7 @@ export default function () {
   ).matches;
 
   if (introAlreadySeen() || prefersReducedMotion) {
-    // Hoppa till slutläget. Elementen ligger inte i sitt slutläge i CSS,
-    // så timelinen måste spolas fram – den får inte bara hoppas över.
+    // Spola fram i stället för att hoppa över: slutläget finns bara i tidslinjen.
     intro.progress(1);
     return;
   }

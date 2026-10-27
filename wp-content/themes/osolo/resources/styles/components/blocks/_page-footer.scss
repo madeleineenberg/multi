@@ -80,8 +80,6 @@
       display: inline-block;
       padding: 0 1rem;
       font-size: 18px;
-      // color: rgba(255, 255, 255, 0.4);
-      // color: #cbb0f6;
       color: map.get(abstracts.$theme-colors, 'blackish');
       text-transform: uppercase;
       letter-spacing: 2px;
@@ -165,7 +163,6 @@
 
         @include bootstrap.media-breakpoint-down(md) {
           .subtitle_line .word {
-            // margin-left: 0 !important;
             margin: 0 10px;
             font-size: 43px;
           }
@@ -244,12 +241,6 @@
   }
 }
 
-/**
- * Tickerns rörelse. Definitionerna låg tidigare i _single-galleri.scss, som
- * hade en egen ticker, och följde med när den filen skrevs om – kvar blev
- * animation-raderna nedan utan något att köra. De hör hemma här, hos sin
- * enda användare.
- */
 @keyframes marquee {
   0% {
     transform: translateX(0);

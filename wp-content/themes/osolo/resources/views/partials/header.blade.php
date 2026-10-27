@@ -13,8 +13,6 @@
     </button>
 </header>
 
-{{-- inert redan i markupen: utan den går menylänkarna att tabba till
-     medan menyn är stängd, även innan JS hunnit köra. --}}
 <div class="menu-container" id="main-menu" aria-hidden="true" inert>
     <button type="button" class="menu-close" aria-label="Close menu">
         <ion-icon name="close-outline" aria-hidden="true"></ion-icon>

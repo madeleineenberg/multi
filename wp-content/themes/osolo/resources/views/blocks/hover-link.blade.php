@@ -26,7 +26,6 @@
                         data-id="{{ $gallery->ID }}">{{ $gallery->post_title }}</span>
                 </a>
                 <img src="{{ get_the_post_thumbnail_url($gallery->ID) }}" alt="">
-                {{-- <p>{{ $gallery->post_title }}</p> --}}
             </li>
         @endforeach
     </ul>

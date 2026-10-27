@@ -3,11 +3,7 @@
 
 @section('content')
     <div class="gallery-container">
-        {{--
-            Sticky via locomotive, inte CSS: position: sticky fungerar inte
-            inuti [data-scroll-container] eftersom locomotive flyttar
-            containern med transform.
-        --}}
+        {{-- Sticky via Locomotive, eftersom position: sticky inte fungerar i dess container. --}}
         <nav class="gallery-nav" aria-label="Galleries" data-scroll data-scroll-sticky
             data-scroll-target=".gallery-container">
             <ul class="gallery-nav__list">
@@ -35,20 +31,11 @@
         <h1 id="gallery-title" class="gallery-title" data-id="{{ get_the_ID() }}">{!! get_the_title() !!}</h1>
 
         <div class="gallery-flow">
-            {{--
-                Storlek och sidled väljs ur två cykler av olika längd, 5 och 7.
-                Kombinationen upprepar sig först efter 35 bilder, så flödet ser
-                oregelbundet ut utan att hoppa runt mellan sidladdningar.
-                Varannan bild får data-scroll och släpar efter i scrollen, vilket
-                är det som får den att glida in över sin granne. Släpet börjar på
-                den första bilden, så att den glider upp mot titeln.
-            --}}
+            {{-- Cykler på 5 och 7 ger ett oregelbundet men stabilt mönster. --}}
             @foreach ($images as $i => $image)
                 @php
                     $id = $image['image']['ID'];
-                    // Mediabiblioteket saknar alt-text på bilderna. Riktig alt
-                    // vinner alltid; den här reserven ger åtminstone kontext i
-                    // stället för tystnad.
+                    // Reserv när bilden saknar alt-text i mediabiblioteket.
                     $alt = get_post_meta($id, '_wp_attachment_image_alt', true)
                         ?: sprintf('%s, photograph %d of %d', get_the_title(), $i + 1, count($images));
                 @endphp
@@ -86,11 +73,6 @@
         </ul>
     </div>
 
-    {{--
-        Bildvisaren. JS flyttar ut den till body vid start: position: fixed
-        biter inte inuti [data-scroll-container], som locomotive förskjuter
-        med transform.
-    --}}
     <div class="lightbox" role="dialog" aria-modal="true" aria-hidden="true"
         aria-label="{{ get_the_title() }}">
         <div class="lightbox__backdrop" data-lightbox-close></div>

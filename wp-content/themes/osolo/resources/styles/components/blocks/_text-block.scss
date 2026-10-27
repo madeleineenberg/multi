@@ -55,13 +55,6 @@
       }
     }
 
-    @include bootstrap.media-breakpoint-down(md) {
-      &.bg-text {
-        // background-color: #ff9fc234;
-        // padding: 20px;
-      }
-    }
-
     &.is-inview {
       opacity: 1;
       transform: translateY(0px);
@@ -113,7 +106,6 @@
     img {
       height: 120%;
       width: 100%;
-      // object-fit: cover;
       object-fit: contain;
       transform: scale(1);
     }

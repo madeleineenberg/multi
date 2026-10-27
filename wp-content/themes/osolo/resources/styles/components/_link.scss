@@ -22,9 +22,8 @@
   transform-style: preserve-3d;
   transform-origin: bottom;
   display: inline-block;
-  backface-visibility: hidden; // Add this line
+  backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  // transition-delay: calc(0.05s * var(--index));
 }
 
 .link > div:nth-child(2) span {
@@ -33,9 +32,8 @@
   transform-origin: top;
   display: inline-block;
   transform: translate3d(0, 100%, 0) rotateX(90deg);
-  backface-visibility: hidden; // Add this line
+  backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  // transition-delay: calc(0.05s * var(--index));
 }
 
 .link:hover > div:nth-child(1) span {
@@ -46,17 +44,14 @@
   transform: translate3d(0, 0%, 0) rotateX(0deg);
 }
 
-//span
-
 .link > span:nth-child(1) span {
   transition: 0.5s;
   will-change: transform;
   transform-style: preserve-3d;
   transform-origin: bottom;
   display: inline-block;
-  backface-visibility: hidden; // Add this line
+  backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  // transition-delay: calc(0.05s * var(--index));
 }
 
 .link > span:nth-child(2) span {
@@ -65,9 +60,8 @@
   transform-origin: top;
   display: inline-block;
   transform: translate3d(0, 100%, 0) rotateX(90deg);
-  backface-visibility: hidden; // Add this line
+  backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  // transition-delay: calc(0.05s * var(--index));
 }
 
 .link:hover > span:nth-child(1) span {
