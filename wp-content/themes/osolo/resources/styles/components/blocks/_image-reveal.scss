@@ -54,7 +54,6 @@
     place-items: center;
 
     ul {
-      //   width: 80%;
       list-style: none;
       width: 100%;
       padding: 0 2rem;
@@ -131,7 +130,6 @@
       left: 50%;
       pointer-events: none;
       transform: translate(-50%, -50%);
-      // overflow: hidden;
       opacity: 0;
       transform: scale(0.8);
       transition: all 0.5s ease-out;
@@ -162,10 +160,8 @@
   }
 }
 
-// Startsidan har svart bakgrund, så gallery-link måste ljusna där.
-// Desktopvarianten har klassen .project-link-btn, mobilvarianten har den inte
-// och stod därför kvar på svart mot svart. Ingen egen breakpoint behövs:
-// .c-image-reveal__mobile är display: none över md.
+// Startsidan har svart bakgrund, så gallery-link måste ljusna där. Bara
+// desktopvarianten har klassen .project-link-btn, därför listas mobilen separat.
 body.home {
   .project-link-btn.gallery-link,
   .c-image-reveal__mobile .gallery-link {
@@ -212,9 +208,8 @@ body.home {
       &-item {
         list-style: none;
         margin: 100px 0 200px 0;
-        // animateText ger de här autoAlpha: 0 och avslöjar dem med
-        // ScrollTrigger. Samma hold som desktopvarianten redan har på
-        // .c-image-reveal__item, annars målas de innan skriptet kör.
+        // animateText avslöjar dem med ScrollTrigger. Utan det här målas de
+        // innan skriptet kör.
         opacity: 0;
 
         &:nth-of-type(1) {
@@ -269,9 +264,7 @@ body.home {
   }
 }
 
-// Länkarnas font-family, färg, uppercase och letter-spacing kommer från
-// a-basen i base/_global.scss. Bara storleken är komponentens egen — den låg
-// tidigare i den oscopade a-regeln i _hover-link.scss.
+// Övrig typografi ärvs från a-basen i base/_global.scss.
 .c-image-reveal__link,
 .c-image-reveal__mobile-link {
   font-size: 8vw;

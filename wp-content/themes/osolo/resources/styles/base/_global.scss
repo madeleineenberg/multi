@@ -10,21 +10,6 @@ a {
   color: map.get(abstracts.$theme-colors, 'primary');
 }
 
-/**
- * Block editor color palette utilities
- * @see https://git.io/JeyD6
- */
-
-// @each $color-name, $color-value in abstracts.$theme-colors {
-//   .has-#{$color-name}-color {
-//     color: $color-value;
-//   }
-
-//   .has-#{$color-name}-background-color {
-//     background-color: $color-value;
-//   }
-// }
-
 body {
   background-color: map.get(abstracts.$theme-colors, 'creme-white');
   color: map.get(abstracts.$theme-colors, 'black');
@@ -44,13 +29,7 @@ body {
   }
 }
 
-// Sajtens bastypografi för länkar. Uppsättningen låg tidigare på en oscopad
-// a-regel i blockfilen _hover-link.scss, som vann över creme-white här nedan
-// och därmed gällde hela sajten. Menyn, galleriet och navigationen bygger
-// alla på den, så den är flyttad hit oförändrad — med ett undantag:
-// font-size: 8vw följde inte med. Den var det enda som faktiskt ställde till
-// det, eftersom varje länk utan egen storlek blev gigantisk. Storleken sätts
-// nu bara i de komponenter som vill ha den.
+// Bastypografi för länkar. Storleken sätts i de komponenter som behöver den.
 a {
   font-family: abstracts.$oswald-bold;
   color: rgba(255, 255, 255, 0.2);
@@ -123,15 +102,7 @@ body.error404 {
   }
 }
 
-/**
- * Sajtens ramverk animeras in av tidslinjen i header.ts med gsap .from().
- * Startläget skrivs först när skriptet kör, alltså efter första målningen,
- * så utan det här hinner logotyp, menyknapp och sidfot synas och ryckas bort.
- * header.ts sätter is-ready på body så snart tidslinjen är byggd.
- *
- * GSAP skriver inline och inline slår den här regeln, så hållet stör inte
- * själva animationen – det täcker bara glappet innan den finns.
- */
+// Dolda tills header.ts satt sina startlägen, annars blinkar de till.
 body:not(.is-ready) {
   .logo,
   .menu-open,
@@ -142,11 +113,6 @@ body:not(.is-ready) {
   }
 }
 
-/**
- * Text som bara skärmläsare ska nå. Klipper elementet i stället för att
- * gömma det – display: none och visibility: hidden tas bort ur
- * tillgänglighetsträdet och skulle göra innehållet oläsbart.
- */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -159,11 +125,6 @@ body:not(.is-ready) {
   border: 0;
 }
 
-/**
- * Hoppa till innehållet. Osynlig tills den får fokus, då lägger den sig
- * överst. Utan den måste den som tabbar ta sig igenom logotyp, menyknapp
- * och hela overlayen innan sidans innehåll börjar.
- */
 .skip-link {
   position: absolute;
   top: -100px;
@@ -183,12 +144,7 @@ body:not(.is-ready) {
   }
 }
 
-/**
- * Synlig fokusmarkering överallt. Temat satte den bara på ett fåtal
- * element, vilket gör tangentbordsnavigering till en gissningslek.
- */
-// Elementselektorer, inte en naken :focus-visible. purgecss behåller inte
-// en regel utan något matchbart i markupen och strippade den varianten.
+// Elementselektorer, eftersom purgecss tar bort en naken :focus-visible.
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,

@@ -36,33 +36,21 @@
   }
 
   &--mobile {
-    // Håll hela vyn osynlig tills JS satt sina startlägen. GSAP nollar
-    // bildernas autoAlpha först när skriptet kört, alltså efter första
-    // målningen – utan det här hinner både bild och rubrik synas en kort
-    // stund och sedan försvinna.
-    // Fördröjningen här är bara ett skyddsnät: kör aldrig JS avslöjas vyn
-    // ändå efter 2,5 s. Normalfallet är att gallery.ts sätter is-ready och
-    // nollar fördröjningen, så avslöjandet sker när det faktiskt är säkert
-    // i stället för att kapplöpa mot DOM ready.
+    // Dold tills gallery.ts sätter is-ready. Fördröjningen är en reserv om JS inte kör.
     animation: gallery-enter 0.7s ease 2.5s backwards;
 
     &.is-ready {
       animation-delay: 0s;
     }
 
-    // Utan egen block formatting context kollapsar gallery-list sin
-    // margin-top: 260px ut genom containern. Utrymmet hamnar då ovanför
-    // containern i stället för inuti den, och rubriken har ingenting att
-    // placera sig i.
+    // Egen block formatting context, annars kollapsar gallery-lists
+    // margin-top ut genom containern och rubriken saknar yta.
     display: flow-root;
 
     .gallery-title {
       position: absolute;
-      // Fast avstånd, inte procent. Containern rymmer hela bildlistan och
-      // växer till närmare 10 000 px när bilderna laddat, så top: 25% sköt ner
-      // rubriken ett par tusen pixlar. Innan bilderna fått höjd låg den högst
-      // upp – det var den glimten som såg ut som ett fladder. Ytan finns
-      // reserverad av gallery-list margin-top: 260px.
+      // Fast avstånd, inte procent: containern växer med hela bildlistan.
+      // Ytan reserveras av gallery-lists margin-top: 260px.
       top: 150px;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -97,9 +85,6 @@
   }
 }
 
-/**
- * Sidospalt med de senaste gallerierna.
- */
 .gallery-nav {
   position: absolute;
   top: 180px;
@@ -135,10 +120,8 @@
     }
   }
 
-  // Arkivlänken använder samma markup som i image-reveal-blocket. Typografin
-  // ligger där scopad under .block-heading, så den måste upprepas här. Färgen
-  // är creme-white i stället för svart eftersom galleriets bakgrund är mörk,
-  // samma val som body.home gör för den blocket.
+  // Samma markup som arkivlänken i image-reveal-blocket, men där är
+  // typografin scopad under .block-heading och måste upprepas här.
   .gallery-link {
     display: flex;
     align-items: baseline;
@@ -164,18 +147,11 @@
   }
 }
 
-/**
- * Bildflödet. Bredden och sidledsplaceringen kommer från två cykler i blade:n,
- * size-0..4 och pos-0..6. Offseten räknas som en andel av den fria ytan, alltså
- * (100% - bildens bredd), så en bred bild aldrig kan skjutas ut över kanten.
- */
+// Offseten är en andel av den fria ytan, så en bred bild aldrig hamnar utanför.
 .gallery-flow {
   position: relative;
   z-index: 60;
   margin-left: 300px;
-  // Första bilden ska nypa i underkanten av titeln, inte ligga mitt över den.
-  // Titelns mitt sitter på 45vh och containern har 180px toppadding, så det
-  // här lägger bildens överkant en bit in i textens nedre del.
   margin-top: calc(40vh - 150px);
 
   &__item {
@@ -196,12 +172,6 @@
       0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11);
   }
 
-  // Varannan bild släpar i scrollen. Den negativa marginalen låter den börja
-  // en bit upp i grannens yta, så att släpet förstärker överlappet i stället
-  // för att skapa det på egen hand.
-  // Den negativa marginalen ger överlappet en start så att släpet förstärker
-  // det i stället för att skapa det ensamt. Undantag för första bilden, som
-  // hämtar sin placering från flödets egen margin-top mot titeln.
   &__item[data-scroll]:not(:first-child) {
     margin-top: -14vh;
     z-index: 61;
@@ -246,10 +216,6 @@
   }
 }
 
-/**
- * Bilderna i flödet är knappar för att öppna visaren. Knappen är helt
- * avskalad så att den inte syns – den finns för klick- och tangentbordsstödet.
- */
 .gallery-flow__trigger {
   display: block;
   width: 100%;
@@ -270,9 +236,6 @@
   }
 }
 
-/**
- * Bildvisaren. Ligger i body, inte i scroll-containern.
- */
 .lightbox {
   position: fixed;
   inset: 0;

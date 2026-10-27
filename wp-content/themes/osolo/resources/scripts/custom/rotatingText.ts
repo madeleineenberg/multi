@@ -3,8 +3,7 @@ export default function () {
 
   linkItems.forEach((item) => {
     const source = item.children[0].children[0] as HTMLElement;
-    // textContent, inte innerText: innerText speglar text-transform och hade
-    // gett etiketten i versaler.
+    // textContent, eftersom innerText ger texten i versaler via text-transform.
     const label = (source.textContent || '').trim();
     const word = source.innerText.split('');
 
@@ -16,7 +15,6 @@ export default function () {
       } else if (letter === '\n') {
         displayLetter = '<br>';
       }
-      // --index used for css delay animation
       (
         item.children[0] as HTMLElement
       ).innerHTML += `<span style="--index: ${idx};">${displayLetter}</span>`;
@@ -27,9 +25,7 @@ export default function () {
     cloneDiv.style.top = '0';
     item.appendChild(cloneDiv);
 
-    // Texten är nu ett spann per bokstav, vilket en del skärmläsare
-    // bokstaverar. Göm den uppdelade texten och låt länken bära ordet som
-    // etikett i stället. En etikett som redan satts i markupen vinner.
+    // Skärmläsare bokstaverar annars de uppdelade spannen.
     if (label && !item.hasAttribute('aria-label')) {
       item.setAttribute('aria-label', label);
     }

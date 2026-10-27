@@ -18,9 +18,7 @@
             <div class="icon-box">
                 @foreach ($links as $link)
                     @php
-                        // Länkarna innehåller bara en ikon, så de saknar
-                        // tillgängligt namn. ACF-titeln är tom här, därför
-                        // härleds namnet ur adressen.
+                        // Ikonlänkarna saknar text, så namnet härleds ur adressen.
                         $url = $link['link']['url'] ?? '';
                         $host = str_replace('www.', '', (string) parse_url($url, PHP_URL_HOST));
                         $tjanster = [

@@ -14,18 +14,8 @@ export default function () {
     lineClass: 'split-child',
   });
 
-  // gsap.from(titleSplit.lines, {
-  //   duration: 1.5,
-  //   yPercent: 100,
-  //   ease: 'power4.out',
-  //   stagger: 0.1,
-  // });
-
   setTimeout(() => {
-    // Alla h1 på sidan, inte bara den första. anime animerar 'h1 .split-child'
-    // globalt, så en sida med två rubriker – single-galleri har en för desktop
-    // och en för mobil – fick sin andra rubrik nollad av animationen utan att
-    // någonsin bli avslöjad här.
+    // Alla h1, eftersom single-galleri har en rubrik för desktop och en för mobil.
     const headings = Array.from(
       document.querySelectorAll<HTMLElement>('h1'),
     );
@@ -35,7 +25,6 @@ export default function () {
         heading.style.opacity = '1';
       });
 
-      // Start the animation
       anime.timeline().add({
         targets: 'h1 .split-child',
         translateY: [100, 0],
@@ -46,7 +35,7 @@ export default function () {
         delay: (el, i) => 1000 + 40 * i,
       });
     }
-  }, 100); // Adjust the delay as needed
+  }, 100);
 
   const links = gsap.utils.toArray(
     '.navigation-item, .c-image-reveal__mobile__list-item',

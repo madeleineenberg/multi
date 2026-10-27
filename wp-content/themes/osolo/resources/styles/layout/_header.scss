@@ -11,8 +11,6 @@ header.banner {
   justify-content: space-between;
   height: 85px;
   width: 100%;
-  // backdrop-filter: blur(7px);
-  // -webkit-backdrop-filter: blur(7px);
 
   .logo {
     font-size: 25px;
@@ -57,13 +55,11 @@ header.banner {
         right: -50px;
         width: 120px;
         height: 120px;
-        // background: -webkit-linear-gradient(90deg, pink, #c7cbe3);
         background: map.get(abstracts.$theme-colors, 'black');
         background-image: abstracts.$texture;
         border-radius: 50%;
         transform: scale(1);
         transition: all 0.4s ease-in;
-        // filter: blur(2px);
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11),
           0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11),
           0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11);
@@ -72,12 +68,6 @@ header.banner {
       ion-icon {
         color: map.get(abstracts.$theme-colors, 'pink');
       }
-
-      // svg {
-      //   line {
-      //     stroke: map.get(abstracts.$theme-colors, 'creme-white') !important;
-      //   }
-      // }
 
       &:hover::after {
         transform: scale(1.2);
@@ -92,7 +82,6 @@ header.banner {
   left: 0;
   width: 100%;
   height: 100vh;
-  // background: -webkit-linear-gradient(180deg, #fc88a3, pink);
   background: -webkit-linear-gradient(90deg, pink, #c7cbe3);
   z-index: 100;
   transform: translateX(500%);
@@ -145,10 +134,8 @@ header.banner {
       width: 100%;
       height: 100px;
       font-size: 30px;
-      // font-size: 25px;
       overflow: hidden;
       cursor: pointer;
-      // color: rgba(255, 255, 255, 0.4);
       color: map.get(abstracts.$theme-colors, 'creme-white');
       transition: all 0.4s ease-in;
 
@@ -171,9 +158,6 @@ header.banner {
         font-family: abstracts.$lekton-regular;
         font-size: 24px;
 
-        // &:hover {
-        //   letter-spacing: 7px;
-        // }
         @include bootstrap.media-breakpoint-up(lg) {
           width: 25%;
         }
@@ -215,11 +199,6 @@ header.banner {
   }
 }
 
-/**
- * Menyknapparna var div:ar och är nu button, vilket är det som gör dem
- * nåbara med tangentbord och upplästa som knappar. Webbläsarens egen
- * knappstil måste då bort så att utseendet är oförändrat.
- */
 .menu-open,
 .menu-close {
   appearance: none;
@@ -239,8 +218,7 @@ header.banner {
   }
 }
 
-// Knappen behåller sin plats i flexraden, men marginalen kom från .menu-open
-// ovan och nollställs av reseten – sätt tillbaka den.
+// Återställer marginalen som reseten ovan nollar.
 header.banner .menu-open {
   margin-right: 30px;
 

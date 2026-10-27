@@ -21,14 +21,9 @@ module.exports = {
     /variations/,
     /input-text/,
     /block-acf-video-with-placeholder/,
-    // Byggs som pos-{{ $i % 7 }} och size-{{ $i % 5 }} i single-galleri.blade.php.
-    // Klassnamnen finns aldrig som literaler i källkoden, så purgecss hittar
-    // dem inte av sig själv och plockade tidigare bort hela bildplaceringen
-    // i produktionsbygget.
+    // Dynamiska klasser från single-galleri.blade.php och JS.
     /^pos-\d+$/,
     /^size-\d+$/,
-    // Sätts från JS av gallery.ts, heroStart.ts och header.ts, aldrig som
-    // literal i en blade-fil.
     /is-ready/,
   ],
   deep: [

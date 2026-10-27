@@ -24,6 +24,6 @@ export default function () {
     currentIndex = (currentIndex + 1) % icons.length;
   }
 
-  showNextIcon(); // Show the first icon initially
-  setInterval(showNextIcon, 3000); // Change icon every 3 seconds
+  showNextIcon();
+  setInterval(showNextIcon, 3000);
 }

@@ -13,12 +13,10 @@ const mix = require('laravel-mix');
 const purgecssWordpress = require('purgecss-with-wordpress');
 const purgeConfig = require('./purgecss.config');
 const DependencyExtractionWebpackPlugin = require('@wordpress/dependency-extraction-webpack-plugin');
-// const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
 
 let publicPath = path.join(process.cwd(), 'dist/');
 publicPath = '/' + publicPath.slice(publicPath.indexOf('web/') + 4);
 
-// require('dotenv').config({ path: '../../../../.env' });
 require('dotenv').config({ path: '../../../.env' });
 require('laravel-mix-purgecss');
 require('laravel-mix-copy-watched');
@@ -51,14 +49,12 @@ mix
 
 mix
   .ts('resources/scripts/app.ts', 'scripts')
-  .ts('resources/scripts/customizer.ts', 'scripts')
   .ts('resources/scripts/editor.ts', 'scripts')
   .extract()
   .alias(aliases)
   .webpackConfig({
     plugins: [
       new DependencyExtractionWebpackPlugin(),
-      // new ErrorOverlayPlugin(),
     ],
     output: {
       publicPath,
