@@ -243,3 +243,29 @@
     transform: rotate(-90deg);
   }
 }
+
+/**
+ * Tickerns rörelse. Definitionerna låg tidigare i _single-galleri.scss, som
+ * hade en egen ticker, och följde med när den filen skrevs om – kvar blev
+ * animation-raderna nedan utan något att köra. De hör hemma här, hos sin
+ * enda användare.
+ */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes swap {
+  0%,
+  50% {
+    left: 0%;
+  }
+  50.01%,
+  100% {
+    left: 100%;
+  }
+}

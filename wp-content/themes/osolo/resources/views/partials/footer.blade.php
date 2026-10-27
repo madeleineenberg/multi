@@ -3,7 +3,7 @@
 
         <div class="footer__email">
 
-            <a class="footer-links link" href="mailto:info@madeleineenberg.com">
+            <a class="footer-links link" aria-label="Email Madeleine Enberg" href="mailto:info@madeleineenberg.com">
                 <div>
                     <span class="link-text">email</span>
                 </div>
@@ -13,17 +13,17 @@
 
         <div class="footer__social">
 
-                 <a class="footer-links link" href="https://www.instagram.com/madeleineenberg/" target="_blank" rel="nofollow">
+                 <a class="footer-links link" aria-label="Instagram (opens in a new tab)" href="https://www.instagram.com/madeleineenberg/" target="_blank" rel="nofollow noopener">
                     <div>
                         <span class="link-text">instagram</span>
                     </div>
                 </a>
-                 <a class="footer-links link" href="https://github.com/madeleineenberg" target="_blank" rel="nofollow">
+                 <a class="footer-links link" aria-label="GitHub (opens in a new tab)" href="https://github.com/madeleineenberg" target="_blank" rel="nofollow noopener">
                     <div>
                         <span class="link-text">github</span>
                     </div>
                 </a>
-                 <a class="footer-links link" href="https://www.linkedin.com/in/madeleine-enberg/" target="_blank" rel="nofollow">
+                 <a class="footer-links link" aria-label="Linkedin (opens in a new tab)" href="https://www.linkedin.com/in/madeleine-enberg/" target="_blank" rel="nofollow noopener">
                     <div>
                         <span class="link-text">linkedin</span>
                     </div>

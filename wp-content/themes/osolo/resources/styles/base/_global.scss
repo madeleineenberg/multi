@@ -141,3 +141,61 @@ body:not(.is-ready) {
     opacity: 0;
   }
 }
+
+/**
+ * Text som bara skärmläsare ska nå. Klipper elementet i stället för att
+ * gömma det – display: none och visibility: hidden tas bort ur
+ * tillgänglighetsträdet och skulle göra innehållet oläsbart.
+ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/**
+ * Hoppa till innehållet. Osynlig tills den får fokus, då lägger den sig
+ * överst. Utan den måste den som tabbar ta sig igenom logotyp, menyknapp
+ * och hela overlayen innan sidans innehåll börjar.
+ */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 400;
+  padding: 12px 20px;
+  background: map.get(abstracts.$theme-colors, 'blackish');
+  color: map.get(abstracts.$theme-colors, 'creme-white');
+  font-family: abstracts.$lekton-regular;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: top 0.2s ease;
+
+  &:focus {
+    top: 16px;
+  }
+}
+
+/**
+ * Synlig fokusmarkering överallt. Temat satte den bara på ett fåtal
+ * element, vilket gör tangentbordsnavigering till en gissningslek.
+ */
+// Elementselektorer, inte en naken :focus-visible. purgecss behåller inte
+// en regel utan något matchbart i markupen och strippade den varianten.
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid map.get(abstracts.$theme-colors, 'pink');
+  outline-offset: 4px;
+}

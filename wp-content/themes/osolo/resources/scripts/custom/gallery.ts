@@ -3,6 +3,10 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function () {
+  const reducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)',
+  ).matches;
+
   gsap.config({
     nullTargetWarn: false,
   });
@@ -15,7 +19,7 @@ export default function () {
     const anim = gsap.fromTo(
       image as gsap.TweenTarget,
       { autoAlpha: 0, y: 100 },
-      { duration: 4, autoAlpha: 1, y: 0 },
+      { duration: reducedMotion ? 0 : 4, autoAlpha: 1, y: 0 },
     );
     ScrollTrigger.create({
       trigger: image as gsap.DOMTarget,
